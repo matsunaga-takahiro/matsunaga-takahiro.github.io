@@ -1,25 +1,25 @@
+/* 全体のスタイル */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #f9f9f9; /* ライトグレー */
+    color: #333; /* 濃いグレー */
 }
 
+/* ナビゲーションバー */
 header {
-    background-color: #333;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
+    background-color: #333; /* 濃いグレー */
+    padding: 0.5rem 0;
 }
 
 header nav ul {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* 横並びで中央寄せ */
 }
 
 header nav ul li {
@@ -27,35 +27,53 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: white;
+    color: #f9f9f9; /* ライトグレー */
     text-decoration: none;
     font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
 }
 
 header nav ul li a:hover {
-    text-decoration: underline;
+    background-color: #575757; /* ホバー時の背景色（濃いグレーの少し明るい色） */
+    border-radius: 5px;
 }
 
+/* メインセクション */
 main {
     max-width: 800px;
     margin: 2rem auto;
     padding: 1rem;
-    background: white;
+    background: #fff; /* 白背景 */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 main h1 {
     text-align: center;
-    color: #4CAF50;
+    color: #333; /* 濃いグレー */
 }
 
-section {
-    margin-bottom: 2rem;
+main p {
+    text-align: center;
+    margin: 0.5rem 0;
 }
 
+main a {
+    color: #333; /* 濃いグレー */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
+
+/* フッター */
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: #333;
-    color: white;
+    background-color: #333; /* 濃いグレー */
+    color: #f9f9f9; /* ライトグレー */
+    margin-top: 2rem;
 }
