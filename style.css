@@ -1,6 +1,6 @@
 /* 全体のスタイル */
 body {
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -72,7 +72,7 @@ main a:hover {
 
 /* フッター */
 footer {
-    text-align: center;
+    text-align: left;
     padding: 1rem;
     background-color: #f9f9f9;  /* フッターの背景色 */
     color: #191970; /* テキストカラー */
