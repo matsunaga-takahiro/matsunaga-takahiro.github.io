@@ -72,6 +72,13 @@ main a:hover {
     text-decoration: underline;
 }
 
+.profile-photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
 /* フッター */
 footer {
     text-align: left;
