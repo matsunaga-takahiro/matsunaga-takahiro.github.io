@@ -27,7 +27,7 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #191970; /* テキストカラー */
+    color: #030363; /* テキストカラー */
     text-decoration: none;
     font-weight: normal;
     padding: 0.5rem 1rem;
@@ -35,7 +35,7 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    background-color: #575757; /* ホバー時の背景色（濃いグレーの少し明るい色） */
+    background-color: #c0c0c0; /* ホバー時の背景色（濃いグレーの少し明るい色） */
     border-radius: 5px;
 }
 
@@ -52,7 +52,7 @@ main {
 main h1 {
     /* Takahiro Matsunagaの部分 */
     text-align: left;
-    color: #191970; /* 濃いグレー */
+    color: #030363;
 }
 
 main p {
@@ -61,7 +61,7 @@ main p {
 }
 
 main a {
-    color: #191970; /* 濃いグレー */
+    color: #030363; 
     text-decoration: none;
     font-weight: normal;
 }
@@ -75,6 +75,6 @@ footer {
     text-align: left;
     padding: 1rem;
     background-color: #f9f9f9;  /* フッターの背景色 */
-    color: #191970; /* テキストカラー */
+    color: #030363; /* テキストカラー */
     margin-top: 2rem;
 }
