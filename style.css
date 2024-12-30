@@ -73,7 +73,7 @@ main a:hover {
 }
 
 .profile-photo {
-    max-width: 100%;
+    max-width: 50%; /* 親要素に対する最大表示幅の割合 */
     height: auto;
     border-radius: 8px;
     margin-top: 1rem;
