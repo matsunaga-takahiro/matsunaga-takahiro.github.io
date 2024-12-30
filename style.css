@@ -19,7 +19,7 @@ header nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* 横並びで中央寄せ */
+    justify-content: left; /* 横並びで中央寄せ */
 }
 
 header nav ul li {
@@ -73,7 +73,7 @@ main a:hover {
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: #000080; /* 濃いグレー */
+    background-color: #000080; 
     color: #f9f9f9; /* ライトグレー */
     margin-top: 2rem;
 }
