@@ -3,20 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Publications</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Publications</h1>
+        <nav> 
+            <!-- navはページ間移動のリンクをまとめるコンテナタグ・リンクリストが含まれる-->
+            <ul>
+                <!-- unordered list 順序なしリスト liがlist item -->
+                <li><a href="index.html">Home</a></li>
+                <!-- <a> </a>はハイパーリンクを作成，hrefはhyperlink内の参照リンクrefを指定 -->
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <!-- 
+                <li><a href="#awards">Awards/Grants</a></li>
+                <li><a href="#software">Software</a></li> 
+                <li><a href="#link">Link</a></li> 
+                -->
+            </ul>
+        </nav>
     </header>
     <main>
-        <section>
-            <h2>Journal Articles</h2>
+        <section id="international journals">
+            <h1>Journal Articles</h1>
             <p>test</p>
         </section>
-        <section>
-            <h2>Conference Papers</h2>
+        <section id = "conference papers">
+            <h1>Conference Papers</h1>
             <p>test</p>
         </section>
     </main>
