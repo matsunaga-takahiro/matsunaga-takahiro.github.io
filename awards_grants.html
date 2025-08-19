@@ -31,29 +31,52 @@
     </header>
   <bibtex src="ref.bib"></bibtex>
 
-  <!-- 汎用テンプレート：各エントリの表示レイアウトを定義 -->
   <div class="bibtex_template" style="display:none">
-    <li class="bibitem">
-      <span class="author"></span>.
-      <span class="title"></span>.
-      <span class="if journal"> <span class="venue journal"></span>,</span>
-      <span class="if booktitle"> <span class="venue booktitle"></span>,</span>
-      <span class="if volume"> <span class="volume"></span></span>
-      <span class="if number">(<span class="number"></span>)</span>
-      <span class="if pages">: <span class="pages"></span></span>
-      <span class="if year">, <span class="year"></span></span>
-      <span class="if address">, <span class="address"></span></span>
-      <span class="if month">, <span class="month"></span></span>
-      <span class="if note">. <span class="note"></span></span>
+    <li class="bibitem" style="margin-bottom:.4rem;">
+      <!-- 著者 or 受賞者 -->
+      <span class="if author"><span class="author"></span>. </span>
+
+      <!-- タイトル -->
+      <span class="if title"><strong><span class="title"></span></strong>. </span>
+
+      <!-- 掲載/開催/所属など：優先的に venue っぽいものを一つ表示 -->
+      <span class="if journal"><em><span class="journal"></span></em>. </span>
+      <span class="if booktitle"><em><span class="booktitle"></span></em>. </span>
+      <span class="if event"><em><span class="event"></span></em>. </span>
+      <span class="if organization"><em><span class="organization"></span></em>. </span>
+
+      <!-- 年 -->
+      <span class="if year"><span class="year"></span>. </span>
+
+      <!-- 金額（grants向け・任意） -->
+      <span class="if amount">Amount: <span class="amount"></span>. </span>
+
+      <!-- ページ/巻号（月など）※文献用 -->
+      <span class="if volume">Vol. <span class="volume"></span>. </span>
+      <span class="if number">No. <span class="number"></span>. </span>
+      <span class="if pages">pp. <span class="pages"></span>. </span>
+      <span class="if month"><span class="month"></span>. </span>
+
+      <!-- 備考（受賞理由、課題番号など） -->
+      <span class="if note"><span class="note"></span>.</span>
     </li>
   </div>
 
     <main>
         <section id="Awards">
-            <h1>Awards</h1>
-            <ol class="biblist bibtex_display" data-search="keywords~=awards" data-sort="year,desc"></ol>
+        <h1>Awards</h1>
+        <!-- ref.bib 側で keywords={awards} を付けたエントリを抽出 -->
+        <ol class="biblist bibtex_display" data-search="keywords~=awards" data-sort="year,desc"></ol>
         </section>
-        
+
+        <!-- ★ 研究費 / 予算 -->
+        <section id="Grants" style="margin-top:2rem;">
+        <h1>Grants</h1>
+        <!-- ref.bib 側で keywords={grants} を付けたエントリを抽出 -->
+        <ol class="biblist bibtex_display" data-search="keywords~=grants" data-sort="year,desc"></ol>
+        </section>
     </main>
+
+
 </body>
 </html>
