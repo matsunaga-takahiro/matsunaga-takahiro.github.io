@@ -64,18 +64,16 @@
   </div>
 
     <main>
-        <section id="Awards">
-        <h1>Awards</h1>
-        <!-- ref.bib 側で keywords={awards} を付けたエントリを抽出 -->
-        <ol class="biblist bibtex_display" data-search="keywords~=awards" data-sort="year,desc"></ol>
-        </section>
 
-        <!-- ★ 研究費 / 予算 -->
-        <section id="Grants" style="margin-top:2rem;">
-        <h1>Grants</h1>
-        <!-- ref.bib 側で keywords={grants} を付けたエントリを抽出 -->
-        <ol class="biblist bibtex_display" data-search="keywords~=grants" data-sort="year,desc"></ol>
-        </section>
+    <!-- Awards -->
+    <ol class="biblist bibtex_display"
+        data-search="(type=award) or (keyword=awards)"
+        data-sort="year,desc"></ol>
+
+    <!-- Grants（作る場合） -->
+    <ol class="biblist bibtex_display"
+        data-search="(type=grant) or (keyword=grants)"
+        data-sort="year,desc"></ol>
     </main>
 </body>
 </html>

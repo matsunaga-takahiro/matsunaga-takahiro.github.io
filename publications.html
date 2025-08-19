@@ -51,15 +51,21 @@
     <main>
         <section id="International Journals">
             <h1>Journal Articles</h1>
-            <ol class="biblist bibtex_display" data-search="keywords~=journal-paper" data-sort="year,desc"></ol>
+            <ol class="biblist bibtex_display"
+                data-search="type=article"
+                data-sort="year,desc"></ol>
         </section>
         <section id="Conference Papers (International Conferences)">
             <h1>Conference Papers (International)</h1>
-            <ol class="biblist bibtex_display" data-search="keywords~=conference-international" data-sort="year,desc"></ol>
+            <ol class="biblist bibtex_display"
+                data-search="(type=inproceedings) and (keyword=conference-international)"
+                data-sort="year,desc"></ol>
         </section>
         <section id="Conference Papers (Domestic Conferences)">
             <h1>Conference Papers (Domestic)</h1>
-            <ol class="biblist bibtex_display" data-search="keywords~=conference-domestic" data-sort="year,desc"></ol>
+        <ol class="biblist bibtex_display"
+            data-search="(type=inproceedings) and (keyword=conference-domestic)"
+            data-sort="year,desc"></ol>
         </section>
     </main>
 </body>
