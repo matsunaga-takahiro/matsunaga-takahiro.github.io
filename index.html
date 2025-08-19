@@ -11,34 +11,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- bodyの中が実際の骨格 -->
     <header>
-        <nav style="position:relative;"> 
-            <!-- navはページ間移動のリンクをまとめるコンテナタグ・リンクリストが含まれる-->
-            <ul>
-                <!-- unordered list 順序なしリスト liがlist item -->
+        <!-- <nav style="position:relative;"> 
+            <ul> -->
+        <nav style="display:flex; justify-content:space-between; align-items:center;">
+            <ul style="display:flex; gap:1rem; margin:0; padding:0; list-style:none;">
                 <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-                <!-- <a> </a>はハイパーリンクを作成，hrefはhyperlink内の参照リンクrefを指定 -->
                 <li><a href="research.html" data-i18n="nav.research">Research</a></li>
                 <li><a href="publications.html" data-i18n="nav.publications">Publications</a></li>
+                <li><a href="awards_grants.html" data-i18n="nav.awards">Awards/Grants</a></li>
                 <li><a href="activities.html" data-i18n="nav.activities">Activities</a></li>
-
-                <!-- 
-                <li><a href="#awards" data-i18n="nav.awards">Awards/Grants</a></li>
-                <li><a href="#software" data-i18n="nav.software">Software</a></li> 
-                <li><a href="#link" data-i18n="nav.link">Link</a></li> 
-                -->
             </ul>
 
-            <!-- ヘッダー右上の国旗トグル（見た目に干渉しないよう絶対配置） -->
-            <!-- <div class="lang-switch" aria-label="Language switcher"
-                 style="position:absolute; right:12px; top:12px; display:flex; gap:.25rem; align-items:center; font-weight:700;">
-                <button type="button" data-lang="en" aria-label="Switch to English"
-                        style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇬🇧 En</button>
-                <span>/</span>
-                <button type="button" data-lang="ja" aria-label="日本語に切り替え"
-                        style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇯🇵 Jp</button>
-            </div> -->
             <div class="lang-switch" aria-label="Language switcher"
                 style="display:flex; gap:.5rem; font-weight:700;">
             <button type="button" data-lang="en"
