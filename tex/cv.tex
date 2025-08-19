@@ -1,0 +1,102 @@
+\documentclass[uplatex,a4paper,10pt]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{geometry}
+\geometry{margin=20mm}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=black}
+
+% セクション見出し（太字・大きめ）
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+% 行間と項目の詰め
+\setlist[itemize]{leftmargin=*, itemsep=2pt, topsep=2pt}
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+
+% 左：太字タイトル 右：日付  下：本文 というCV行
+\newcommand{\cvitem}[3]{%
+  \begin{tabular*}{\textwidth}{@{}p{0.72\textwidth}@{\extracolsep{\fill}}p{0.25\textwidth}@{}}
+    \textbf{#1} & \raggedleft #2 \\
+  \end{tabular*}\\[-2pt]
+  #3\par\vspace{4pt}
+}
+
+% ヘッダー（氏名＋連絡先）
+\newcommand{\cvheader}[3]{%
+  {\LARGE \textbf{#1}}\\[4pt]
+  #2\\
+  #3
+}
+
+\begin{document}
+
+% ==== ヘッダー ====
+\cvheader{Takahiro Matsunaga}
+{7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan}
+{(+81) xx-xxxx-xxxx \ \ $\diamond$ \ \ \href{mailto:matsunaga@bin.t.u-tokyo.ac.jp}{matsunaga@bin.t.u-tokyo.ac.jp} \ \ $\diamond$ \ \ \href{https://scholar.google.com/citations?user=fGWoyocAAAAJ}{Google Scholar}}
+
+\vspace{8pt}
+
+% ==== EXPERIENCE ====
+\section*{EXPERIENCE}
+\cvitem{Research Assistant, The University of Tokyo}{2025.04--Present}
+{Behavior in Networks (BinN) Studies Unit. Advisor: Prof. Eiji Hato}
+
+\cvitem{Visiting Research Student, XYZ Institute}{2024.04--2025.03}
+{Multi-agent/sequence modeling for transportation networks.}
+
+% ==== EDUCATION ====
+\section*{EDUCATION}
+\cvitem{The University of Tokyo}{2025--}
+{M.S./Ph.D. in Civil Engineering (Transportation). Thesis: \emph{[Title]}}
+
+\cvitem{[Your Previous Univ.]}{2019--2023}
+{B.S. in [Major].}
+
+% ==== PUBLICATIONS（査読誌） ====
+\section*{PUBLICATIONS (Peer-Reviewed Journals)}
+\begin{itemize}
+  \item Matsunaga, T., Hato, E. (2024).
+  BLE観測の不確実性を考慮した屋内3次元経路選択モデルの推定.
+  \emph{都市計画論文集}, 59(3): 1683--1690.
+\end{itemize}
+
+% ==== CONFERENCES ====
+\section*{PRESENTATIONS (International Conferences)}
+\begin{itemize}
+  \item Matsunaga, T., Hato, E. (2025).
+  Interaction of 3D pedestrian flow in a congested railway station: Structural estimation based on Mean Field Game theory.
+  The 12th PED, Prague, Czech Republic (accepted).
+\end{itemize}
+
+\section*{PRESENTATIONS (Domestic Conferences)}
+\begin{itemize}
+  \item 松永 隆宏, 羽藤 英二 (2025).
+  複雑なday-to-day活動動態学習に基づく首都圏アクティビティ生成モデル.
+  交通工学研究発表会（口頭発表予定）.
+\end{itemize}
+
+% ==== SERVICE ====
+\section*{SERVICE}
+\begin{itemize}
+  \item Reviewer: IEEE ITSC, TRB, etc.
+\end{itemize}
+
+% ==== HONORS & AWARDS ====
+\section*{HONORS \& AWARDS}
+\begin{itemize}
+  \item Best Graduation Thesis, Dept. of Civil Engineering, The University of Tokyo (2023).
+  \item Outstanding Master Thesis, Dept. of Civil Engineering, The University of Tokyo (2025).
+\end{itemize}
+
+% ==== LEADERSHIP ====
+\section*{LEADERSHIP}
+\begin{itemize}
+  \item [Activity / Role], Organization (Year).
+\end{itemize}
+
+\end{document}

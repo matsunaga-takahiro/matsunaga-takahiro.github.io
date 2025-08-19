@@ -1,0 +1,9 @@
+# uplatex + upbibtex + dvipdfmx
+$latex = 'uplatex -interaction=nonstopmode -halt-on-error %O %S';
+$bibtex = 'upbibtex %O %B';
+$dvipdf = 'dvipdfmx %O -o %D %S';
+$makeindex = 'mendex -U %O -o %D %S';
+$pdf_mode = 3;
+
+# 生成物（中間ファイル）は tex/ に留める
+$clean_ext = 'aux bbl blg dvi log out toc lof lot fls fdb_latexmk idx ilg ind synctex.gz';
