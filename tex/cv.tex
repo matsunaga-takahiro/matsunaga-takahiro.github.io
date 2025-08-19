@@ -1,102 +1,199 @@
-\documentclass[uplatex,a4paper,10pt]{jsarticle}
+%=== cv.tex （uplatex + dvipdfmx + biblatex[backend=bibtex] 最小例） ===
+\documentclass[uplatex,a4paper,10pt,dvipdfmx]{jsarticle}
+
+% 和文 & dvipdfmx 環境の基本
 \usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx,bookmarks=true]{hyperref}
 \usepackage{geometry}
 \geometry{margin=20mm}
-\usepackage{titlesec}
-\usepackage{array}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\hypersetup{colorlinks=true,linkcolor=black,urlcolor=black}
 
-% セクション見出し（太字・大きめ）
-\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
-\titlespacing{\section}{0pt}{8pt}{4pt}
+% ---- ここがポイント：biblatex を backend=bibtex で ----
+\usepackage[
+  backend=bibtex,      % ← upbibtex を使う
+  style=numeric,       % お好みで numeric / authoryear など
+  sorting=ydnt,        % 年→名前→タイトル
+  maxbibnames=99
+]{biblatex}
 
-% 行間と項目の詰め
-\setlist[itemize]{leftmargin=*, itemsep=2pt, topsep=2pt}
-\setlength{\parskip}{2pt}
-\setlength{\parindent}{0pt}
+% 参照する .bib（相対パスは環境に合わせて）
+\addbibresource{../ref.bib}
 
-% 左：太字タイトル 右：日付  下：本文 というCV行
-\newcommand{\cvitem}[3]{%
-  \begin{tabular*}{\textwidth}{@{}p{0.72\textwidth}@{\extracolsep{\fill}}p{0.25\textwidth}@{}}
-    \textbf{#1} & \raggedleft #2 \\
-  \end{tabular*}\\[-2pt]
-  #3\par\vspace{4pt}
-}
-
-% ヘッダー（氏名＋連絡先）
-\newcommand{\cvheader}[3]{%
-  {\LARGE \textbf{#1}}\\[4pt]
-  #2\\
-  #3
-}
+% ---- フィルタ定義（例）----
+% .bib 側に keywords を付けて振り分けます
+% 例：keywords = {conf,dom} / {conf,intl} / （journalは@articleで判定）
+\defbibfilter{conf-dom}{\keyword{conf} \and \keyword{dom}}
+\defbibfilter{conf-intl}{\keyword{conf} \and \keyword{intl}}
+\defbibfilter{journal}{\type{article}}
 
 \begin{document}
 
-% ==== ヘッダー ====
-\cvheader{Takahiro Matsunaga}
-{7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan}
-{(+81) xx-xxxx-xxxx \ \ $\diamond$ \ \ \href{mailto:matsunaga@bin.t.u-tokyo.ac.jp}{matsunaga@bin.t.u-tokyo.ac.jp} \ \ $\diamond$ \ \ \href{https://scholar.google.com/citations?user=fGWoyocAAAAJ}{Google Scholar}}
+\begin{center}
+  {\LARGE Takahiro Matsunaga}\\[2mm] % 履歴書 / Curriculum Vitae
+  % \textbf{Curriculum Vitae}\\
+  \small Email: {matsunaga@bin.t.u-tokyo.ac.jp} \\ Website: \url{https://matsunaga-takahiro.github.io/index.html}
+\end{center}
 
-\vspace{8pt}
-
-% ==== EXPERIENCE ====
-\section*{EXPERIENCE}
-\cvitem{Research Assistant, The University of Tokyo}{2025.04--Present}
-{Behavior in Networks (BinN) Studies Unit. Advisor: Prof. Eiji Hato}
-
-\cvitem{Visiting Research Student, XYZ Institute}{2024.04--2025.03}
-{Multi-agent/sequence modeling for transportation networks.}
-
-% ==== EDUCATION ====
-\section*{EDUCATION}
-\cvitem{The University of Tokyo}{2025--}
-{M.S./Ph.D. in Civil Engineering (Transportation). Thesis: \emph{[Title]}}
-
-\cvitem{[Your Previous Univ.]}{2019--2023}
-{B.S. in [Major].}
-
-% ==== PUBLICATIONS（査読誌） ====
-\section*{PUBLICATIONS (Peer-Reviewed Journals)}
+\section*{Education}
+\subsubsection*{The University of Tokyo, Department of Civil Engineering}
 \begin{itemize}
-  \item Matsunaga, T., Hato, E. (2024).
-  BLE観測の不確実性を考慮した屋内3次元経路選択モデルの推定.
-  \emph{都市計画論文集}, 59(3): 1683--1690.
+  \item since 2025.10 : Ph.D. \\
+        Supervisor: Eiji Hato, Professor, Behavior in Networks (BinN) Studies Unit
+  \item 2024.04 - 2025.09 : M.S. in Civil Engineering (Outstanding Paper Award)
+  \item 2020.04 - 2024.03 : B.S. in Civil Engineering (Best Paper Award)
+
 \end{itemize}
 
-% ==== CONFERENCES ====
-\section*{PRESENTATIONS (International Conferences)}
+
+\section*{Publications}
+
+% すべてのエントリを対象（citeしなくても出す）
+\nocite{*}
+
+\subsection*{Journal Articles}
+\printbibliography[filter=journal,heading=none]
+
+\subsection*{International Conferences}
+\printbibliography[filter=conf-intl,heading=none]
+
+\subsection*{Domestic Conferences}
+
+\section*{Awards}
 \begin{itemize}
-  \item Matsunaga, T., Hato, E. (2025).
-  Interaction of 3D pedestrian flow in a congested railway station: Structural estimation based on Mean Field Game theory.
-  The 12th PED, Prague, Czech Republic (accepted).
+  \item Outstanding Master Thesis Award,  Department of Civil Engineering, the University of Tokyo
+  \item Best Graduation Thesis Award, Department of Civil Engineering, the University of Tokyo
 \end{itemize}
 
-\section*{PRESENTATIONS (Domestic Conferences)}
-\begin{itemize}
-  \item 松永 隆宏, 羽藤 英二 (2025).
-  複雑なday-to-day活動動態学習に基づく首都圏アクティビティ生成モデル.
-  交通工学研究発表会（口頭発表予定）.
-\end{itemize}
-
-% ==== SERVICE ====
-\section*{SERVICE}
-\begin{itemize}
-  \item Reviewer: IEEE ITSC, TRB, etc.
-\end{itemize}
-
-% ==== HONORS & AWARDS ====
-\section*{HONORS \& AWARDS}
-\begin{itemize}
-  \item Best Graduation Thesis, Dept. of Civil Engineering, The University of Tokyo (2023).
-  \item Outstanding Master Thesis, Dept. of Civil Engineering, The University of Tokyo (2025).
-\end{itemize}
-
-% ==== LEADERSHIP ====
-\section*{LEADERSHIP}
-\begin{itemize}
-  \item [Activity / Role], Organization (Year).
-\end{itemize}
+\printbibliography[filter=conf-dom,heading=none]
 
 \end{document}
+% \documentclass[uplatex,a4paper,10pt]{jsarticle}
+% \usepackage[dvipdfmx]{graphicx}
+% \usepackage{geometry}
+% \geometry{margin=20mm}
+% \usepackage{titlesec}
+% \usepackage{array}
+% \usepackage{enumitem}
+% \usepackage{hyperref}
+% \hypersetup{colorlinks=true,linkcolor=black,urlcolor=black}
+
+% % ========== biblatex 設定 ==========
+% \usepackage[
+%   backend=biber,     % biber を使用
+%   bibencoding=utf8,
+%   sorting=ydnt,      % year-desc, name, title
+%   maxbibnames=99,
+%   giveninits=true,
+%   defernumbers=true, % セクションごとに番号を持たせない
+%   isbn=false, doi=false, url=false, eprint=false
+% ]{biblatex}
+
+% % サイト共通の ref.bib を参照（main.tex からの相対パス）
+% \addbibresource{../ref.bib}
+
+% % ---- カスタム型とフィールド（award / grant）を定義 ----
+% \DeclareDatamodelEntrytypes{award,grant}
+% \DeclareDatamodelFields[type=field,datatype=literal]{event,amount}
+% \DeclareDatamodelEntryfields[award]{event,organization}
+% \DeclareDatamodelEntryfields[grant]{organization,amount}
+
+% % ---- 表示ドライバ（出力体裁）----
+% \DeclareNameAlias{default}{family-given}
+
+% \DeclareBibliographyDriver{award}{%
+%   \printnames{author}%
+%   \newunit
+%   \printfield{title}%
+%   \newunit
+%   \printlist{organization}%
+%   \newunit
+%   \printfield{event}%
+%   \newunit
+%   \printfield{year}%
+%   \newunit
+%   \printfield{note}%
+%   \finentry
+% }
+
+% \DeclareBibliographyDriver{grant}{%
+%   \printnames{author}%
+%   \newunit
+%   \printfield{title}%
+%   \newunit
+%   \printlist{organization}%
+%   \newunit
+%   \printfield{year}%
+%   \newunit
+%   \printfield{amount}%
+%   \newunit
+%   \printfield{note}%
+%   \finentry
+% }
+
+% % ---- フィルタ（keywords / type で振り分け）----
+% \defbibfilter{journals}{ type=article }
+% \defbibfilter{conf-intl}{ keyword={conference-international} }
+% \defbibfilter{conf-dom }{ keyword={conference-domestic} }
+% \defbibfilter{awards   }{ type=award or keyword={awards} }
+% \defbibfilter{grants   }{ type=grant or keyword={grants} }
+
+% % ========== CV レイアウトの軽い整形 ==========
+% \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+% \titlespacing{\section}{0pt}{8pt}{4pt}
+% \setlist[itemize]{leftmargin=*, itemsep=2pt, topsep=2pt}
+% \setlength{\parskip}{2pt}
+% \setlength{\parindent}{0pt}
+
+% \newcommand{\cvitem}[3]{%
+%   \begin{tabular*}{\textwidth}{@{}p{0.72\textwidth}@{\extracolsep{\fill}}p{0.25\textwidth}@{}}
+%     \textbf{#1} & \raggedleft #2 \\
+%   \end{tabular*}\\[-2pt]
+%   #3\par\vspace{4pt}
+% }
+
+% \newcommand{\cvheader}[3]{%
+%   {\LARGE \textbf{#1}}\\[4pt]
+%   #2\\
+%   #3
+% }
+
+% \begin{document}
+
+% % ==== ヘッダー ====
+% \cvheader{Takahiro Matsunaga}
+% {Department of Civil Engineering, the University of Tokyo}
+% {7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan} \\
+% % {(+81) xx-xxxx-xxxx \ \ $\diamond$ \ \ \href{mailto:matsunaga@bin.t.u-tokyo.ac.jp}{matsunaga@bin.t.u-tokyo.ac.jp} \ \ $\diamond$ \ \ \href{https://scholar.google.com/citations?user=fGWoyocAAAAJ}{Google Scholar}}
+% {\href{mailto:matsunaga@bin.t.u-tokyo.ac.jp}{matsunaga@bin.t.u-tokyo.ac.jp}}
+% \vspace{8pt}
+
+% % ==== EXPERIENCE（手書きセクションは自由記述）====
+% \section*{EXPERIENCE}
+% % \cvitem{Research Assistant, The University of Tokyo}{2025.04--Present}
+% % {Behavior in Networks (BinN) Studies Unit. Advisor: Prof. Eiji Hato.}
+
+% % ==== EDUCATION ====
+% \section*{EDUCATION}
+% \cvitem{The University of Tokyo}{2020--}
+% {Ph.D. in Civil Engineering.}{since 2025.10}
+% {M.S. in Civil Engineering (Outstanding Paper Award).}{2024.04 - 2025.09}
+% {B.S. in Civil Engineering (Best Paper Award).}{2020.04 - 2024.03}
+
+% % ==== PUBLICATIONS ====
+% \section*{PUBLICATIONS (Peer-Reviewed Journals)}
+% \printbibliography[filter=journal_papers, heading=none]
+
+% \section*{CONFERENCE PAPERS (International)}
+% \printbibliography[filter=conf-intl, heading=none]
+
+% \section*{CONFERENCE PAPERS (Domestic)}
+% \printbibliography[filter=conf-dom, heading=none]
+
+% % ==== HONORS & AWARDS ====
+% \section*{HONORS \& AWARDS}
+% \printbibliography[filter=awards, heading=none]
+
+% % ==== GRANTS ====
+% \section*{GRANTS}
+% \printbibliography[filter=grants, heading=none]
+
+% \end{document}

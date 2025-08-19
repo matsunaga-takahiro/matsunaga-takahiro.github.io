@@ -1,0 +1,234 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{ydnt/global//global/global/global}
+  \entry{matsunaga_award2025}{misc}{}{}
+    \name{author}{1}{}{%
+      {{hash=MT}{%
+         family={Matsunaga},
+         familyi={M\bibinitperiod},
+         given={Takahiro},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {The Department of Civil Engineering, The University of Tokyo}%
+    }
+    \keyw{awards}
+    \strng{namehash}{MT1}
+    \strng{fullhash}{MT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{title}{Outstanding Master Thesis}
+    \field{year}{2025}
+  \endentry
+
+  \entry{matsunaga_hato_2025_ped_presentation}{inproceedings}{}{}
+    \name{author}{2}{}{%
+      {{hash=MT}{%
+         family={Matsunaga},
+         familyi={M\bibinitperiod},
+         given={Takahiro},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=HE}{%
+         family={Hato},
+         familyi={H\bibinitperiod},
+         given={Eiji},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \keyw{conference-international}
+    \strng{namehash}{MTHE1}
+    \strng{fullhash}{MTHE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{booktitle}{The 12th International Conference on Pedestrian and
+  Evacuation Dynamics (PED 2025)}
+    \field{note}{Peer-reviewed, accepted, oral presentation (予定)}
+    \field{title}{Interaction of 3D pedestrian flow in a congested railway
+  station: Structural estimation based on Mean Field Game theory}
+    \list{location}{1}{%
+      {Prague, Czech Republic}%
+    }
+    \field{year}{2025}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{matsunaga_hato_2025_jste_presentation}{inproceedings}{}{}
+    \name{author}{2}{}{%
+      {{hash=隆松}{%
+         family={隆宏},
+         familyi={隆\bibinitperiod},
+         given={松永},
+         giveni={松\bibinitperiod},
+      }}%
+      {{hash=英羽}{%
+         family={英二},
+         familyi={英\bibinitperiod},
+         given={羽藤},
+         giveni={羽\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {ja}%
+    }
+    \keyw{conference-domestic}
+    \strng{namehash}{隆松英羽1}
+    \strng{fullhash}{隆松英羽1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{booktitle}{交通工学研究発表会}
+    \field{note}{査読なし，口頭発表予定}
+    \field{title}{複雑な day-to-day
+  活動動態学習に基づく首都圏アクティビティ生成モデル}
+    \field{year}{2025}
+  \endentry
+
+  \entry{matsunaga_hato_2024_hksts_presentation}{inproceedings}{}{}
+    \name{author}{2}{}{%
+      {{hash=MT}{%
+         family={Matsunaga},
+         familyi={M\bibinitperiod},
+         given={Takahiro},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=HE}{%
+         family={Hato},
+         familyi={H\bibinitperiod},
+         given={Eiji},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \keyw{conference-international}
+    \strng{namehash}{MTHE1}
+    \strng{fullhash}{MTHE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{booktitle}{The 28th International Conference of Hong Kong Society
+  for Transportation Studies (HKSTS 2024)}
+    \field{note}{Peer-reviewed, oral presentation}
+    \field{title}{Joint Estimation of Latent OD Matrix and 3D Route Choice
+  Model Across Railway Station Boundaries based on Manifold Learning}
+    \list{location}{1}{%
+      {Hong Kong}%
+    }
+    \field{year}{2024}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{matsunaga_hato_2024_itsc_presentation}{inproceedings}{}{}
+    \name{author}{2}{}{%
+      {{hash=MT}{%
+         family={Matsunaga},
+         familyi={M\bibinitperiod},
+         given={Takahiro},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=HE}{%
+         family={Hato},
+         familyi={H\bibinitperiod},
+         given={Eiji},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \keyw{conference-international}
+    \strng{namehash}{MTHE1}
+    \strng{fullhash}{MTHE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{booktitle}{IEEE International Conference on Intelligent
+  Transportation Systems (ITSC)}
+    \field{note}{Peer-reviewed, oral presentation}
+    \field{title}{Three-Dimensional Pedestrian Route Choice Model with
+  Quantization of Observational Uncertainty}
+    \list{location}{1}{%
+      {Edmonton, Canada}%
+    }
+    \field{year}{2024}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{matsunaga_hato_2024_jscp_article}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=隆松}{%
+         family={隆宏},
+         familyi={隆\bibinitperiod},
+         given={松永},
+         giveni={松\bibinitperiod},
+      }}%
+      {{hash=英羽}{%
+         family={英二},
+         familyi={英\bibinitperiod},
+         given={羽藤},
+         giveni={羽\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {ja}%
+    }
+    \keyw{conference-domestic}
+    \strng{namehash}{隆松英羽1}
+    \strng{fullhash}{隆松英羽1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{note}{査読あり}
+    \field{number}{3}
+    \field{pages}{1683\bibrangedash 1690}
+  \field{title}{BLE観測の不確実性を考慮した屋内3次元経路選択モデルの推定}
+    \field{volume}{59}
+    \field{journaltitle}{都市計画論文集}
+    \field{year}{2024}
+  \endentry
+
+  \entry{matsunaga_award2023}{misc}{}{}
+    \name{author}{1}{}{%
+      {{hash=MT}{%
+         family={Matsunaga},
+         familyi={M\bibinitperiod},
+         given={Takahiro},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {The Department of Civil Engineering, The University of Tokyo}%
+    }
+    \keyw{awards}
+    \strng{namehash}{MT1}
+    \strng{fullhash}{MT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{title}{Best Graduation Thesis}
+    \field{year}{2023}
+  \endentry
+\enddatalist
+\endinput
