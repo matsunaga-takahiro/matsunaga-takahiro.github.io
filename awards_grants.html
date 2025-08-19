@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+    <nav style="display:flex; justify-content:space-between; align-items:center;">
+        <ul style="display:flex; gap:1rem; margin:0; padding:0; list-style:none;">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="research.html" data-i18n="nav.research">Research</a></li>
+        <li><a href="publications.html" data-i18n="nav.publications">Publications</a></li>
+        <li><a href="activities.html" data-i18n="nav.activities">Activities</a></li>
+        </ul>
+
+        <!-- 言語切替は右端へ -->
+        <div class="lang-switch" aria-label="Language switcher"
+            style="display:flex; gap:.5rem; font-weight:700;">
+        <button type="button" data-lang="en"
+                style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇬🇧 En</button>
+        <span>/</span>
+        <button type="button" data-lang="ja"
+                style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇯🇵 Jp</button>
+        </div>
+    </nav>
+    </header>
+  <bibtex src="ref.bib"></bibtex>
+
+  <!-- 汎用テンプレート：各エントリの表示レイアウトを定義 -->
+  <div class="bibtex_template" style="display:none">
+    <li class="bibitem">
+      <span class="author"></span>.
+      <span class="title"></span>.
+      <span class="if journal"> <span class="venue journal"></span>,</span>
+      <span class="if booktitle"> <span class="venue booktitle"></span>,</span>
+      <span class="if volume"> <span class="volume"></span></span>
+      <span class="if number">(<span class="number"></span>)</span>
+      <span class="if pages">: <span class="pages"></span></span>
+      <span class="if year">, <span class="year"></span></span>
+      <span class="if address">, <span class="address"></span></span>
+      <span class="if month">, <span class="month"></span></span>
+      <span class="if note">. <span class="note"></span></span>
+    </li>
+  </div>
+
+    <main>
+        <section id="Awards">
+            <h1>Awards</h1>
+            <ol class="biblist bibtex_display" data-search="keywords~=awards" data-sort="year,desc"></ol>
+        </section>
+        
+    </main>
+</body>
+</html>
