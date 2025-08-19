@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.28)  20 AUG 2025 00:54
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.28)  20 AUG 2025 01:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -553,48 +553,60 @@ LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 9.24683pt on input line 37.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 52.
+(Font)              scaled to size 11.09619pt on input line 62.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 52.
+(Font)              scaled to size 11.09619pt on input line 62.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 52.
+(Font)              scaled to size 11.09619pt on input line 62.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 52.
+(Font)              scaled to size 11.09619pt on input line 62.
 
-Package biblatex Warning: Split bibliography detected.
-(biblatex)                Many simple split bibliography setups with
-(biblatex)                non-overlapping bibliographies benefit from
-(biblatex)                setting 'defernumbers=true'.
-(biblatex)                See the documentation for details.
-(biblatex)                This warning can be suppressed with
-(biblatex)                '\BiblatexSplitbibDefernumbersWarningOff'.
+Package biblatex Warning: Type 'article' not found on input line 63.
 
 
-LaTeX Warning: Empty bibliography on input line 53.
+LaTeX Warning: Empty bibliography on input line 63.
 
 
-Package biblatex Warning: Split bibliography detected.
-(biblatex)                Many simple split bibliography setups with
-(biblatex)                non-overlapping bibliographies benefit from
-(biblatex)                setting 'defernumbers=true'.
-(biblatex)                See the documentation for details.
-(biblatex)                This warning can be suppressed with
-(biblatex)                '\BiblatexSplitbibDefernumbersWarningOff'.
+Package biblatex Warning: Type 'inproceedings' not found on input line 66.
 
 
-LaTeX Warning: Empty bibliography on input line 56.
-
-
-Package biblatex Warning: Split bibliography detected.
-(biblatex)                Many simple split bibliography setups with
-(biblatex)                non-overlapping bibliographies benefit from
-(biblatex)                setting 'defernumbers=true'.
-(biblatex)                See the documentation for details.
-(biblatex)                This warning can be suppressed with
-(biblatex)                '\BiblatexSplitbibDefernumbersWarningOff'.
+Package biblatex Warning: Keyword 'conference-international' not found on input line 66.
 
 
 LaTeX Warning: Empty bibliography on input line 66.
+
+
+Package biblatex Warning: Type 'inproceedings' not found on input line 69.
+
+
+Package biblatex Warning: Keyword 'conference-domestic' not found on input line 69.
+
+
+LaTeX Warning: Empty bibliography on input line 69.
+
+
+Package biblatex Warning: Type 'award' not found on input line 72.
+
+
+LaTeX Warning: Empty bibliography on input line 72.
+
+
+Package biblatex Warning: Type 'grant' not found on input line 77.
+
+
+LaTeX Warning: Empty bibliography on input line 77.
+
+
+Package biblatex Warning: Split bibliography detected.
+(biblatex)                Many simple split bibliography setups with
+(biblatex)                non-overlapping bibliographies benefit from
+(biblatex)                setting 'defernumbers=true'.
+(biblatex)                See the documentation for details.
+(biblatex)                This warning can be suppressed with
+(biblatex)                '\BiblatexSplitbibDefernumbersWarningOff'.
+
+
+LaTeX Warning: Empty bibliography on input line 86.
 
 
 
@@ -623,10 +635,10 @@ Package logreq Info: Writing requests to 'cv.run.xml'.
 Here is how much of TeX's memory you used:
  15907 strings out of 473912
  280261 string characters out of 5733076
- 902520 words of memory out of 5000000
+ 903520 words of memory out of 5000000
  38997 multiletter control sequences out of 15000+600000
  568207 words of font info for 90 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  72i,5n,81p,1920b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/cv.dvi (1 page, 2556 bytes).
+Output written on out/cv.dvi (1 page, 2712 bytes).

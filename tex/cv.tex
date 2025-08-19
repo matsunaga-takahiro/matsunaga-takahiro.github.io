@@ -49,13 +49,33 @@
 % すべてのエントリを対象（citeしなくても出す）
 \nocite{*}
 
-\subsection*{Journal Articles}
-\printbibliography[filter=journal,heading=none]
+% \subsection*{Journal Articles}
+% \printbibliography[filter=journal,heading=none]
 
-\subsection*{International Conferences}
-\printbibliography[filter=conf-intl,heading=none]
+% \subsection*{International Conferences}
+% \printbibliography[filter=conf-intl,heading=none]
 
-\subsection*{Domestic Conferences}
+% \subsection*{Domestic Conferences}
+% すべてのエントリを対象（citeしなくても出す）
+% \nocite{*}
+
+\subsection*{Journal Articles}% 査読誌だけ
+\printbibliography[type=article, heading=none]
+
+\subsection*{International Conferences}% 国際会議だけ（@inproceedings かつ keywords に conference-international）
+\printbibliography[type=inproceedings, keyword=conference-international, heading=none]
+
+\subsection*{Domestic Conferences}% 国内会議だけ
+\printbibliography[type=inproceedings, keyword=conference-domestic, heading=none]
+
+\section*{Awards}% 賞（@award 型 or keywords=awards）
+\printbibliography[type=award, heading=none]
+% もし @award ではなく keywords=awards を使うなら ↓ に置換
+% \printbibliography[keyword=awards, heading=none]
+
+\section*{Grants}% 研究費（@grant 型 or keywords=grants）
+\printbibliography[type=grant, heading=none]
+% \printbibliography[keyword=grants, heading=none]
 
 \section*{Awards}
 \begin{itemize}
