@@ -1,39 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Publications & Talks</title>
+  <script src="https://cdn.jsdelivr.net/gh/pcooksey/bibtex-js/src/bibtex_js.js"></script>
+
+  <style>
+    /* 見た目は控えめに。既存CSSがあればそちらが優先されます */
+    section.biblio { margin: 2rem 0; }
+    section.biblio h2 { margin: 1.2rem 0 0.6rem; font-size: 1.15rem; }
+    ol.biblist { padding-left: 1.1rem; }
+    ol.biblist li { margin: 0.4rem 0; line-height: 1.6; }
+    .venue { font-style: italic; }
+    .note { opacity: 0.8; }
+  </style>
 </head>
 <body>
-    <header>
-        <nav> 
-            <!-- navはページ間移動のリンクをまとめるコンテナタグ・リンクリストが含まれる-->
-            <ul>
-                <!-- unordered list 順序なしリスト liがlist item -->
-                <li><a href="index.html">Home</a></li>
-                <!-- <a> </a>はハイパーリンクを作成，hrefはhyperlink内の参照リンクrefを指定 -->
-                <li><a href="research.html">Research</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <!-- 
-                <li><a href="#awards">Awards/Grants</a></li>
-                <li><a href="#software">Software</a></li> 
-                <li><a href="#link">Link</a></li> 
-                -->
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="international journals">
-            <h1>Journal Articles</h1>
-            <p>test</p>
-        </section>
-        <section id = "conference papers">
-            <h1>Conference Papers</h1>
-            <p>test</p>
-        </section>
-    </main>
+
+  <!-- 同階層の ref.bib を読み込み -->
+  <bibtex src="ref.bib"></bibtex>
+
+  <!-- 汎用テンプレート：各エントリの表示レイアウトを定義 -->
+  <div class="bibtex_template" style="display:none">
+    <li class="bibitem">
+      <span class="author"></span>.
+      <span class="title"></span>.
+      <span class="if journal"> <span class="venue journal"></span>,</span>
+      <span class="if booktitle"> <span class="venue booktitle"></span>,</span>
+      <span class="if volume"> <span class="volume"></span></span>
+      <span class="if number">(<span class="number"></span>)</span>
+      <span class="if pages">: <span class="pages"></span></span>
+      <span class="if year">, <span class="year"></span></span>
+      <span class="if address">, <span class="address"></span></span>
+      <span class="if month">, <span class="month"></span></span>
+      <span class="if note">. <span class="note"></span></span>
+    </li>
+  </div>
+
+  <section class="biblio">
+
+    <h2>(2) 国内学会・シンポジウム・国際会議等における発表</h2>
+    <!-- keywords に presentation を含むものを抽出し、年降順で表示 -->
+    <ol class="biblist bibtex_display" data-search="keywords~=presentation" data-sort="year,desc"></ol>
+
+    <h2>(3) 学術雑誌等に発表した論文、著書</h2>
+    <!-- keywords に publication を含むものを抽出し、年降順で表示 -->
+    <ol class="biblist bibtex_display" data-search="keywords~=publication" data-sort="year,desc"></ol>
+
+    <h2>(4) その他（受賞歴等）</h2>
+    <ol class="biblist">
+      <li>東京大学工学部社会基盤学科 工学部長賞（卒業研究最優秀賞）</li>
+    </ol>
+
+  </section>
+
 </body>
 </html>
