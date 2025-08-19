@@ -1,89 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- htmlの下にはheadとbodyが1個づつ入る（複数はだめ） -->
-    <!-- headは基本事項 -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takahiro Matsunaga</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="site.title">Takahiro Matsunaga</title>
+
+  <!-- 既存のフォント/アイコン/CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* 最小のレイアウト補助（不要なら削除OK） */
+    body { font-family: "Noto Sans", system-ui, -apple-system, sans-serif; }
+    header nav { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    header nav ul { display:flex; gap:1rem; list-style:none; padding:0; margin:0; }
+    .lang-switch { display:flex; align-items:center; gap:.25rem; user-select:none; }
+    .lang-switch button { border:none; background:none; cursor:pointer; font-weight:700; opacity:.55; }
+    .lang-switch button.active { opacity:1; text-decoration:underline; }
+    .profile-photo { width: 240px; height: 240px; object-fit: cover; border-radius: 50%; }
+    main { max-width: 980px; margin: 2rem auto; padding: 0 1rem; }
+    footer { text-align:center; margin: 3rem 0 2rem; opacity:.8; }
+  </style>
 </head>
 <body>
-    <!-- bodyの中が実際の骨格 -->
-    <header>
-        <nav> 
-            <!-- navはページ間移動のリンクをまとめるコンテナタグ・リンクリストが含まれる-->
-            <ul>
-                <!-- unordered list 順序なしリスト liがlist item -->
-                <li><a href="index.html">Home</a></li>
-                <!-- <a> </a>はハイパーリンクを作成，hrefはhyperlink内の参照リンクrefを指定 -->
-                <li><a href="research.html">Research</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <!-- 
-                <li><a href="#awards">Awards/Grants</a></li>
-                <li><a href="#software">Software</a></li> 
-                <li><a href="#link">Link</a></li> 
-                -->
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <ul>
+        <li><a data-i18n="nav.home"        href="index.html">Home</a></li>
+        <li><a data-i18n="nav.research"    href="research.html">Research</a></li>
+        <li><a data-i18n="nav.publications" href="publications.html">Publications</a></li>
+      </ul>
 
-    <main>
-        <!-- mainは1つが推奨されている -->
-        <section id="home"> 
-            <!-- idがhrefで参照される際のタグになる！！ -->
-            <h1>Takahiro Matsunaga</h1>
-            <p>
-                <!-- <p> </p>は段落 paragraph -->
-                Department of Civil Engineering, The University of Tokyo
-            </p>
-            <p>
-                <a href="http://bin.t.u-tokyo.ac.jp" target="_blank"> Behavior in Networks (BinN) Studies Unit.</a> 
-            </p>
-            <p>
-                <!-- <a href="mailto:matsunaga@bin.t.u-tokyo.ac.jp">📧 matsunaga[at]bin.t.u-tokyo.ac.jp</a><br> -->
-                <a href="mailto:matsunaga@bin.t.u-tokyo.ac.jp" target="_blank">
-                    <i class="fas fa-envelope"></i> matsunaga[at]bin.t.u-tokyo.ac.jp
-                </a>
-                <br>
-                <a href="https://www.google.com/maps/place/7-3-1+Hongo,+Bunkyo-ku,+Tokyo+113-8656,+Japan" target="_blank">
-                    <i class="fas fa-map-marker-alt"></i> 7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan
-                </a>
-            </p>
+      <!-- 言語トグル -->
+      <div class="lang-switch" aria-label="Language switcher">
+        <button type="button" data-lang="en" class="active">En</button> /
+        <button type="button" data-lang="ja">Jp</button>
+      </div>
+    </nav>
+  </header>
 
-            <p>
-                <a href="#" target="_blank"><i class="fas fa-file-alt"></i> CV</a> | 
-                <a href="https://scholar.google.com/citations?user=fGWoyocAAAAJ&hl=ja" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a> |
-                <a href="https://github.com/matsunaga-takahiro" target="_blank"><i class="fab fa-github"></i> GitHub</a> |
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> | 
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter</a> 
-            </p>
+  <main>
+    <section id="home">
+      <h1 data-i18n="hero.name">Takahiro Matsunaga</h1>
 
-            <p>
-                <img src="images/home_image.jpeg" alt="Takahiro Matsunaga" class="profile-photo">
-                <!-- class, styleの詳細はCSSの方で設定する -->
-            </p>
-        </section>
-        <!-- 
-        <section id="publications">
-            <h2>Selected Publications</h2>
-            <ul>
-                
-                <li><strong>Oyama, Y.</strong>, Murakami, S., Chikaraishi, M., Parady, G. (2024) Designing pedestrian zones... <a href="#">Link</a></li>
-                <li><strong>Oyama, Y.</strong> (2024) Global path preference and local response... <a href="#">Link</a></li>
-                <li><strong>Oyama, Y.</strong> (2023) Capturing positive network attributes... <a href="#">Link</a></li>
-                <li><strong>Oyama, Y.</strong>, Hara, Y., Akamatsu, T. (2022) Markovian traffic equilibrium... <a href="#">Link</a></li>
-                <li><strong>Oyama, Y.</strong>, Hato, E. (2018) Link-based measurement model... <a href="#">Link</a></li> 
-               
-            </ul>
-        </section> 
-        -->
-    </main>
+      <p data-i18n="hero.affiliation">
+        Department of Civil Engineering, The University of Tokyo
+      </p>
 
-    <footer>
-        <p>© 2024 Takahiro Matsunaga. All rights reserved.</p>
-    </footer>
+      <p>
+        <a href="http://bin.t.u-tokyo.ac.jp" target="_blank" data-i18n="hero.unit">
+          Behavior in Networks (BinN) Studies Unit.
+        </a>
+      </p>
+
+      <p>
+        <a href="mailto:matsunaga@bin.t.u-tokyo.ac.jp" target="_blank">
+          <i class="fas fa-envelope"></i>
+          <span data-i18n="hero.email">matsunaga[at]bin.t.u-tokyo.ac.jp</span>
+        </a>
+        <br/>
+        <a href="https://www.google.com/maps/place/7-3-1+Hongo,+Bunkyo-ku,+Tokyo+113-8656,+Japan" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+          <span data-i18n="hero.address">7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan</span>
+        </a>
+      </p>
+
+      <p>
+        <a href="#" target="_blank"><i class="fas fa-file-alt"></i> <span data-i18n="hero.cv">CV</span></a> |
+        <a href="https://scholar.google.com/citations?user=fGWoyocAAAAJ&hl=ja" target="_blank"><i class="fas fa-graduation-cap"></i> <span data-i18n="hero.scholar">Google Scholar</span></a> |
+        <a href="https://www.linkedin.com/in/takahiro-matsunaga-377864326/" target="_blank"><i class="fab fa-linkedin"></i> <span data-i18n="hero.linkedin">LinkedIn</span></a>
+      </p>
+
+      <p>
+        <img src="images/home_image.jpeg"
+             class="profile-photo"
+             alt="Takahiro Matsunaga"
+             data-i18n-attr='{"alt":"hero.imageAlt"}'>
+      </p>
+
+      <p data-i18n="hero.blurb">
+        I work on activity-based modeling and sequence modeling for transportation networks, focusing on interpretable learning for demand–supply control.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n="site.copyright">© 2024 Takahiro Matsunaga. All rights reserved.</p>
+  </footer>
+
+  <!-- 多言語辞書＋適用スクリプト（最小構成） -->
+  <script>
+    // 1) 辞書：キーは data-i18n の値
+    const I18N = {
+      en: {
+        "site.title": "Takahiro Matsunaga",
+        "nav.home": "Home",
+        "nav.research": "Research",
+        "nav.publications": "Publications",
+
+        "hero.name": "Takahiro Matsunaga",
+        "hero.affiliation": "Department of Civil Engineering, The University of Tokyo",
+        "hero.unit": "Behavior in Networks (BinN) Studies Unit.",
+        "hero.email": "matsunaga[at]bin.t.u-tokyo.ac.jp",
+        "hero.address": "7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan",
+        "hero.cv": "CV",
+        "hero.scholar": "Google Scholar",
+        "hero.linkedin": "LinkedIn",
+        "hero.imageAlt": "Portrait of Takahiro Matsunaga",
+        "hero.blurb":
+          "I work on activity-based modeling and sequence modeling for transportation networks, focusing on interpretable learning for demand–supply control.",
+
+        "site.copyright": "© 2024 Takahiro Matsunaga. All rights reserved."
+      },
+
+      ja: {
+        "site.title": "松永 隆宏",
+        "nav.home": "ホーム",
+        "nav.research": "研究",
+        "nav.publications": "業績",
+
+        "hero.name": "松永 隆宏",
+        "hero.affiliation": "東京大学大学院 工学系研究科 社会基盤学専攻",
+        "hero.unit": "BinN",
+        "hero.email": "matsunaga[at]bin.t.u-tokyo.ac.jp",
+        "hero.address": "〒113-8656 東京都文京区本郷7-3-1",
+        "hero.cv": "CV（履歴書）",
+        "hero.scholar": "Google Scholar",
+        "hero.linkedin": "LinkedIn",
+        "hero.imageAlt": "松永隆宏の写真",
+        "hero.blurb":
+          "交通ネットワークにおける活動ベース需要と系列モデリングに取り組み、解釈性の高い学習に基づく需要・供給制御を研究しています。",
+
+        "site.copyright": "© 2024 Takahiro Matsunaga. 無断転載を禁じます。"
+      }
+    };
+
+    // 2) 適用ロジック
+    const $ = (q, root=document) => root.querySelector(q);
+    const $$ = (q, root=document) => Array.from(root.querySelectorAll(q));
+
+    function applyLang(lang) {
+      const dict = I18N[lang] || I18N.en;
+
+      // テキストノードに反映
+      $$("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key] != null) el.textContent = dict[key];
+      });
+
+      // 属性に反映（例：alt, title など）
+      $$("[data-i18n-attr]").forEach(el => {
+        try {
+          const map = JSON.parse(el.getAttribute("data-i18n-attr"));
+          Object.entries(map).forEach(([attr, key]) => {
+            if (dict[key] != null) el.setAttribute(attr, dict[key]);
+          });
+        } catch(e) { /* 無視 */ }
+      });
+
+      // <html lang=""> 更新
+      document.documentElement.setAttribute("lang", lang);
+
+      // タイトル（<title data-i18n="..."> で既に更新済みだが、念のため）
+      const titleEl = $("title[data-i18n]");
+      if (titleEl) titleEl.textContent = dict[titleEl.getAttribute("data-i18n")];
+
+      // トグルの見た目
+      $$(".lang-switch button").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+        btn.setAttribute("aria-pressed", btn.dataset.lang === lang ? "true" : "false");
+      });
+
+      // 永続化
+      try { localStorage.setItem("site.lang", lang); } catch(e) {}
+    }
+
+    // 3) 起動＆イベント
+    const saved = (() => { try { return localStorage.getItem("site.lang"); } catch(e) { return null; } })();
+    const defaultLang =
+      saved ||
+      (navigator.language || "en").toLowerCase().startsWith("ja") ? "ja" : "en";
+
+    applyLang(defaultLang);
+
+    $$(".lang-switch button").forEach(btn => {
+      btn.addEventListener("click", () => applyLang(btn.dataset.lang));
+    });
+  </script>
 </body>
 </html>
