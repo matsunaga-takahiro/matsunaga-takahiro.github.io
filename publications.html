@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="js/bibtex_js.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Publications</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ★ 必須：jQuery を先に読み込む -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- その後に bibtex-js -->
+  <script src="js/bibtex_js.js"></script>
 </head>
 <body>
     <header>
@@ -30,8 +34,10 @@
         </div>
     </nav>
     </header>
+  <!-- まず .bib を読み込み -->
   <bibtex src="ref.bib"></bibtex>
 
+  <!-- ★ テンプレート：レンダリング雛形（display より前に置くのが無難） -->
   <div class="bibtex_template" style="display:none">
     <li class="bibitem">
       <span class="author"></span>.
@@ -48,25 +54,33 @@
     </li>
   </div>
 
-    <main>
-        <section id="International Journals">
-            <h1>Journal Articles</h1>
-            <ol class="biblist bibtex_display"
-                data-search="type=article"
-                data-sort="year,desc"></ol>
-        </section>
-        <section id="Conference Papers (International Conferences)">
-            <h1>Conference Papers (International)</h1>
-            <ol class="biblist bibtex_display"
-                data-search="(type=inproceedings) and (keyword=conference-international)"
-                data-sort="year,desc"></ol>
-        </section>
-        <section id="Conference Papers (Domestic Conferences)">
-            <h1>Conference Papers (Domestic)</h1>
-        <ol class="biblist bibtex_display"
-            data-search="(type=inproceedings) and (keyword=conference-domestic)"
-            data-sort="year,desc"></ol>
-        </section>
-    </main>
+  <main>
+    <section id="journals">
+      <h1>Journal Articles</h1>
+      <!-- ★ keyword=journal-article で絞り込み -->
+      <ol class="bibtex_display"
+          data-search="keyword=journal-article"
+          data-sort="year,desc"></ol>
+    </section>
+
+    <section id="Conference Papers (International Conferences)">
+        <h1>Conference Papers2222</h1>
+        <ol class="biblist bibtex_display" data-search="@matsunaga_hato_2024_hksts_presentatio"></ol>
+    </section>
+
+    <section id="conf-intl">
+      <h1>Conference Papers (International)</h1>
+      <ol class="bibtex_display"
+          data-search="keyword=conference-international"
+          data-sort="year,desc"></ol>
+    </section>
+
+    <section id="conf-dom">
+      <h1>Conference Papers (Domestic)</h1>
+      <ol class="bibtex_display"
+          data-search="keyword=conference-domestic"
+          data-sort="year,desc"></ol>
+    </section>
+  </main>
 </body>
 </html>

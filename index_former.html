@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- htmlの下にはheadとbodyが1個づつ入る（複数はだめ） -->
+    <!-- headは基本事項 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="site.title">Takahiro Matsunaga</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <!-- <nav style="position:relative;"> 
+            <ul> -->
+        <nav style="display:flex; justify-content:space-between; align-items:center;">
+            <ul style="display:flex; gap:1rem; margin:0; padding:0; list-style:none;">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="research.html" data-i18n="nav.research">Research</a></li>
+                <li><a href="publications.html" data-i18n="nav.publications">Publications</a></li>
+                <li><a href="awards_grants.html" data-i18n="nav.awards">Awards/Grants</a></li>
+                <li><a href="activities.html" data-i18n="nav.activities">Activities</a></li>
+            </ul>
+
+            <div class="lang-switch" aria-label="Language switcher"
+                style="display:flex; gap:.5rem; font-weight:700;">
+            <button type="button" data-lang="en"
+                    style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇬🇧 En</button>
+            <span>/</span>
+            <button type="button" data-lang="ja"
+                    style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇯🇵 Jp</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- mainは1つが推奨されている -->
+        <section id="home"> 
+            <!-- idがhrefで参照される際のタグになる！！ -->
+            <h1 data-i18n="hero.name">Takahiro Matsunaga</h1>
+            <p data-i18n="hero.affiliation">
+                <!-- <p> </p>は段落 paragraph -->
+                Department of Civil Engineering, The University of Tokyo
+            </p>
+            <p>
+                <a href="http://bin.t.u-tokyo.ac.jp" target="_blank" data-i18n="hero.unit"> Behavior in Networks (BinN) Studies Unit.</a> 
+            </p>
+            <p>
+                <!-- <a href="mailto:matsunaga@bin.t.u-tokyo.ac.jp">📧 matsunaga[at]bin.t.u-tokyo.ac.jp</a><br> -->
+                <a href="mailto:matsunaga@bin.t.u-tokyo.ac.jp" target="_blank">
+                    <i class="fas fa-envelope"></i> <span data-i18n="hero.email">matsunaga[at]bin.t.u-tokyo.ac.jp</span>
+                </a>
+                <br>
+                <a href="https://www.google.com/maps/place/7-3-1+Hongo,+Bunkyo-ku,+Tokyo+113-8656,+Japan" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i> <span data-i18n="hero.address">7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan</span>
+                </a>
+            </p>
+
+            <p>
+                <a href="tex/cv.pdf" target="_blank"><i class="fas fa-file-alt"></i> <span data-i18n="hero.cv">CV</span></a> | 
+                <!-- <a href="#" target="_blank"><i class="fas fa-file-alt"></i> <span data-i18n="hero.cv">CV</span></a> |  -->
+                <a href="https://scholar.google.com/citations?user=fGWoyocAAAAJ&hl=ja" target="_blank"><i class="fas fa-graduation-cap"></i> <span data-i18n="hero.scholar">Google Scholar</span></a> |
+                <!-- <a href="https://github.com/matsunaga-takahiro" target="_blank"><i class="fab fa-github"></i> GitHub</a> | -->
+                <a href="https://www.linkedin.com/in/takahiro-matsunaga-377864326/" target="_blank"><i class="fab fa-linkedin"></i> <span data-i18n="hero.linkedin">LinkedIn</span></a> 
+                <!-- <a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>  -->
+            </p>
+
+            <p>
+                <img src="images/home_image.jpeg" alt="Takahiro Matsunaga" class="profile-photo"
+                     data-i18n-attr='{"alt":"hero.imageAlt"}'>
+                <!-- class, styleの詳細はCSSの方で設定する -->
+            </p>
+        </section>
+        <!-- 
+        <section id="publications">
+            <h2>Selected Publications</h2>
+            <ul>
+                
+                <li><strong>Oyama, Y.</strong>, Murakami, S., Chikaraishi, M., Parady, G. (2024) Designing pedestrian zones... <a href="#">Link</a></li>
+                <li><strong>Oyama, Y.</strong> (2024) Global path preference and local response... <a href="#">Link</a></li>
+                <li><strong>Oyama, Y.</strong> (2023) Capturing positive network attributes... <a href="#">Link</a></li>
+                <li><strong>Oyama, Y.</strong>, Hara, Y., Akamatsu, T. (2022) Markovian traffic equilibrium... <a href="#">Link</a></li>
+                <li><strong>Oyama, Y.</strong>, Hato, E. (2018) Link-based measurement model... <a href="#">Link</a></li> 
+               
+            </ul>
+        </section> 
+        -->
+    </main>
+
+    <footer>
+        <p data-i18n="site.footer">© 2025 Takahiro Matsunaga. All rights reserved.</p>
+    </footer>
+
+    <!-- 言語切替スクリプト（最小構成・外部依存なし） -->
+    <script>
+      // 1) 対訳辞書（必要に応じてキーを追加）
+      const I18N = {
+        en: {
+          "site.title": "Takahiro Matsunaga",
+          "nav.home": "Home",
+          "nav.research": "Research",
+          "nav.publications": "Publications",
+          "nav.activities": "Activities",
+
+          "hero.name": "Takahiro Matsunaga",
+          "hero.affiliation": "Department of Civil Engineering, The University of Tokyo",
+          "hero.unit": "Behavior in Networks (BinN) Studies Unit.",
+          "hero.email": "matsunaga[at]bin.t.u-tokyo.ac.jp",
+          "hero.address": "7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan",
+          "hero.cv": "CV",
+          "hero.scholar": "Google Scholar",
+          "hero.linkedin": "LinkedIn",
+          "hero.imageAlt": "Portrait of Takahiro Matsunaga",
+
+          "site.footer": "© 2025 Takahiro Matsunaga. All rights reserved."
+        },
+        ja: {
+          "site.title": "松永 隆宏",
+          "nav.home": "表紙",
+          "nav.research": "研究",
+          "nav.publications": "論文",
+          "nav.awards": "受賞・助成金",
+          "nav.activities": "その他活動",
+
+          "hero.name": "松永 隆宏",
+          "hero.affiliation": "東京大学大学院 工学系研究科 社会基盤学専攻",
+          "hero.unit": "交通・都市・国土学研究室（BinN）",
+          "hero.email": "matsunaga[at]bin.t.u-tokyo.ac.jp",
+          "hero.address": "〒113-8656 東京都文京区本郷7-3-1",
+          "hero.cv": "CV（履歴書）",
+          "hero.scholar": "Google Scholar",
+          "hero.linkedin": "LinkedIn",
+          "hero.imageAlt": "松永隆宏の写真",
+
+          "site.footer": "© 2025 Takahiro Matsunaga. 禁無断転載"
+        }
+      };
+
+      // 2) 置換ユーティリティ
+      const $ = (q, r=document) => r.querySelector(q);
+      const $$ = (q, r=document) => Array.from(r.querySelectorAll(q));
+
+      function applyLang(lang) {
+        const dict = I18N[lang] || I18N.en;
+
+        // テキスト置換
+        $$("[data-i18n]").forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          if (dict[key] != null) el.textContent = dict[key];
+        });
+
+        // 属性置換（alt等）
+        $$("[data-i18n-attr]").forEach(el => {
+          try {
+            const map = JSON.parse(el.getAttribute("data-i18n-attr"));
+            Object.entries(map).forEach(([attr, key]) => {
+              if (dict[key] != null) el.setAttribute(attr, dict[key]);
+            });
+          } catch(e) {}
+        });
+
+        // <html lang> と <title> 更新
+        document.documentElement.setAttribute("lang", lang);
+        const titleEl = document.querySelector("title[data-i18n]");
+        if (titleEl) titleEl.textContent = dict[titleEl.getAttribute("data-i18n")];
+
+        // トグルの見た目（下線＆半透明）を最小限で
+        $$(".lang-switch button").forEach(btn => {
+          const on = btn.dataset.lang === lang;
+          btn.style.textDecoration = on ? "underline" : "none";
+          btn.style.opacity = on ? "1" : ".6";
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+
+        // 永続化
+        try { localStorage.setItem("site.lang", lang); } catch(e) {}
+      }
+
+      // 3) 初期表示：保存＞ブラウザ言語
+      const saved = (() => { try { return localStorage.getItem("site.lang"); } catch(e) { return null; } })();
+      const defaultLang = saved || ((navigator.language || "en").toLowerCase().startsWith("ja") ? "ja" : "en");
+      applyLang(defaultLang);
+
+      // 4) クリックで切替
+      $$(".lang-switch button").forEach(btn => {
+        btn.addEventListener("click", () => applyLang(btn.dataset.lang));
+      });
+    </script>
+</body>
+</html>
