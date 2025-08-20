@@ -8,23 +8,26 @@
 \geometry{margin=20mm}
 
 % ---- ここがポイント：biblatex を backend=bibtex で ----
-\usepackage[
-  backend=bibtex,      % ← upbibtex を使う
-  style=numeric,       % お好みで numeric / authoryear など
-  sorting=ydnt,        % 年→名前→タイトル
-  maxbibnames=99
-]{biblatex}
+% \usepackage[
+%   backend=bibtex,      % ← upbibtex を使う
+%   style=numeric,       % お好みで numeric / authoryear など
+%   sorting=ydnt,        % 年→名前→タイトル
+%   maxbibnames=99
+% ]{biblatex}
+\usepackage[backend=biber,style=numeric,sorting=ydnt,maxbibnames=99]{biblatex}
+% \usepackage[backend=biber,style=numeric]{biblatex}
+
 
 % 参照する .bib（相対パスは環境に合わせて）
 \addbibresource{../ref.bib}
 
-% ---- フィルタ定義（例）----
-% .bib 側に keywords を付けて振り分けます
-% 例：keywords = {conf,dom} / {conf,intl} / （journalは@articleで判定）
-\defbibfilter{conf-dom}{\keyword{conf} \and \keyword{dom}}
-\defbibfilter{conf-intl}{\keyword{conf} \and \keyword{intl}}
-\defbibfilter{journal}{\type{article}}
 
+% ---- フィルタ ----
+\defbibfilter{conf-dom}{\keyword{conference-domestic}}
+\defbibfilter{conf-intl}{\keyword{conference-international}}
+\defbibfilter{journal}{\type{article} or \keyword{journal-article}}
+\defbibfilter{award}{\keyword{award}}
+\defbibfilter{grant}{\keyword{grant} or \type{grant}}
 \begin{document}
 
 \begin{center}
@@ -34,56 +37,29 @@
 \end{center}
 
 \section*{Education}
-\subsubsection*{The University of Tokyo, Department of Civil Engineering}
-\begin{itemize}
-  \item since 2025.10 : Ph.D. \\
-        Supervisor: Eiji Hato, Professor, Behavior in Networks (BinN) Studies Unit
-  \item 2024.04 - 2025.09 : M.S. in Civil Engineering (Outstanding Paper Award)
-  \item 2020.04 - 2024.03 : B.S. in Civil Engineering (Best Paper Award)
+% \subsection*{The University of Tokyo}
+\subsubsection*{Ph.D. in Civil Engineering, the University of Tokyo}{Since 2025.10}
+\subsubsection*{M.S. in Civil Engineering, the University of Tokyo (Outstanding Paper Award)}{2024.04 - 2025.09}
+\subsubsection*{B.S. in Civil Engineering, the University of Tokyo (Best Paper Award)}{2020.04 - 2024.03}
 
-\end{itemize}
-
-
-\section*{Publications}
-
-% すべてのエントリを対象（citeしなくても出す）
+% \section*{Publications}
 \nocite{*}
 
-% \subsection*{Journal Articles}
-% \printbibliography[filter=journal,heading=none]
+% \subsection*{Journal Articles}% 査読誌だけ
+% \printbibliography[type=article, heading=none]
+\printbibliography[filter=journal, title={Journal Articles}]
 
-% \subsection*{International Conferences}
-% \printbibliography[filter=conf-intl,heading=none]
+% \subsection*{International Conferences}% 国際会議だけ（@inproceedings かつ keywords に conference-international）
+\printbibliography[filter=conf-intl, title={International Conferences}]
 
-% \subsection*{Domestic Conferences}
-% すべてのエントリを対象（citeしなくても出す）
-% \nocite{*}
+% \subsection*{Domestic Conferences}% 国内会議だけ
+\printbibliography[filter=conf-dom, title={Domestic Conferences}]
 
-\subsection*{Journal Articles}% 査読誌だけ
-\printbibliography[type=article, heading=none]
+% \section*{Grants}% 研究費（@grant 型 or keywords=grants）
+\printbibliography[filter=grant, title={Grants}]
 
-\subsection*{International Conferences}% 国際会議だけ（@inproceedings かつ keywords に conference-international）
-\printbibliography[type=inproceedings, keyword=conference-international, heading=none]
-
-\subsection*{Domestic Conferences}% 国内会議だけ
-\printbibliography[type=inproceedings, keyword=conference-domestic, heading=none]
-
-\section*{Awards}% 賞（@award 型 or keywords=awards）
-\printbibliography[type=award, heading=none]
-% もし @award ではなく keywords=awards を使うなら ↓ に置換
-% \printbibliography[keyword=awards, heading=none]
-
-\section*{Grants}% 研究費（@grant 型 or keywords=grants）
-\printbibliography[type=grant, heading=none]
-% \printbibliography[keyword=grants, heading=none]
-
-\section*{Awards}
-\begin{itemize}
-  \item Outstanding Master Thesis Award,  Department of Civil Engineering, the University of Tokyo
-  \item Best Graduation Thesis Award, Department of Civil Engineering, the University of Tokyo
-\end{itemize}
-
-\printbibliography[filter=conf-dom,heading=none]
+% \section*{Awards}
+\printbibliography[filter=award, title={Awards}]
 
 \end{document}
 % \documentclass[uplatex,a4paper,10pt]{jsarticle}
