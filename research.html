@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>    
-    <header>
+    <!-- <header>
     <nav style="display:flex; justify-content:space-between; align-items:center;">
         <ul style="display:flex; gap:1rem; margin:0; padding:0; list-style:none;">
         <li><a href="index.html" data-i18n="nav.home">Home</a></li>
@@ -17,8 +17,6 @@
         <li><a href="awards_grants.html" data-i18n="nav.awards">Awards/Grants</a></li>
         <li><a href="activities.html" data-i18n="nav.activities">Activities</a></li>
         </ul>
-
-        <!-- 言語切替は右端へ -->
         <div class="lang-switch" aria-label="Language switcher"
             style="display:flex; gap:.5rem; font-weight:700;">
         <button type="button" data-lang="en"
@@ -28,10 +26,41 @@
                 style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇯🇵 Jp</button>
         </div>
     </nav>
-    </header>
-    <!-- <header>
-        <h1>Research Topics</h1>
     </header> -->
+    <header>
+    <nav class="site-nav" aria-label="Primary" aria-expanded="false">
+        <a href="index.html" class="brand">
+        <img src="images/home_image.jpeg" alt="" aria-hidden="true" />
+        <span data-i18n="hero.name">Takahiro Matsunaga</span>
+        </a>
+
+        <button class="menu-toggle" id="menuBtn" type="button"
+                aria-controls="primary-nav" aria-expanded="false"
+                aria-label="Toggle menu">
+        <svg id="iconBurger" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        </button>
+
+        <div class="menu-panel" id="menuPanel">
+        <ul class="menu" id="primary-nav">
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="research.html" data-i18n="nav.research">Research</a></li>
+            <li><a href="publications.html" data-i18n="nav.publications">Publications</a></li>
+            <li><a href="awards_grants.html" data-i18n="nav.awards">Awards/Grants</a></li>
+            <li><a href="activities.html" data-i18n="nav.activities">Activities</a></li>
+        </ul>
+
+        <div class="lang-switch" aria-label="Language switcher">
+            <button type="button" data-lang="en">🇬🇧 En</button><span>/</span>
+            <button type="button" data-lang="ja">🇯🇵 Jp</button>
+        </div>
+        </div>
+    </nav>
+    </header>
 
     <main>
         <section>
