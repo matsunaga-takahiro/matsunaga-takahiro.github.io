@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- htmlの下にはheadとbodyが1個づつ入る（複数はだめ） -->
-    <!-- headは基本事項 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="site.title">Takahiro Matsunaga</title>
@@ -13,8 +11,6 @@
 
 <body>
     <header>
-        <!-- <nav style="position:relative;"> 
-            <ul> -->
         <nav style="display:flex; justify-content:space-between; align-items:center;">
             <ul style="display:flex; gap:1rem; margin:0; padding:0; list-style:none;">
                 <li><a href="index.html" data-i18n="nav.home">Home</a></li>
@@ -36,19 +32,15 @@
     </header>
 
     <main>
-        <!-- mainは1つが推奨されている -->
         <section id="home"> 
-            <!-- idがhrefで参照される際のタグになる！！ -->
             <h1 data-i18n="hero.name">Takahiro Matsunaga</h1>
             <p data-i18n="hero.affiliation">
-                <!-- <p> </p>は段落 paragraph -->
                 Department of Civil Engineering, The University of Tokyo
             </p>
             <p>
                 <a href="http://bin.t.u-tokyo.ac.jp" target="_blank" data-i18n="hero.unit"> Behavior in Networks (BinN) Studies Unit.</a> 
             </p>
             <p>
-                <!-- <a href="mailto:matsunaga@bin.t.u-tokyo.ac.jp">📧 matsunaga[at]bin.t.u-tokyo.ac.jp</a><br> -->
                 <a href="mailto:matsunaga@bin.t.u-tokyo.ac.jp" target="_blank">
                     <i class="fas fa-envelope"></i> <span data-i18n="hero.email">matsunaga[at]bin.t.u-tokyo.ac.jp</span>
                 </a>
@@ -60,33 +52,15 @@
 
             <p>
                 <a href="tex/cv.pdf" target="_blank"><i class="fas fa-file-alt"></i> <span data-i18n="hero.cv">CV</span></a> | 
-                <!-- <a href="#" target="_blank"><i class="fas fa-file-alt"></i> <span data-i18n="hero.cv">CV</span></a> |  -->
                 <a href="https://scholar.google.com/citations?user=fGWoyocAAAAJ&hl=ja" target="_blank"><i class="fas fa-graduation-cap"></i> <span data-i18n="hero.scholar">Google Scholar</span></a> |
-                <!-- <a href="https://github.com/matsunaga-takahiro" target="_blank"><i class="fab fa-github"></i> GitHub</a> | -->
                 <a href="https://www.linkedin.com/in/takahiro-matsunaga-377864326/" target="_blank"><i class="fab fa-linkedin"></i> <span data-i18n="hero.linkedin">LinkedIn</span></a> 
-                <!-- <a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>  -->
             </p>
 
             <p>
                 <img src="images/home_image.jpeg" alt="Takahiro Matsunaga" class="profile-photo"
                      data-i18n-attr='{"alt":"hero.imageAlt"}'>
-                <!-- class, styleの詳細はCSSの方で設定する -->
             </p>
         </section>
-        <!-- 
-        <section id="publications">
-            <h2>Selected Publications</h2>
-            <ul>
-                
-                <li><strong>Oyama, Y.</strong>, Murakami, S., Chikaraishi, M., Parady, G. (2024) Designing pedestrian zones... <a href="#">Link</a></li>
-                <li><strong>Oyama, Y.</strong> (2024) Global path preference and local response... <a href="#">Link</a></li>
-                <li><strong>Oyama, Y.</strong> (2023) Capturing positive network attributes... <a href="#">Link</a></li>
-                <li><strong>Oyama, Y.</strong>, Hara, Y., Akamatsu, T. (2022) Markovian traffic equilibrium... <a href="#">Link</a></li>
-                <li><strong>Oyama, Y.</strong>, Hato, E. (2018) Link-based measurement model... <a href="#">Link</a></li> 
-               
-            </ul>
-        </section> 
-        -->
     </main>
 
     <footer>

@@ -1,89 +1,202 @@
-/* 全体のスタイル */
+/* =============================
+   Base / Reset
+============================= */
+:root {
+  --nav-h: 56px;
+  --text: #030363;       /* 既存のテキストカラー */
+  --bg: #f9f9f9;         /* 既存の背景色 */
+  --header-bg: #dcdcdc;  /* 既存ヘッダー色 */
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: 'Noto Sans', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9; /* ライトグレー */
-    color: #191970; /* midnightblue */
+  font-family: 'Noto Sans', system-ui, -apple-system, Segoe UI, Roboto, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: #191970; /* 既存: body の基本色 */
 }
 
-/* ナビゲーションバー（ヘッダー）の設定 */
+/* =============================
+   Header / Navigation (shared)
+============================= */
 header {
-    background-color: #dcdcdc; /*  ヘッダーの背景色 */
-    padding: 0.5rem 0;
+  position: relative;
+  background-color: var(--header-bg);
+  border-bottom: 1px solid #eee;
 }
 
-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: right; /* 並び方向 */
+/* ナビ本体（デスクトップ既定） */
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--nav-h);
+  padding: 0 .75rem;
+  color: var(--text);
 }
 
-header nav ul li {
-    margin: 0 1rem;
+/* 左側のブランド（任意） */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+}
+.brand img {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  object-fit: cover;
 }
 
-header nav ul li a {
-    color: #030363; /* テキストカラー */
-    text-decoration: none;
-    font-weight: normal;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s;
+/* ハンバーガー */
+.menu-toggle {
+  display: none;                 /* モバイルで表示 */
+  appearance: none;
+  border: none;
+  background: none;
+  padding: .5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: inherit;
+}
+.menu-toggle:focus-visible { outline: 2px solid #333; outline-offset: 2px; }
+
+/* パネルとメニュー */
+.menu-panel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu a {
+  text-decoration: none;
+  color: var(--text);
+  padding: .375rem .5rem;
+  border-radius: 8px;
+  transition: background-color .2s ease;
+}
+.menu a:hover,
+.menu a:focus-visible {
+  background: #c0c0c0; /* 既存のホバー系の雰囲気に寄せる */
 }
 
-header nav ul li a:hover {
-    background-color: #c0c0c0; /* ホバー時の背景色（濃いグレーの少し明るい色） */
-    border-radius: 5px;
+/* 言語切替（右側） */
+.lang-switch {
+  display: flex;
+  gap: .5rem;
+  font-weight: 700;
+  align-items: center;
+  color: var(--text);
+}
+.lang-switch button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  opacity: .6;
+  padding: .25rem .375rem;
+  border-radius: 6px;
+  color: inherit;
+}
+.lang-switch button:focus-visible { outline: 2px solid #333; outline-offset: 2px; }
+
+/* ====== Mobile breakpoint ====== */
+@media (max-width: 860px) {
+  .site-nav { position: relative; }
+
+  /* ハンバーガー表示 */
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 折りたたみパネル（初期は非表示） */
+  .menu-panel {
+    position: absolute;
+    inset: var(--nav-h) .5rem auto .5rem;
+    display: none;
+    flex-direction: column;
+    gap: .75rem;
+    padding: .75rem;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    z-index: 1000;
+  }
+  /* aria-expanded=true のときに開く */
+  .site-nav[aria-expanded="true"] .menu-panel { display: flex; }
+
+  .menu { flex-direction: column; }
+  .menu a { padding: .5rem; }
+
+  /* 言語切替はパネル内に */
+  .lang-switch { justify-content: flex-start; }
 }
 
-/* メインセクション */
+/* =============================
+   Page Main / Common
+============================= */
 main {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: #f9f9f9; /* 白背景 */
-    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
-    box-shadow: none;
-    /* border-radius: 8px; */ /* 角丸 */
-    border-radius: 0; /* コーナーを直線に */
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: var(--bg);
+  box-shadow: none;
+  border-radius: 0;
 }
 
 main h1 {
-    /* Takahiro Matsunagaの部分 */
-    text-align: left;
-    color: #030363;
+  text-align: left;
+  color: var(--text);
 }
 
 main p {
-    text-align: left;
-    margin: 0.5rem 0;
+  text-align: left;
+  margin: 0.5rem 0;
 }
 
 main a {
-    color: #030363; 
-    text-decoration: none;
-    font-weight: normal;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: normal;
 }
+main a:hover { text-decoration: underline; }
 
-main a:hover {
-    text-decoration: underline;
-}
-
+/* 画像 */
 .profile-photo {
-    max-width: 50%; /* 親要素に対する最大表示幅の割合 */
-    height: auto;
-    border-radius: 8px;
-    margin-top: 1rem;
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 1rem;
 }
 
-/* フッター */
+/* =============================
+   Footer
+============================= */
 footer {
-    text-align: left;
-    padding: 1rem;
-    background-color: #f9f9f9;  /* フッターの背景色 */
-    color: #030363; /* テキストカラー */
-    margin-top: 2rem;
+  text-align: left;
+  padding: 1rem;
+  background-color: var(--bg);
+  color: var(--text);
+  margin-top: 2rem;
 }

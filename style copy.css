@@ -1,0 +1,89 @@
+/* 全体のスタイル */
+body {
+    font-family: 'Noto Sans', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* ライトグレー */
+    color: #191970; /* midnightblue */
+}
+
+/* ナビゲーションバー（ヘッダー）の設定 */
+header {
+    background-color: #dcdcdc; /*  ヘッダーの背景色 */
+    padding: 0.5rem 0;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: right; /* 並び方向 */
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #030363; /* テキストカラー */
+    text-decoration: none;
+    font-weight: normal;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+header nav ul li a:hover {
+    background-color: #c0c0c0; /* ホバー時の背景色（濃いグレーの少し明るい色） */
+    border-radius: 5px;
+}
+
+/* メインセクション */
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #f9f9f9; /* 白背景 */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    box-shadow: none;
+    /* border-radius: 8px; */ /* 角丸 */
+    border-radius: 0; /* コーナーを直線に */
+}
+
+main h1 {
+    /* Takahiro Matsunagaの部分 */
+    text-align: left;
+    color: #030363;
+}
+
+main p {
+    text-align: left;
+    margin: 0.5rem 0;
+}
+
+main a {
+    color: #030363; 
+    text-decoration: none;
+    font-weight: normal;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
+
+.profile-photo {
+    max-width: 50%; /* 親要素に対する最大表示幅の割合 */
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* フッター */
+footer {
+    text-align: left;
+    padding: 1rem;
+    background-color: #f9f9f9;  /* フッターの背景色 */
+    color: #030363; /* テキストカラー */
+    margin-top: 2rem;
+}
