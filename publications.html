@@ -105,7 +105,7 @@
     <section id="conf-intl">
       <h1>Conference Papers (International)</h1>
       <ol id="ConfIntList" class="biblist"></ol>
-<!-- 
+    <!-- 
       <ol class="bibtex_display"
           data-search="keyword=conference-international"
           data-sort="year,desc"></ol> -->
@@ -118,6 +118,7 @@
           data-search="keyword=conference-domestic"
           data-sort="year,desc"></ol> -->
     </section>
+
   </main>
 
 
@@ -185,17 +186,29 @@ async function renderBibByKeys(listId, keys, bibUrl = 'ref.bib') {
 }
 
 // === ここで好きなキーを並べる（例：アワードだけ）===
-renderBibByKeys('JournalList', ['matsunaga_hato_2024_jscp_article',
-                                ], 
-                'ConfIntList', ['matsunaga_hato_2024_itsc_presentation',
-                                'matsunaga_hato_2024_hksts_presentation',
-                                'matsunaga_hato_2025_ped_presentation'
-                                ],
+// renderBibByKeys('JournalList', ['matsunaga_hato_2024_jscp_article',
+//                                 ], 
+//                 'ConfIntList', ['matsunaga_hato_2024_itsc_presentation',
+//                                 'matsunaga_hato_2024_hksts_presentation',
+//                                 'matsunaga_hato_2025_ped_presentation'
+//                                 ],
+//                 'ConfDomList', [
+//                                 'matsunaga_hato_2024_jscp_article'
+//                                 ],                  
+//                 'ref.bib');
+renderBibByKeys('JournalList', [
+  'matsunaga_hato_2024_jscp_article'
+]);
 
-                'ConfDomList', [
-                                'matsunaga_hato_2024_jscp_article'
-                                ],                  
-                'ref.bib');
+renderBibByKeys('ConfIntList', [
+  'matsunaga_hato_2025_ped_presentation',
+  'matsunaga_hato_2024_itsc_presentation',
+  'matsunaga_hato_2024_hksts_presentation'
+]);
+
+renderBibByKeys('ConfDomList', [
+  'matsunaga_hato_2025_jste_presentation' // ← domestic はこっち（例）
+]);
 </script>
 
 
