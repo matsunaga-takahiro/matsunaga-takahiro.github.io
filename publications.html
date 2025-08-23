@@ -97,23 +97,108 @@
           data-sort="year,desc"></ol>
     </section> -->
 
+    <section id="journal">
+      <h1>Journal Articles</h1>
+      <ol id="JournalList" class="biblist"></ol>
+
     <section id="conf-intl">
       <h1>Conference Papers (International)</h1>
+      <ol id="ConfInterList" class="biblist"></ol>
+<!-- 
       <ol class="bibtex_display"
           data-search="keyword=conference-international"
-          data-sort="year,desc"></ol>
+          data-sort="year,desc"></ol> -->
     </section>
 
     <section id="conf-dom">
       <h1>Conference Papers (Domestic)</h1>
-      <ol class="bibtex_display"
+      <ol id="ConfDomList" class="biblist"></ol>
+      <!-- <ol class="bibtex_display"
           data-search="keyword=conference-domestic"
-          data-sort="year,desc"></ol>
+          data-sort="year,desc"></ol> -->
     </section>
-
-
-    
   </main>
+
+
+<script>
+/** すごく単純な .bib パーサ（今回のような素朴な項目想定） */
+function parseBibtexSimple(text) {
+  const entries = {};
+  // @type{key, ...fields...}
+  const re = /@(\w+)\s*\{\s*([^,]+)\s*,([\s\S]*?)\}\s*(?=@|$)/g;
+  let m;
+  while ((m = re.exec(text)) !== null) {
+    const [, entryType, key, fieldsBlock] = m;
+    const fields = {};
+    // field = {value}  or  field = "value"
+    const rf = /(\w+)\s*=\s*(\{[^{}]*\}|"[^"]*"|[^,\n]+)\s*,?/g;
+    let f;
+    while ((f = rf.exec(fieldsBlock)) !== null) {
+      const name = f[1].toLowerCase();
+      let val = f[2].trim();
+      if ((val.startsWith('{') && val.endsWith('}')) || (val.startsWith('"') && val.endsWith('"'))) {
+        val = val.slice(1, -1);
+      }
+      fields[name] = val;
+    }
+    entries[key] = { type: entryType.toLowerCase(), key, ...fields };
+  }
+  return entries;
+}
+
+/** 指定キーだけを ref.bib から読み出して描画 */
+async function renderBibByKeys(listId, keys, bibUrl = 'ref.bib') {
+  const listEl = document.getElementById(listId);
+  if (!listEl) return;
+  const res = await fetch(bibUrl, { cache: 'no-store' });
+  const txt = await res.text();
+  const db = parseBibtexSimple(txt);
+
+  // 年降順で並べたい場合
+  const items = keys
+    .map(k => db[k])
+    .filter(Boolean)
+    .sort((a, b) => (parseInt(b.year||0) - parseInt(a.year||0)));
+
+  listEl.innerHTML = '';
+  for (const it of items) {
+    const li = document.createElement('li');
+    li.className = 'bibitem';
+    // 既存テンプレに近い出力
+    const parts = [];
+    if (it.author) parts.push(`${it.author}.`);
+    if (it.title)  parts.push(`<strong>${it.title}</strong>.`);
+    if (it.journal) parts.push(`<em>${it.journal}</em>.`);
+    if (it.booktitle) parts.push(`<em>${it.booktitle}</em>.`);
+    if (it.event) parts.push(`<em>${it.event}</em>.`);
+    if (it.organization) parts.push(`<em>${it.organization}</em>.`);
+    if (it.year) parts.push(`${it.year}.`);
+    if (it.volume) parts.push(`Vol. ${it.volume}.`);
+    if (it.number) parts.push(`No. ${it.number}.`);
+    if (it.pages) parts.push(`pp. ${it.pages}.`);
+    if (it.month) parts.push(`${it.month}.`);
+    if (it.note) parts.push(`${it.note}.`);
+    li.innerHTML = parts.join(' ').replace(/\s+/g, ' ').trim();
+    listEl.appendChild(li);
+  }
+}
+
+// === ここで好きなキーを並べる（例：アワードだけ）===
+renderBibByKeys('JournalList', ['matsunaga_hato_2024_jscp_article',
+                                ], 
+                'ConfIntList', ['matsunaga_hato_2024_itsc_presentation',
+                                'matsunaga_hato_2024_hksts_presentation',
+                                'matsunaga_hato_2025_ped_presentation'
+                                ],
+
+                'ConfDomList', [
+                                'matsunaga_hato_2024_jscp_article'
+                                ],                  
+                'ref.bib');
+</script>
+
+
+
 
 <script>
   // === メニュー開閉 ===
