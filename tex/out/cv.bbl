@@ -104,6 +104,18 @@
       \true{nocite}
       \keyw{award}
     \endentry
+    \entry{matsunaga_award2025-ja}{misc}{}{}
+      \list{organization}{1}{%
+        {東京大学大学院 工学系研究科社会基盤学専攻}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{title}{優秀修士論文}
+      \field{year}{2025}
+      \true{nocite}
+      \keyw{award}
+    \endentry
     \entry{matsunaga_hato_2025_jste_presentation}{inproceedings}{}{}
       \name{author}{2}{}{%
         {{hash=a9e8dc6d29089f3786189247f5e71947}{%
@@ -264,6 +276,18 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{title}{Best Graduation Thesis}
+      \field{year}{2023}
+      \true{nocite}
+      \keyw{award}
+    \endentry
+    \entry{matsunaga_award2023-ja}{misc}{}{}
+      \list{organization}{1}{%
+        {東京大学 工学部社会基盤学科}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{title}{最優秀卒業論文}
       \field{year}{2023}
       \true{nocite}
       \keyw{award}

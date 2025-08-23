@@ -1,15 +1,15 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'out/cv.blg'
-[47] biber-darwin:340> INFO - === Sat Aug 23, 2025, 18:23:03
-[57] Biber.pm:420> INFO - Reading 'out/cv.bcf'
-[109] Biber.pm:991> INFO - Using all citekeys in bib section 0
-[118] Biber.pm:4463> INFO - Processing section 0
-[124] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 0
-[125] bibtex.pm:1713> INFO - LaTeX decoding ...
-[132] bibtex.pm:1519> INFO - Found BibTeX data source '../ref.bib'
-[172] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[173] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[173] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
-[173] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[177] bbl.pm:676> INFO - Writing 'out/cv.bbl' with encoding 'UTF-8'
-[179] bbl.pm:779> INFO - Output to out/cv.bbl
+[48] biber-darwin:340> INFO - === Sat Aug 23, 2025, 18:26:23
+[60] Biber.pm:420> INFO - Reading 'out/cv.bcf'
+[113] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[123] Biber.pm:4463> INFO - Processing section 0
+[131] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 0
+[132] bibtex.pm:1713> INFO - LaTeX decoding ...
+[139] bibtex.pm:1519> INFO - Found BibTeX data source '../ref.bib'
+[185] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[185] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[185] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[185] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[190] bbl.pm:676> INFO - Writing 'out/cv.bbl' with encoding 'UTF-8'
+[192] bbl.pm:779> INFO - Output to out/cv.bbl
