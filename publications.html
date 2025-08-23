@@ -102,6 +102,11 @@
       <ol id="JournalList" class="biblist"></ol>
     </section>
 
+    <section id="journal-reviewed">
+      <h1>Journal Articles (Under Review)</h1>
+      <ol id="JournalList-reviewed" class="biblist"></ol>
+    </section>
+
     <section id="conf-intl">
       <h1>Conference Papers (International)</h1>
       <ol id="ConfIntList" class="biblist"></ol>
@@ -200,6 +205,11 @@ renderBibByKeys('JournalList', [
   'matsunaga_hato_2024_jscp_article'
 ]);
 
+renderBibByKeys('JournalList-reviewed', [
+  'matsunaga_trc_2025_article'
+]);
+
+
 renderBibByKeys('ConfIntList', [
   'matsunaga_hato_2025_ped_presentation',
   'matsunaga_hato_2024_itsc_presentation',
@@ -207,7 +217,8 @@ renderBibByKeys('ConfIntList', [
 ]);
 
 renderBibByKeys('ConfDomList', [
-  'matsunaga_hato_2025_jste_presentation' // ← domestic はこっち（例）
+  'matsunaga_hato_2025_jste_presentation', // ← domestic はこっち（例）
+  'matsunaga_hato_2024_jscp_article'
 ]);
 </script>
 

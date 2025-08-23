@@ -19,6 +19,41 @@
 
 \refsection{0}
   \datalist[entry]{ydnt/global//global/global/global}
+    \entry{matsunaga_trc_2025_article}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=463ed2a3d2d670232889d49d5a3e769d}{%
+           family={Matsunaga},
+           familyi={M\bibinitperiod},
+           given={Takahiro},
+           giveni={T\bibinitperiod}}}%
+        {{hash=bad6b8cfbba1cdd01a263b258e9d89be}{%
+           family={Hato},
+           familyi={H\bibinitperiod},
+           given={Eiji},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{fullhash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{fullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{bibnamehash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{authorbibnamehash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{authornamehash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{authorfullhash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{authorfullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
+      \field{extraname}{1}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Transportation Research Part C: Emerging Technologies}
+      \field{note}{revised and resubmitted, under review}
+      \field{title}{Mean Field Game-based 3D Route Choice Model with Quantized Sensor Observations}
+      \true{nocite}
+      \keyw{journal-article-underreview}
+    \endentry
     \entry{matsunaga_hato_2025_ped_presentation}{inproceedings}{}{}
       \name{author}{2}{}{%
         {{hash=463ed2a3d2d670232889d49d5a3e769d}{%
@@ -43,7 +78,7 @@
       \strng{authornamehash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
-      \field{extraname}{1}
+      \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -99,7 +134,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{交通工学研究発表会}
-      \field{note}{査読なし・口頭発表予定}
+      \field{note}{査読なし・口頭発表}
       \field{title}{複雑な day-to-day 活動動態学習に基づく首都圏アクティビティ生成モデル}
       \field{year}{2025}
       \true{nocite}
@@ -129,7 +164,7 @@
       \strng{authornamehash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -167,7 +202,7 @@
       \strng{authornamehash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
-      \field{extraname}{3}
+      \field{extraname}{4}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
