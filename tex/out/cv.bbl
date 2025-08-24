@@ -280,6 +280,74 @@
       \true{nocite}
       \keyw{award}
     \endentry
+    \entry{Suzuki2023ShibuyaSwitching}{inproceedings}{}{}
+      \name{author}{7}{}{%
+        {{hash=342f163303e5a34e3288139e9dc77ecb}{%
+           family={Suzuki},
+           familyi={S\bibinitperiod},
+           given={Takeshi},
+           giveni={T\bibinitperiod}}}%
+        {{hash=b6859f52d82c920c8790587952540eaf}{%
+           family={Saito},
+           familyi={S\bibinitperiod},
+           given={Koji},
+           giveni={K\bibinitperiod}}}%
+        {{hash=56fce4ab414af5623c434b0d1c4acdc6}{%
+           family={Yamazaki},
+           familyi={Y\bibinitperiod},
+           given={Atsushi},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a0d080f59abb0becf2f9cce204b30abc}{%
+           family={Honda},
+           familyi={H\bibinitperiod},
+           given={Seiichiro},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bad6b8cfbba1cdd01a263b258e9d89be}{%
+           family={Hato},
+           familyi={H\bibinitperiod},
+           given={Eiji},
+           giveni={E\bibinitperiod}}}%
+        {{hash=844787c59255e2a3ccbb00a15d6d5ff5}{%
+           family={Ishii},
+           familyi={I\bibinitperiod},
+           given={Ryoji},
+           giveni={R\bibinitperiod}}}%
+        {{hash=463ed2a3d2d670232889d49d5a3e769d}{%
+           family={Matsunaga},
+           familyi={M\bibinitperiod},
+           given={Takahiro},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {japanese}%
+      }
+      \list{location}{1}{%
+        {Japan}%
+      }
+      \list{publisher}{1}{%
+        {土木計画学研究発表会・講演集}%
+      }
+      \strng{namehash}{3d78801ef3d121ab1c2929c6d44471c3}
+      \strng{fullhash}{28c592e8d53ee52ebd77aac356b6b012}
+      \strng{fullhashraw}{28c592e8d53ee52ebd77aac356b6b012}
+      \strng{bibnamehash}{28c592e8d53ee52ebd77aac356b6b012}
+      \strng{authorbibnamehash}{28c592e8d53ee52ebd77aac356b6b012}
+      \strng{authornamehash}{3d78801ef3d121ab1c2929c6d44471c3}
+      \strng{authorfullhash}{28c592e8d53ee52ebd77aac356b6b012}
+      \strng{authorfullhashraw}{28c592e8d53ee52ebd77aac356b6b012}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{土木計画学研究・講演集(CD-ROM)}
+      \field{month}{11}
+      \field{note}{JST Material Number: X0119B, Proceedings, 原著論文}
+      \field{title}{渋谷駅山手線線路切換工事時における多様な観測データを用いた行動変容の実態分析}
+      \field{volume}{68}
+      \field{year}{2023}
+      \true{nocite}
+      \keyw{conference-domestic}
+    \endentry
     \entry{matsunaga_award2023-ja}{misc}{}{}
       \list{organization}{1}{%
         {東京大学 工学部社会基盤学科}%

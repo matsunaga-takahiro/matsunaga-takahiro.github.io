@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.28)  23 AUG 2025 18:26
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.28)  24 AUG 2025 09:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -602,7 +602,9 @@ Package biblatex Warning: Split bibliography detected.
 
 [1
 
-] (out/cv.aux)
+]
+
+[2] (out/cv.aux)
  ***********
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 1
@@ -615,12 +617,12 @@ Package logreq Info: Writing requests to 'cv.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 16088 strings out of 473912
- 285396 string characters out of 5733076
- 1119175 words of memory out of 5000000
- 39181 multiletter control sequences out of 15000+600000
+ 16092 strings out of 473912
+ 285597 string characters out of 5733076
+ 1120210 words of memory out of 5000000
+ 39185 multiletter control sequences out of 15000+600000
  567395 words of font info for 85 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 72i,5n,81p,763b,1254s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,5n,81p,763b,1491s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/cv.dvi (1 page, 5896 bytes).
+Output written on out/cv.dvi (2 pages, 6772 bytes).
