@@ -1,17 +1,17 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'out/cv.blg'
-[47] biber-darwin:340> INFO - === Sun Aug 24, 2025, 09:16:04
-[56] Biber.pm:420> INFO - Reading 'out/cv.bcf'
-[111] Biber.pm:991> INFO - Using all citekeys in bib section 0
-[120] Biber.pm:4463> INFO - Processing section 0
-[127] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 0
-[128] bibtex.pm:1713> INFO - LaTeX decoding ...
-[136] bibtex.pm:1519> INFO - Found BibTeX data source '../ref.bib'
-[188] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[188] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[188] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
-[188] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[194] bbl.pm:676> INFO - Writing 'out/cv.bbl' with encoding 'UTF-8'
-[197] bbl.pm:779> INFO - Output to out/cv.bbl
-[198] Biber.pm:131> WARN - BibTeX subsystem: /var/folders/_k/qgnv6b3961q5nz5l1v78bw080000gn/T/biber_tmp_JhJ8/e800e2552f53b910154f366d4c3730d7_72559.utf8, line 111, warning: 3 characters of junk seen at toplevel
+[47] biber-darwin:340> INFO - === Wed Sep 10, 2025, 06:44:23
+[57] Biber.pm:420> INFO - Reading 'out/cv.bcf'
+[114] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[124] Biber.pm:4463> INFO - Processing section 0
+[130] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 0
+[131] bibtex.pm:1713> INFO - LaTeX decoding ...
+[140] bibtex.pm:1519> INFO - Found BibTeX data source '../ref.bib'
+[189] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[189] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[189] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[189] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[195] bbl.pm:676> INFO - Writing 'out/cv.bbl' with encoding 'UTF-8'
+[198] bbl.pm:779> INFO - Output to out/cv.bbl
+[198] Biber.pm:131> WARN - BibTeX subsystem: /var/folders/_k/qgnv6b3961q5nz5l1v78bw080000gn/T/biber_tmp_dhqe/e800e2552f53b910154f366d4c3730d7_18813.utf8, line 111, warning: 3 characters of junk seen at toplevel
 [198] Biber.pm:133> INFO - WARNINGS: 1
