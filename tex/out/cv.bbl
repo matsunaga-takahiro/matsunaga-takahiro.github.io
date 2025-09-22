@@ -116,6 +116,30 @@
       \true{nocite}
       \keyw{award}
     \endentry
+    \entry{wings-ja}{misc}{}{}
+      \list{organization}{1}{%
+        {東京大学 高齢社会総合研究機構}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{title}{WINGS-GLAFS}
+      \field{year}{2025}
+      \true{nocite}
+      \keyw{grant}
+    \endentry
+    \entry{wings}{misc}{}{}
+      \list{organization}{1}{%
+        {The University of Tokyo, Institute of Gerontology}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{title}{WINGS-GLAFS}
+      \field{year}{2025}
+      \true{nocite}
+      \keyw{grant}
+    \endentry
     \entry{matsunaga_award2025-ja}{misc}{}{}
       \list{organization}{1}{%
         {東京大学大学院 工学系研究科社会基盤学専攻}%

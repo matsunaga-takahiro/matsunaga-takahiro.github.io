@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.28)  22 SEP 2025 11:57
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.uptex) (TeX Live 2024) (preloaded format=uplatex 2024.12.28)  22 SEP 2025 12:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -587,9 +587,6 @@ Package biblatex Warning: Split bibliography detected.
 (biblatex)                '\BiblatexSplitbibDefernumbersWarningOff'.
 
 
-LaTeX Warning: Empty bibliography on input line 65.
-
-
 Package biblatex Warning: Split bibliography detected.
 (biblatex)                Many simple split bibliography setups with
 (biblatex)                non-overlapping bibliographies benefit from
@@ -617,12 +614,12 @@ Package logreq Info: Writing requests to 'cv.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 16095 strings out of 473912
- 285744 string characters out of 5733076
- 1120245 words of memory out of 5000000
- 39188 multiletter control sequences out of 15000+600000
+ 16101 strings out of 473912
+ 285993 string characters out of 5733076
+ 1120315 words of memory out of 5000000
+ 39194 multiletter control sequences out of 15000+600000
  567395 words of font info for 85 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  72i,5n,81p,763b,1491s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/cv.dvi (2 pages, 6816 bytes).
+Output written on out/cv.dvi (2 pages, 7216 bytes).
