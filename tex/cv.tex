@@ -7,7 +7,15 @@
 \usepackage{geometry}
 \geometry{margin=20mm}
 
-\usepackage[backend=biber,style=numeric,sorting=ydnt,maxbibnames=99]{biblatex}
+% \usepackage[backend=biber,style=numeric,sorting=ydnt,maxbibnames=99]{biblatex}
+% ここを変更
+\usepackage[
+  backend=biber,
+  style=numeric,
+  sorting=ydnt,
+  maxbibnames=99,
+  defernumbers=true % ← 追加：番号付けを出力時に遅延
+]{biblatex}
 
 % 参照する .bib（相対パスは環境に合わせて）
 \addbibresource{../ref.bib}
@@ -62,7 +70,7 @@ Behavior in Networks Studies Unit (Supervisor: Eiji Hato)\\
 Department of Civil Engineering, the University of Tokyo 
 
 \vspace{5mm}
-\nocite{*}
+% \nocite{*}
 % \printbibliography[filter=journal-int,    title={Peer-Reviewed International Journal Papers},   resetnumbers=true]
 % \printbibliography[filter=journal-int-ur, title={Peer-Reviewed International Journal Papers (Under Review)},  resetnumbers=true]
 % \printbibliography[filter=journal-dom,    title={Peer-Reviewed National Journal Papers (in Japanese)},  resetnumbers=true]
@@ -71,72 +79,82 @@ Department of Civil Engineering, the University of Tokyo
 % \printbibliography[filter=pre-dom,        title={Oral Presentation without Review (in Japanese)},  resetnumbers=true]
 % \printbibliography[filter=grant, title={Grants}, resetnumbers=true]
 % \printbibliography[filter=award, title={Awards}, resetnumbers=true]
-
-
-\begin{refsection}
 \nocite{*}
-\printbibliography[
-  filter=journal-int,
-  title={Peer-Reviewed International Journal Papers}
-]
-\end{refsection}
 
-\begin{refsection}
-\nocite{*}
-\printbibliography[
-  filter=journal-int-ur,
-  title={Peer-Reviewed International Journal Papers (Under Review)}
-]
-\end{refsection}
+\printbibliography[filter=journal-int,    title={Peer-Reviewed International Journal Papers},                 resetnumbers=true]
+\printbibliography[filter=journal-int-ur, title={Peer-Reviewed International Journal Papers (Under Review)},  resetnumbers=true]
+\printbibliography[filter=journal-dom,    title={Peer-Reviewed National Journal Papers (in Japanese)},        resetnumbers=true]
+\printbibliography[filter=conf-intl,      title={Peer-Reviewed International Conferences},                    resetnumbers=true]
+\printbibliography[filter=conf-dom,       title={Peer-Reviewed National Conferences (in Japanese)},           resetnumbers=true]
+\printbibliography[filter=pre-dom,        title={Oral Presentation without Review (in Japanese)},             resetnumbers=true]
+\printbibliography[filter=grant,          title={Grants},                                                     resetnumbers=true]
+\printbibliography[filter=award,          title={Awards},                                                     resetnumbers=true]
 
 
-\begin{refsection}
-\nocite{*}
-\printbibliography[
-  filter=journal-dom,
-  title={Peer-Reviewed National Journal Papers (in Japanese)}
-]
-\end{refsection}
+% \begin{refsection}
+% \nocite{*}
+% \printbibliography[
+%   filter=journal-int,
+%   title={Peer-Reviewed International Journal Papers}
+% ]
+% \end{refsection}
 
-\begin{refsection}
-\nocite{*}
-\printbibliography[
-  filter=conf-intl,
-  title={Peer-Reviewed International Conferences}
-]
-\end{refsection}
+% \begin{refsection}
+% \nocite{*}
+% \printbibliography[
+%   filter=journal-int-ur,
+%   title={Peer-Reviewed International Journal Papers (Under Review)}
+% ]
+% \end{refsection}
 
-\begin{refsection}
-\nocite{*}
-\printbibliography[
-  filter=conf-dom,
-  title={Peer-Reviewed National Conferences (in Japanese)}
-]
-\end{refsection}
 
-\begin{refsection}
-\nocite{*}
-\printbibliography[
-  filter=pre-dom,
-  title={Oral Presentation without Review (in Japanese)}
-]
-\end{refsection}
+% \begin{refsection}
+% \nocite{*}
+% \printbibliography[
+%   filter=journal-dom,
+%   title={Peer-Reviewed National Journal Papers (in Japanese)}
+% ]
+% \end{refsection}
 
-\begin{refsection}
-\nocite{*}
-\printbibliography[
-  filter=grant,
-  title={Grants}
-]
-\end{refsection}
+% \begin{refsection}
+% \nocite{*}
+% \printbibliography[
+%   filter=conf-intl,
+%   title={Peer-Reviewed International Conferences}
+% ]
+% \end{refsection}
 
-\begin{refsection}
-\nocite{*}
-\printbibliography[
-  filter=award,
-  title={Awards}
-]
-\end{refsection}
+% \begin{refsection}
+% \nocite{*}
+% \printbibliography[
+%   filter=conf-dom,
+%   title={Peer-Reviewed National Conferences (in Japanese)}
+% ]
+% \end{refsection}
+
+% \begin{refsection}
+% \nocite{*}
+% \printbibliography[
+%   filter=pre-dom,
+%   title={Oral Presentation without Review (in Japanese)}
+% ]
+% \end{refsection}
+
+% \begin{refsection}
+% \nocite{*}
+% \printbibliography[
+%   filter=grant,
+%   title={Grants}
+% ]
+% \end{refsection}
+
+% \begin{refsection}
+% \nocite{*}
+% \printbibliography[
+%   filter=award,
+%   title={Awards}
+% ]
+% \end{refsection}
 
 
 
