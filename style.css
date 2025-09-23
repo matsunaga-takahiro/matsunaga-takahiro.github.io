@@ -157,7 +157,7 @@ header {
    Page Main / Common
 ============================= */
 main {
-  max-width: 800px;
+  max-width: 900px;
   margin: 2rem auto;
   padding: 1rem;
   background: var(--bg);
