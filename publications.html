@@ -15,25 +15,6 @@
   <script src="js/bibtex_js.js"></script>
 </head>
 <body>
-    <!-- <header>
-    <nav style="display:flex; justify-content:space-between; align-items:center;">
-        <ul style="display:flex; gap:1rem; margin:0; padding:0; list-style:none;">
-        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-        <li><a href="research.html" data-i18n="nav.research">Research</a></li>
-        <li><a href="publications.html" data-i18n="nav.publications">Publications</a></li>
-        <li><a href="awards_grants.html" data-i18n="nav.awards">Awards/Grants</a></li>
-        <li><a href="activities.html" data-i18n="nav.activities">Activities</a></li>
-        </ul>
-        <div class="lang-switch" aria-label="Language switcher"
-            style="display:flex; gap:.5rem; font-weight:700;">
-        <button type="button" data-lang="en"
-                style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇬🇧 En</button>
-        <span>/</span>
-        <button type="button" data-lang="ja"
-                style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇯🇵 Jp</button>
-        </div>
-    </nav>
-    </header> -->
     <header>
     <nav class="site-nav" aria-label="Primary" aria-expanded="false">
         <a href="index.html" class="brand">
@@ -91,38 +72,35 @@
   </div>
 
   <main>
-    <!-- <section id="journals">
-      <h1>Journal Articles</h1>
-      <ol class="bibtex_display"
-          data-search="keyword=journal-article"
-          data-sort="year,desc"></ol>
-    </section> -->
 
-    <section id="journal">
-      <h1>Journal Articles</h1>
-      <ol id="JournalList" class="biblist"></ol>
+    <section id="journal-int">
+      <h1>Peer-Reviewed International Journal Papers</h1>
+      <ol id="IntJournalList" class="biblist"></ol>
     </section>
 
-    <section id="journal-reviewed">
-      <h1>Journal Articles (Under Review)</h1>
-      <ol id="JournalList-reviewed" class="biblist"></ol>
+    <section id="journal-int-ur">
+      <h1>Peer-Reviewed International Journal Papers (Under Review)</h1>
+      <ol id="IntJournalListUR" class="biblist"></ol>
     </section>
 
+    <section id="journal-jpn">
+      <h1>Peer-Reviewed National Journal Papers (in Japanese)</h1>
+      <ol id="JpnJournalList" class="biblist"></ol>
+    </section>
+    
     <section id="conf-intl">
-      <h1>Conference Papers (International)</h1>
-      <ol id="ConfIntList" class="biblist"></ol>
-    <!-- 
-      <ol class="bibtex_display"
-          data-search="keyword=conference-international"
-          data-sort="year,desc"></ol> -->
+      <h1>Peer-Reviewed International Conferences</h1>
+      <ol id="IntConfList" class="biblist"></ol>
     </section>
 
     <section id="conf-dom">
-      <h1>Conference Papers (Domestic)</h1>
-      <ol id="ConfDomList" class="biblist"></ol>
-      <!-- <ol class="bibtex_display"
-          data-search="keyword=conference-domestic"
-          data-sort="year,desc"></ol> -->
+      <h1>Peer-Reviewed National Conferences (in Japanese)</h1>
+      <ol id="JpnConfList" class="biblist"></ol>
+    </section>
+
+    <section id="pre-dom">
+      <h1> Oral Presentation without Review (in Japanese)</h1>
+      <ol id="JpnPreList" class="biblist"></ol>
     </section>
 
   </main>
@@ -191,41 +169,34 @@ async function renderBibByKeys(listId, keys, bibUrl = 'ref.bib') {
   }
 }
 
-// === ここで好きなキーを並べる（例：アワードだけ）===
-// renderBibByKeys('JournalList', ['matsunaga_hato_2024_jscp_article',
-//                                 ], 
-//                 'ConfIntList', ['matsunaga_hato_2024_itsc_presentation',
-//                                 'matsunaga_hato_2024_hksts_presentation',
-//                                 'matsunaga_hato_2025_ped_presentation'
-//                                 ],
-//                 'ConfDomList', [
-//                                 'matsunaga_hato_2024_jscp_article'
-//                                 ],                  
-//                 'ref.bib');
-renderBibByKeys('JournalList', [
-  'matsunaga_hato_2024_jscp_article'
+renderBibByKeys('JpnJournalList', [
+  'matsunaga_hato_2025_jscp',
+  'matsunaga_hato_2024_jscp_article',
 ]);
 
-renderBibByKeys('JournalList-reviewed', [
+renderBibByKeys('IntJournalListUR', [
   'matsunaga_trc_2025_article'
 ]);
 
-
-renderBibByKeys('ConfIntList', [
+renderBibByKeys('IntConfList', [
+  'matsunaga_hato_2025_hksts',
   'matsunaga_hato_2025_ped_presentation',
   'matsunaga_hato_2024_itsc_presentation',
-  'matsunaga_hato_2024_hksts_presentation'
+  'matsunaga_hato_2024_hksts_presentation',
 ]);
 
-renderBibByKeys('ConfDomList', [
-  'matsunaga_hato_2025_jste_presentation', // ← domestic はこっち（例）
+renderBibByKeys('JpnConfList', [
   'matsunaga_hato_2024_jscp_article',
+]);
+
+renderBibByKeys('JpnPreList', [
+  'matsunaga_hato_2025_jste_presentation', 
+  'matsunaga_hato_2024_jsce',
   'Suzuki2023ShibuyaSwitching'
 ]);
+ 
+
 </script>
-
-
-
 
 <script>
   // === メニュー開閉 ===
@@ -250,8 +221,6 @@ renderBibByKeys('ConfDomList', [
   const mql = window.matchMedia('(min-width: 861px)');
   mql.addEventListener('change', e => { if (e.matches) setExpanded(false); });
 
-  // === i18n（homeで使っている applyLang を関数ごと共通化して読み込むのが理想）===
-  // もし各ページに辞書を置いていない場合は、最低限保存済み言語に合わせてボタンの見た目だけ整える：
   try {
     const saved = localStorage.getItem('site.lang') || 'en';
     document.documentElement.setAttribute('lang', saved);

@@ -7,195 +7,137 @@
 \usepackage{geometry}
 \geometry{margin=20mm}
 
-% ---- ここがポイント：biblatex を backend=bibtex で ----
-% \usepackage[
-%   backend=bibtex,      % ← upbibtex を使う
-%   style=numeric,       % お好みで numeric / authoryear など
-%   sorting=ydnt,        % 年→名前→タイトル
-%   maxbibnames=99
-% ]{biblatex}
 \usepackage[backend=biber,style=numeric,sorting=ydnt,maxbibnames=99]{biblatex}
-% \usepackage[backend=biber,style=numeric]{biblatex}
-
 
 % 参照する .bib（相対パスは環境に合わせて）
 \addbibresource{../ref.bib}
 
 
 % ---- フィルタ ----
-\defbibfilter{conf-dom}{\keyword{conference-domestic}}
+\defbibfilter{journal-int}{\keyword{journal-int}}
+\defbibfilter{journal-int-ur}{\keyword{journal-int-ur}}
+\defbibfilter{journal-dom}{\keyword{journal-jpn}}
+
 \defbibfilter{conf-intl}{\keyword{conference-international}}
-\defbibfilter{journal}{\type{article} or \keyword{journal-article}}
+\defbibfilter{conf-dom}{\keyword{conference-domestic}}
+\defbibfilter{pre-dom}{\keyword{presentation-domestic}}
+
 \defbibfilter{award}{\keyword{award}}
 \defbibfilter{grant}{\keyword{grant} or \type{grant}}
 \begin{document}
 
 \begin{center}
-  {\LARGE Takahiro Matsunaga}\\[2mm] % 履歴書 / Curriculum Vitae
-  % \textbf{Curriculum Vitae}\\
-  \small Email: {matsunaga@bin.t.u-tokyo.ac.jp} \\ Website: \url{https://matsunaga-takahiro.github.io/index.html}
+  {\LARGE Takahiro Matsunaga}\\[2mm] 
+  \textbf{Curriculum Vitae}\\
 \end{center}
 
+\section*{Personal Information}
+\textbf{Name}: Takahiro Matsunaga\\
+\quad
+\textbf{Affiliation}: Department of Civil Engineering, the University of Tokyo \\
+\quad
+\textbf{Address}: 7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan\\
+\quad
+\textbf{Email}: matsunaga@bin.t.u-tokyo.ac.jp\\
+\quad
+\textbf{Webpage}: \url{https://matsunaga-takahiro.github.io}
+
 \section*{Education}
-% \subsection*{The University of Tokyo}
-% \subsubsection*{Ph.D. in Civil Engineering, the University of Tokyo \quad (\textit{Since 2025.10})}
-% \subsubsection*{M.S. in Civil Engineering, the University of Tokyo (Outstanding Paper Award) \quad \textit{2024.04 - 2025.09}}
-% \subsubsection*{B.S. in Civil Engineering, the University of Tokyo (Best Paper Award) \quad \textit{2020.04 - 2024.03}}
-% \subsubsection*{Ph.D. in Civil Engineering, the University of Tokyo \makebox[\linewidth][r]{\textit{Since 2025.10}}}
-% \subsubsection*{M.S. in Civil Engineering, the University of Tokyo (Outstanding Paper Award) \makebox[\linewidth][r]{\textit{2024.04 -- 2025.09}}}
-% \subsubsection*{B.S. in Civil Engineering, the University of Tokyo (Best Paper Award) \makebox[\linewidth][r]{\textit{2020.04 -- 2024.03}}}
-\subsubsection*{Ph.D. in Civil Engineering, the University of Tokyo \hfill \textit{Since 2025.10}}
-\subsubsection*{M.S. in Civil Engineering, the University of Tokyo (Outstanding Paper Award) \hfill \textit{2024.04 -- 2025.09}}
-\subsubsection*{B.S. in Civil Engineering, the University of Tokyo (Best Paper Award) \hfill \textit{2020.04 -- 2024.03}}
+\textbf{Ph.D. in Engineering \hfill \textit{Since 2025.10}} \\
+\quad\quad
+Behavior in Networks Studies Unit (Supervisor: Eiji Hato)\\
+\quad\quad
+Department of Civil Engineering, the University of Tokyo \\
 
-% \section*{Publications}
+\textbf{M.S. in Engineering (Outstanding Paper Award) \hfill \textit{2024.04 -- 2025.09}} \\
+\quad\quad
+Behavior in Networks Studies Unit (Supervisor: Eiji Hato)\\
+\quad\quad
+Department of Civil Engineering, the University of Tokyo \\
+
+\textbf{B.S. in Engineering (Best Paper Award) \hfill \textit{2020.04 -- 2024.03}} \\
+\quad\quad
+Behavior in Networks Studies Unit (Supervisor: Eiji Hato)\\
+\quad\quad
+Department of Civil Engineering, the University of Tokyo 
+
+\vspace{5mm}
 \nocite{*}
+% \printbibliography[filter=journal-int,    title={Peer-Reviewed International Journal Papers},   resetnumbers=true]
+% \printbibliography[filter=journal-int-ur, title={Peer-Reviewed International Journal Papers (Under Review)},  resetnumbers=true]
+% \printbibliography[filter=journal-dom,    title={Peer-Reviewed National Journal Papers (in Japanese)},  resetnumbers=true]
+% \printbibliography[filter=conf-intl,      title={Peer-Reviewed International Conferences},  resetnumbers=true]
+% \printbibliography[filter=conf-dom,       title={Peer-Reviewed National Conferences (in Japanese)},  resetnumbers=true]
+% \printbibliography[filter=pre-dom,        title={Oral Presentation without Review (in Japanese)},  resetnumbers=true]
+% \printbibliography[filter=grant, title={Grants}, resetnumbers=true]
+% \printbibliography[filter=award, title={Awards}, resetnumbers=true]
 
-% \subsection*{Journal Articles}% 査読誌だけ
-% \printbibliography[type=article, heading=none]
-\printbibliography[filter=journal, title={Journal Articles}]
 
-% \subsection*{International Conferences}% 国際会議だけ（@inproceedings かつ keywords に conference-international）
-\printbibliography[filter=conf-intl, title={International Conferences}]
+\begin{refsection}
+\nocite{*}
+\printbibliography[
+  filter=journal-int,
+  title={Peer-Reviewed International Journal Papers}
+]
+\end{refsection}
 
-% \subsection*{Domestic Conferences}% 国内会議だけ
-\printbibliography[filter=conf-dom, title={Domestic Conferences}]
+\begin{refsection}
+\nocite{*}
+\printbibliography[
+  filter=journal-int-ur,
+  title={Peer-Reviewed International Journal Papers (Under Review)}
+]
+\end{refsection}
 
-% \section*{Grants}% 研究費（@grant 型 or keywords=grants）
-\printbibliography[filter=grant, title={Grants}]
 
-% \section*{Awards}
-\printbibliography[filter=award, title={Awards}]
+\begin{refsection}
+\nocite{*}
+\printbibliography[
+  filter=journal-dom,
+  title={Peer-Reviewed National Journal Papers (in Japanese)}
+]
+\end{refsection}
+
+\begin{refsection}
+\nocite{*}
+\printbibliography[
+  filter=conf-intl,
+  title={Peer-Reviewed International Conferences}
+]
+\end{refsection}
+
+\begin{refsection}
+\nocite{*}
+\printbibliography[
+  filter=conf-dom,
+  title={Peer-Reviewed National Conferences (in Japanese)}
+]
+\end{refsection}
+
+\begin{refsection}
+\nocite{*}
+\printbibliography[
+  filter=pre-dom,
+  title={Oral Presentation without Review (in Japanese)}
+]
+\end{refsection}
+
+\begin{refsection}
+\nocite{*}
+\printbibliography[
+  filter=grant,
+  title={Grants}
+]
+\end{refsection}
+
+\begin{refsection}
+\nocite{*}
+\printbibliography[
+  filter=award,
+  title={Awards}
+]
+\end{refsection}
+
+
 
 \end{document}
-% \documentclass[uplatex,a4paper,10pt]{jsarticle}
-% \usepackage[dvipdfmx]{graphicx}
-% \usepackage{geometry}
-% \geometry{margin=20mm}
-% \usepackage{titlesec}
-% \usepackage{array}
-% \usepackage{enumitem}
-% \usepackage{hyperref}
-% \hypersetup{colorlinks=true,linkcolor=black,urlcolor=black}
-
-% % ========== biblatex 設定 ==========
-% \usepackage[
-%   backend=biber,     % biber を使用
-%   bibencoding=utf8,
-%   sorting=ydnt,      % year-desc, name, title
-%   maxbibnames=99,
-%   giveninits=true,
-%   defernumbers=true, % セクションごとに番号を持たせない
-%   isbn=false, doi=false, url=false, eprint=false
-% ]{biblatex}
-
-% % サイト共通の ref.bib を参照（main.tex からの相対パス）
-% \addbibresource{../ref.bib}
-
-% % ---- カスタム型とフィールド（award / grant）を定義 ----
-% \DeclareDatamodelEntrytypes{award,grant}
-% \DeclareDatamodelFields[type=field,datatype=literal]{event,amount}
-% \DeclareDatamodelEntryfields[award]{event,organization}
-% \DeclareDatamodelEntryfields[grant]{organization,amount}
-
-% % ---- 表示ドライバ（出力体裁）----
-% \DeclareNameAlias{default}{family-given}
-
-% \DeclareBibliographyDriver{award}{%
-%   \printnames{author}%
-%   \newunit
-%   \printfield{title}%
-%   \newunit
-%   \printlist{organization}%
-%   \newunit
-%   \printfield{event}%
-%   \newunit
-%   \printfield{year}%
-%   \newunit
-%   \printfield{note}%
-%   \finentry
-% }
-
-% \DeclareBibliographyDriver{grant}{%
-%   \printnames{author}%
-%   \newunit
-%   \printfield{title}%
-%   \newunit
-%   \printlist{organization}%
-%   \newunit
-%   \printfield{year}%
-%   \newunit
-%   \printfield{amount}%
-%   \newunit
-%   \printfield{note}%
-%   \finentry
-% }
-
-% % ---- フィルタ（keywords / type で振り分け）----
-% \defbibfilter{journals}{ type=article }
-% \defbibfilter{conf-intl}{ keyword={conference-international} }
-% \defbibfilter{conf-dom }{ keyword={conference-domestic} }
-% \defbibfilter{awards   }{ type=award or keyword={awards} }
-% \defbibfilter{grants   }{ type=grant or keyword={grants} }
-
-% % ========== CV レイアウトの軽い整形 ==========
-% \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
-% \titlespacing{\section}{0pt}{8pt}{4pt}
-% \setlist[itemize]{leftmargin=*, itemsep=2pt, topsep=2pt}
-% \setlength{\parskip}{2pt}
-% \setlength{\parindent}{0pt}
-
-% \newcommand{\cvitem}[3]{%
-%   \begin{tabular*}{\textwidth}{@{}p{0.72\textwidth}@{\extracolsep{\fill}}p{0.25\textwidth}@{}}
-%     \textbf{#1} & \raggedleft #2 \\
-%   \end{tabular*}\\[-2pt]
-%   #3\par\vspace{4pt}
-% }
-
-% \newcommand{\cvheader}[3]{%
-%   {\LARGE \textbf{#1}}\\[4pt]
-%   #2\\
-%   #3
-% }
-
-% \begin{document}
-
-% % ==== ヘッダー ====
-% \cvheader{Takahiro Matsunaga}
-% {Department of Civil Engineering, the University of Tokyo}
-% {7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan} \\
-% % {(+81) xx-xxxx-xxxx \ \ $\diamond$ \ \ \href{mailto:matsunaga@bin.t.u-tokyo.ac.jp}{matsunaga@bin.t.u-tokyo.ac.jp} \ \ $\diamond$ \ \ \href{https://scholar.google.com/citations?user=fGWoyocAAAAJ}{Google Scholar}}
-% {\href{mailto:matsunaga@bin.t.u-tokyo.ac.jp}{matsunaga@bin.t.u-tokyo.ac.jp}}
-% \vspace{8pt}
-
-% % ==== EXPERIENCE（手書きセクションは自由記述）====
-% \section*{EXPERIENCE}
-% % \cvitem{Research Assistant, The University of Tokyo}{2025.04--Present}
-% % {Behavior in Networks (BinN) Studies Unit. Advisor: Prof. Eiji Hato.}
-
-% % ==== EDUCATION ====
-% \section*{EDUCATION}
-% \cvitem{The University of Tokyo}{2020--}
-% {Ph.D. in Civil Engineering.}{since 2025.10}
-% {M.S. in Civil Engineering (Outstanding Paper Award).}{2024.04 - 2025.09}
-% {B.S. in Civil Engineering (Best Paper Award).}{2020.04 - 2024.03}
-
-% % ==== PUBLICATIONS ====
-% \section*{PUBLICATIONS (Peer-Reviewed Journals)}
-% \printbibliography[filter=journal_papers, heading=none]
-
-% \section*{CONFERENCE PAPERS (International)}
-% \printbibliography[filter=conf-intl, heading=none]
-
-% \section*{CONFERENCE PAPERS (Domestic)}
-% \printbibliography[filter=conf-dom, heading=none]
-
-% % ==== HONORS & AWARDS ====
-% \section*{HONORS \& AWARDS}
-% \printbibliography[filter=awards, heading=none]
-
-% % ==== GRANTS ====
-% \section*{GRANTS}
-% \printbibliography[filter=grants, heading=none]
-
-% \end{document}

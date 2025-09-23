@@ -11,25 +11,6 @@
     <script src="js/bibtex_js.js"></script>
 </head>
 <body>
-    <!-- <header>
-    <nav style="display:flex; justify-content:space-between; align-items:center;">
-        <ul style="display:flex; gap:1rem; margin:0; padding:0; list-style:none;">
-        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-        <li><a href="research.html" data-i18n="nav.research">Research</a></li>
-        <li><a href="publications.html" data-i18n="nav.publications">Publications</a></li>
-        <li><a href="awards_grants.html" data-i18n="nav.awards">Awards/Grants</a></li>
-        <li><a href="activities.html" data-i18n="nav.activities">Activities</a></li>
-        </ul>
-        <div class="lang-switch" aria-label="Language switcher"
-            style="display:flex; gap:.5rem; font-weight:700;">
-        <button type="button" data-lang="en"
-                style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇬🇧 En</button>
-        <span>/</span>
-        <button type="button" data-lang="ja"
-                style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇯🇵 Jp</button>
-        </div>
-    </nav>
-    </header> -->
     <header>
     <nav class="site-nav" aria-label="Primary" aria-expanded="false">
         <a href="index.html" class="brand">
@@ -100,20 +81,6 @@
   </div>
 
     <main>
-
-    <!-- <section id="awards">
-        <h1>Awards</h1>
-    <ol class="biblist bibtex_display"
-        data-search="(type=award) or (keyword=awards)"
-        data-sort="year,desc"></ol>
-    </section>
-
-    <section id="grants">
-        <h1>Grants</h1>
-        <ol class="biblist bibtex_display"
-            data-search="(type=grant) or (keyword=grants)"
-            data-sort="year,desc"></ol>
-    </section> -->
     <section id="awards">
       <h1>Awards</h1>
       <ol id="awardsList" class="biblist"></ol>
@@ -122,21 +89,6 @@
       <h1>Grants</h1>
       <ol id="grantsList" class="biblist"></ol>
     </section>
-    <!-- Awards -->
-    <!-- <section id="awards">
-      <h1>Awards</h1>
-      <ol class="biblist bibtex_display"
-          data-search="keyword=award"
-          data-sort="year,desc"></ol>
-    </section> -->
-
-    <!-- Grants -->
-    <!-- <section id="grants">
-      <h1>Grants</h1>
-      <ol class="biblist bibtex_display"
-          data-search="keyword=grant"
-          data-sort="year,desc"></ol>
-    </section> -->
     </main>
 
 
@@ -216,8 +168,6 @@ renderBibByKeys('grantsList', [
 ], 'ref.bib');
 
 </script>
-
-
 
 <script>
   // === メニュー開閉 ===

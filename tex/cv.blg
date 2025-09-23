@@ -1,15 +1,98 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'cv.blg'
-[47] biber-darwin:340> INFO - === 水  8 20, 2025, 10:20:25
-[57] Biber.pm:420> INFO - Reading 'cv.bcf'
-[110] Biber.pm:991> INFO - Using all citekeys in bib section 0
-[119] Biber.pm:4463> INFO - Processing section 0
-[125] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 0
-[126] bibtex.pm:1713> INFO - LaTeX decoding ...
-[132] bibtex.pm:1519> INFO - Found BibTeX data source '../ref.bib'
-[169] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[169] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[169] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
-[169] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[173] bbl.pm:676> INFO - Writing 'cv.bbl' with encoding 'UTF-8'
-[175] bbl.pm:779> INFO - Output to cv.bbl
+[46] biber-darwin:340> INFO - === 火  9 23, 2025, 23:19:04
+[56] Biber.pm:420> INFO - Reading 'cv.bcf'
+[112] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[112] Biber.pm:991> INFO - Using all citekeys in bib section 1
+[112] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[112] Biber.pm:991> INFO - Using all citekeys in bib section 2
+[112] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[112] Biber.pm:991> INFO - Using all citekeys in bib section 3
+[112] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[112] Biber.pm:991> INFO - Using all citekeys in bib section 4
+[112] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[113] Biber.pm:991> INFO - Using all citekeys in bib section 5
+[113] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[113] Biber.pm:991> INFO - Using all citekeys in bib section 6
+[113] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[113] Biber.pm:991> INFO - Using all citekeys in bib section 7
+[113] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[113] Biber.pm:991> INFO - Using all citekeys in bib section 8
+[113] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[148] Biber.pm:4463> INFO - Processing section 0
+[154] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 0
+[155] bibtex.pm:1713> INFO - LaTeX decoding ...
+[165] bibtex.pm:1519> INFO - Found BibTeX data source '../ref.bib'
+[227] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[227] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[227] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[227] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[235] Biber.pm:4463> INFO - Processing section 1
+[235] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 1
+[281] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[281] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[281] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[281] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[289] Biber.pm:4463> INFO - Processing section 2
+[289] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 2
+[334] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[334] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[334] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[334] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[342] Biber.pm:4463> INFO - Processing section 3
+[342] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 3
+[388] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[388] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[388] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[388] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[396] Biber.pm:4463> INFO - Processing section 4
+[396] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 4
+[441] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[442] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[442] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[442] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[449] Biber.pm:4463> INFO - Processing section 5
+[449] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 5
+[495] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[495] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[495] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[495] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[503] Biber.pm:4463> INFO - Processing section 6
+[503] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 6
+[548] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[548] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[548] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[548] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[556] Biber.pm:4463> INFO - Processing section 7
+[556] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 7
+[604] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[604] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[604] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[604] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[612] Biber.pm:4463> INFO - Processing section 8
+[612] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 8
+[664] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[664] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[664] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[664] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[673] bbl.pm:676> INFO - Writing 'cv.bbl' with encoding 'UTF-8'
+[704] bbl.pm:779> INFO - Output to cv.bbl
+[706] Biber.pm:131> WARN - legacy year field '2025.10 -' in entry 'spring' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2024.10 - 2025.09' in entry 'wings' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2025.10 -' in entry 'spring' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2024.10 - 2025.09' in entry 'wings' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2025.10 -' in entry 'spring' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2024.10 - 2025.09' in entry 'wings' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2025.10 -' in entry 'spring' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2024.10 - 2025.09' in entry 'wings' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2025.10 -' in entry 'spring' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2024.10 - 2025.09' in entry 'wings' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2025.10 -' in entry 'spring' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2024.10 - 2025.09' in entry 'wings' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2025.10 -' in entry 'spring' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2024.10 - 2025.09' in entry 'wings' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2025.10 -' in entry 'spring' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2024.10 - 2025.09' in entry 'wings' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2025.10 -' in entry 'spring' is not an integer - this will probably not sort properly.
+[706] Biber.pm:131> WARN - legacy year field '2024.10 - 2025.09' in entry 'wings' is not an integer - this will probably not sort properly.
+[706] Biber.pm:133> INFO - WARNINGS: 18
