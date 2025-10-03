@@ -32,6 +32,7 @@
 
 \defbibfilter{award}{\keyword{award}}
 \defbibfilter{grant}{\keyword{grant} or \type{grant}}
+\defbibfilter{fellowship}{\keyword{fellowship} or \type{fellowship}}
 \begin{document}
 
 \begin{center}
@@ -89,73 +90,7 @@ Department of Civil Engineering, the University of Tokyo
 \printbibliography[filter=pre-dom,        title={Oral Presentation without Review (in Japanese)},             resetnumbers=true]
 \printbibliography[filter=grant,          title={Grants},                                                     resetnumbers=true]
 \printbibliography[filter=award,          title={Awards},                                                     resetnumbers=true]
-
-
-% \begin{refsection}
-% \nocite{*}
-% \printbibliography[
-%   filter=journal-int,
-%   title={Peer-Reviewed International Journal Papers}
-% ]
-% \end{refsection}
-
-% \begin{refsection}
-% \nocite{*}
-% \printbibliography[
-%   filter=journal-int-ur,
-%   title={Peer-Reviewed International Journal Papers (Under Review)}
-% ]
-% \end{refsection}
-
-
-% \begin{refsection}
-% \nocite{*}
-% \printbibliography[
-%   filter=journal-dom,
-%   title={Peer-Reviewed National Journal Papers (in Japanese)}
-% ]
-% \end{refsection}
-
-% \begin{refsection}
-% \nocite{*}
-% \printbibliography[
-%   filter=conf-intl,
-%   title={Peer-Reviewed International Conferences}
-% ]
-% \end{refsection}
-
-% \begin{refsection}
-% \nocite{*}
-% \printbibliography[
-%   filter=conf-dom,
-%   title={Peer-Reviewed National Conferences (in Japanese)}
-% ]
-% \end{refsection}
-
-% \begin{refsection}
-% \nocite{*}
-% \printbibliography[
-%   filter=pre-dom,
-%   title={Oral Presentation without Review (in Japanese)}
-% ]
-% \end{refsection}
-
-% \begin{refsection}
-% \nocite{*}
-% \printbibliography[
-%   filter=grant,
-%   title={Grants}
-% ]
-% \end{refsection}
-
-% \begin{refsection}
-% \nocite{*}
-% \printbibliography[
-%   filter=award,
-%   title={Awards}
-% ]
-% \end{refsection}
-
+\printbibliography[filter=fellowship,     title={Fellowships},                                               resetnumbers=true]
 
 
 \end{document}

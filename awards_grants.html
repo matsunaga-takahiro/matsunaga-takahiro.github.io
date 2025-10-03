@@ -89,6 +89,10 @@
       <h1>Grants</h1>
       <ol id="grantsList" class="biblist"></ol>
     </section>
+    <section id="fellowships">
+      <h1>Fellowships</h1>
+      <ol id="fellowshipsList" class="biblist"></ol>
+    </section>
     </main>
 
 
@@ -163,10 +167,15 @@ renderBibByKeys('awardsList', [
 ], 'ref.bib');
 
 renderBibByKeys('grantsList', [
+
+], 'ref.bib');
+
+renderBibByKeys('fellowshipsList', [
+  'DC',
   'spring',
   'wings'
 ], 'ref.bib');
-
+ 
 </script>
 
 <script>
