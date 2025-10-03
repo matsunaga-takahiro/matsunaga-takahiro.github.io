@@ -1,19 +1,19 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'out/cv.blg'
-[42] biber-darwin:340> INFO - === Fri Oct  3, 2025, 21:12:01
-[52] Biber.pm:420> INFO - Reading 'out/cv.bcf'
-[97] Biber.pm:991> INFO - Using all citekeys in bib section 0
-[106] Biber.pm:4463> INFO - Processing section 0
-[112] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 0
-[113] bibtex.pm:1713> INFO - LaTeX decoding ...
+[42] biber-darwin:340> INFO - === Fri Oct  3, 2025, 21:16:52
+[51] Biber.pm:420> INFO - Reading 'out/cv.bcf'
+[96] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[105] Biber.pm:4463> INFO - Processing section 0
+[111] Biber.pm:4654> INFO - Looking for bibtex file '../ref.bib' for section 0
+[112] bibtex.pm:1713> INFO - LaTeX decoding ...
 [123] bibtex.pm:1519> INFO - Found BibTeX data source '../ref.bib'
-[187] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[187] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[187] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
-[187] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[195] bbl.pm:676> INFO - Writing 'out/cv.bbl' with encoding 'UTF-8'
-[199] bbl.pm:779> INFO - Output to out/cv.bbl
-[199] Biber.pm:131> WARN - legacy year field '2025.10 -' in entry 'spring' is not an integer - this will probably not sort properly.
-[199] Biber.pm:131> WARN - legacy year field '2026.04 -' in entry 'DC' is not an integer - this will probably not sort properly.
-[199] Biber.pm:131> WARN - legacy year field '2024.10 - 2025.09' in entry 'wings' is not an integer - this will probably not sort properly.
-[199] Biber.pm:133> INFO - WARNINGS: 3
+[186] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[186] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[186] Biber.pm:4283> INFO - Sorting list 'ydnt/global//global/global/global' of type 'entry' with template 'ydnt' and locale 'en-US'
+[186] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[194] bbl.pm:676> INFO - Writing 'out/cv.bbl' with encoding 'UTF-8'
+[198] bbl.pm:779> INFO - Output to out/cv.bbl
+[198] Biber.pm:131> WARN - legacy year field '2025.10 -' in entry 'spring' is not an integer - this will probably not sort properly.
+[198] Biber.pm:131> WARN - legacy year field '2024.10 - 2025.09' in entry 'wings' is not an integer - this will probably not sort properly.
+[198] Biber.pm:131> WARN - legacy year field '2026.04 -' in entry 'DC' is not an integer - this will probably not sort properly.
+[198] Biber.pm:133> INFO - WARNINGS: 3
