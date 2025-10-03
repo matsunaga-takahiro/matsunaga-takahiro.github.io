@@ -19,6 +19,18 @@
 
 \refsection{0}
   \datalist[entry]{ydnt/global//global/global/global}
+    \entry{DC}{misc}{}{}
+      \list{organization}{1}{%
+        {Japan Society for the Promotion of Science}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{title}{JSPS Research Fellow (DC1)}
+      \field{year}{2026.04 -}
+      \true{nocite}
+      \keyw{fellowship}
+    \endentry
     \entry{spring}{misc}{}{}
       \list{organization}{1}{%
         {The University of Tokyo, Fostering Advanced Human Resources to Green Transformation}%
@@ -29,7 +41,7 @@
       \field{title}{SPRING GX (Support for doctoral student)}
       \field{year}{2025.10 -}
       \true{nocite}
-      \keyw{grant}
+      \keyw{fellowship}
     \endentry
     \entry{wings}{misc}{}{}
       \list{organization}{1}{%
@@ -41,7 +53,7 @@
       \field{title}{WINGS-GLAFS (Support for master and doctoral student)}
       \field{year}{2024.10 - 2025.09}
       \true{nocite}
-      \keyw{grant}
+      \keyw{fellowship}
     \endentry
     \entry{matsunaga_trc_2025_article}{article}{}{}
       \name{author}{2}{}{%
@@ -75,6 +87,44 @@
       \true{nocite}
       \keyw{journal-int-ur}
     \endentry
+    \entry{matsunaga_hato_2026_trb}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=463ed2a3d2d670232889d49d5a3e769d}{%
+           family={Matsunaga},
+           familyi={M\bibinitperiod},
+           given={Takahiro},
+           giveni={T\bibinitperiod}}}%
+        {{hash=bad6b8cfbba1cdd01a263b258e9d89be}{%
+           family={Hato},
+           familyi={H\bibinitperiod},
+           given={Eiji},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Washington, D.C., USA}%
+      }
+      \strng{namehash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{fullhash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{fullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{bibnamehash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{authorbibnamehash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{authornamehash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{authorfullhash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{authorfullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Transportation Research Board Annual Meeting (TRB 2025)}
+      \field{month}{1}
+      \field{note}{Peer-reviewed, oral presentation}
+      \field{title}{Activity Generation using Panel Data of Day-to-day Activity-travel Pattern in Tokyo Metropolitan Area}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{conference-international}
+    \endentry
     \entry{matsunaga_hato_2025_hksts}{inproceedings}{}{}
       \name{author}{2}{}{%
         {{hash=463ed2a3d2d670232889d49d5a3e769d}{%
@@ -99,7 +149,7 @@
       \strng{authornamehash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -137,7 +187,7 @@
       \strng{authornamehash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
-      \field{extraname}{3}
+      \field{extraname}{4}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -263,7 +313,7 @@
       \strng{authornamehash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
-      \field{extraname}{4}
+      \field{extraname}{5}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -301,7 +351,7 @@
       \strng{authornamehash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhash}{8379f02eed74cf86a0ef499037ea0f07}
       \strng{authorfullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
-      \field{extraname}{5}
+      \field{extraname}{6}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -390,7 +440,7 @@
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
-      \field{title}{Best Graduation Thesis}
+      \field{title}{Best Graduation Thesis (Dean's Award)}
       \field{year}{2023}
       \true{nocite}
       \keyw{award}
