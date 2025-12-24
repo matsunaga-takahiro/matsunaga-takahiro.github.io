@@ -24,7 +24,7 @@
 
         .research-section h2 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: var(--text, #030363);
             border-left: 4px solid var(--text, #030363);
             padding-left: 10px;
@@ -32,35 +32,26 @@
 
         .topic-content {
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* 常に縦並び（上：テキスト、下：画像） */
             gap: 1.5rem;
-        }
-
-        /* PC画面では画像を左、テキストを右にする場合 */
-        @media (min-width: 768px) {
-            .topic-content {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-            .topic-img {
-                width: 35%; /* 画像の幅 */
-                min-width: 250px;
-                flex-shrink: 0;
-            }
-        }
-
-        .topic-img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            object-fit: cover;
         }
 
         .topic-text {
             font-weight: 300;
             line-height: 1.8;
-            text-align: justify; /* 両端揃えで見栄え良く */
+            text-align: justify; /* 両端揃え */
+            width: 100%;         /* 横幅いっぱい */
+        }
+
+        .topic-img {
+            display: block;
+            width: 100%;
+            max-width: 500px; /* 画像が大きくなりすぎないよう制限（小さめに） */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            object-fit: cover;
+            margin: 0 auto;   /* 中央寄せ（左寄せにしたい場合は margin: 0; に変更） */
         }
     </style>
 </head>
@@ -107,13 +98,13 @@
         <section class="research-section">
             <h2 data-i18n="topic1.title">Observation and Modeling of Pedestrian Behavior in Indoor Spaces</h2>
             <div class="topic-content">
-                <!-- 画像1: 適切なパスに修正してください -->
-                <img src="images/res1-A.png" alt="Pedestrian Observation" class="topic-img" onerror="this.style.display='none'">
                 <div class="topic-text">
                     <p data-i18n="topic1.desc">
                         In detailed indoor urban spaces such as railway stations, conventional GPS-based positioning often fails. To overcome this, I focus on sensor-based or Eulerian observation methods using BLE, Wi-Fi, and cameras...
                     </p>
                 </div>
+                <!-- 画像をテキストの下に移動 -->
+                <img src="images/research1.jpg" alt="Pedestrian Observation" class="topic-img" onerror="this.style.display='none'">
             </div>
         </section>
 
@@ -121,13 +112,13 @@
         <section class="research-section">
             <h2 data-i18n="topic2.title">Prediction and Generation of Activity Demand</h2>
             <div class="topic-content">
-                <!-- 画像2 -->
-                <img src="images/res2-B.png" alt="Activity Demand Prediction" class="topic-img" onerror="this.style.display='none'">
                 <div class="topic-text">
                     <p data-i18n="topic2.desc">
                         Based on Activity-based models (ABMs), which view travel demand as derived from activities, predicting activity demand is the most fundamental approach to travel demand analysis...
                     </p>
                 </div>
+                <!-- 画像をテキストの下に移動 -->
+                <img src="images/research2.jpg" alt="Activity Demand Prediction" class="topic-img" onerror="this.style.display='none'">
             </div>
         </section>
 
@@ -135,13 +126,13 @@
         <section class="research-section">
             <h2 data-i18n="topic3.title">Travel Demand Control via Dynamic Pricing</h2>
             <div class="topic-content">
-                <!-- 画像3 -->
-                <img src="images/res3-A.png" alt="Dynamic Pricing Mechanism" class="topic-img" onerror="this.style.display='none'">
                 <div class="topic-text">
                     <p data-i18n="topic3.desc">
                         The origins of travel demand control date back to the proposal of the Pigouvian tax in 1920. While many proposals have relied on pursuing social optimality through internalizing externalities...
                     </p>
                 </div>
+                <!-- 画像をテキストの下に移動 -->
+                <img src="images/research3.jpg" alt="Dynamic Pricing Mechanism" class="topic-img" onerror="this.style.display='none'">
             </div>
         </section>
 
