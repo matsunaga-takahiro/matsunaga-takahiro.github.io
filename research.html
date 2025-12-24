@@ -3,32 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title data-i18n="nav.research">Research</title>
+    
+    <!-- フォントは index.html と同様に Light (300) を追加 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="image/png" href="images/nyankoA.png">
 
+    <style>
+        /* Research ページ独自のスタイル */
+        .research-section {
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        .research-section:last-child {
+            border-bottom: none;
+        }
+
+        .research-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text, #030363);
+            border-left: 4px solid var(--text, #030363);
+            padding-left: 10px;
+        }
+
+        .topic-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* PC画面では画像を左、テキストを右にする場合 */
+        @media (min-width: 768px) {
+            .topic-content {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            .topic-img {
+                width: 35%; /* 画像の幅 */
+                min-width: 250px;
+                flex-shrink: 0;
+            }
+        }
+
+        .topic-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            object-fit: cover;
+        }
+
+        .topic-text {
+            font-weight: 300;
+            line-height: 1.8;
+            text-align: justify; /* 両端揃えで見栄え良く */
+        }
+    </style>
 </head>
 <body>    
-    <!-- <header>
-    <nav style="display:flex; justify-content:space-between; align-items:center;">
-        <ul style="display:flex; gap:1rem; margin:0; padding:0; list-style:none;">
-        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-        <li><a href="research.html" data-i18n="nav.research">Research</a></li>
-        <li><a href="publications.html" data-i18n="nav.publications">Publications</a></li>
-        <li><a href="awards_grants.html" data-i18n="nav.awards">Awards/Grants</a></li>
-        <li><a href="activities.html" data-i18n="nav.activities">Activities</a></li>
-        </ul>
-        <div class="lang-switch" aria-label="Language switcher"
-            style="display:flex; gap:.5rem; font-weight:700;">
-        <button type="button" data-lang="en"
-                style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇬🇧 En</button>
-        <span>/</span>
-        <button type="button" data-lang="ja"
-                style="background:none;border:none;cursor:pointer;font:inherit;opacity:.6;">🇯🇵 Jp</button>
-        </div>
-    </nav>
-    </header> -->
     <header>
     <nav class="site-nav" aria-label="Primary" aria-expanded="false">
         <a href="index.html" class="brand">
@@ -65,52 +101,169 @@
     </header>
 
     <main>
-        <section>
-            <h1></h1>
-            <p></p>
+        <h1 data-i18n="page.title">Research Interests</h1>
+        
+        <!-- Topic 1 -->
+        <section class="research-section">
+            <h2 data-i18n="topic1.title">Observation and Modeling of Pedestrian Behavior in Indoor Spaces</h2>
+            <div class="topic-content">
+                <!-- 画像1: 適切なパスに修正してください -->
+                <img src="images/res1-A.png" alt="Pedestrian Observation" class="topic-img" onerror="this.style.display='none'">
+                <div class="topic-text">
+                    <p data-i18n="topic1.desc">
+                        In detailed indoor urban spaces such as railway stations, conventional GPS-based positioning often fails. To overcome this, I focus on sensor-based or Eulerian observation methods using BLE, Wi-Fi, and cameras...
+                    </p>
+                </div>
+            </div>
         </section>
-        <section>
-            <h2></h2>
-            <p></p>
+
+        <!-- Topic 2 -->
+        <section class="research-section">
+            <h2 data-i18n="topic2.title">Prediction and Generation of Activity Demand</h2>
+            <div class="topic-content">
+                <!-- 画像2 -->
+                <img src="images/res2-B.png" alt="Activity Demand Prediction" class="topic-img" onerror="this.style.display='none'">
+                <div class="topic-text">
+                    <p data-i18n="topic2.desc">
+                        Based on Activity-based models (ABMs), which view travel demand as derived from activities, predicting activity demand is the most fundamental approach to travel demand analysis...
+                    </p>
+                </div>
+            </div>
         </section>
+
+        <!-- Topic 3 -->
+        <section class="research-section">
+            <h2 data-i18n="topic3.title">Travel Demand Control via Dynamic Pricing</h2>
+            <div class="topic-content">
+                <!-- 画像3 -->
+                <img src="images/res3-A.png" alt="Dynamic Pricing Mechanism" class="topic-img" onerror="this.style.display='none'">
+                <div class="topic-text">
+                    <p data-i18n="topic3.desc">
+                        The origins of travel demand control date back to the proposal of the Pigouvian tax in 1920. While many proposals have relied on pursuing social optimality through internalizing externalities...
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-<script>
-  // === メニュー開閉 ===
-  const nav = document.querySelector('.site-nav');
-  const menuBtn = document.getElementById('menuBtn');
-  const iconBurger = document.getElementById('iconBurger');
-  const iconClose = document.getElementById('iconClose');
+    <footer>
+        <p data-i18n="site.footer">© 2025 Takahiro Matsunaga. All rights reserved.</p>
+    </footer>
 
+<script>
+  // ====== i18n Dictionary ======
+  const I18N = {
+    en: {
+        "site.title": "Takahiro Matsunaga",
+        "page.title": "Research Interests",
+        "nav.home": "Home",
+        "nav.research": "Research",
+        "nav.publications": "Publications",
+        "nav.activities": "Activities",
+        "nav.awards": "Awards/Grants",
+        "hero.name": "Takahiro Matsunaga",
+        "site.footer": "© 2025 Takahiro Matsunaga. All rights reserved.",
+        
+        // Topic 1
+        "topic1.title": "Observation and Modeling of Pedestrian Behavior in Indoor Spaces: Application of Sensor-based Observation",
+        "topic1.desc": "In detailed indoor urban spaces such as railway stations, conventional GPS-based positioning often fails. To overcome this, I focus on sensor-based or Eulerian observation methods using BLE, Wi-Fi, and cameras. In particular, I believe BLE has significant potential as a simple and effective observation method that ensures high population representativeness. Handling high observation uncertainty is crucial in sensor data processing. I am interested in new pedestrian dynamics observation experiments and modeling methods that focus on reducing model estimation bias caused by this uncertainty. In the future, I aim to work on correcting observation errors in crowded spaces, simultaneous estimation of microscopic continuous models and observations, and extracting interactions.",
+        
+        // Topic 2
+        "topic2.title": "Prediction and Generation of Activity Demand: Application of Language Generation Models to Route Choice Problems",
+        "topic2.desc": "Based on Activity-based models (ABMs), which view travel demand as derived from activities, predicting activity demand is the most fundamental approach to travel demand analysis. These activity demands are thought to fluctuate daily while maintaining certain dynamics, and attempts have been made to capture them using multi-day panel surveys. Focusing on this time-series structure, I am working on building more generalizable models by applying language generation models (Transformers) to activity models.",
+        
+        // Topic 3
+        "topic3.title": "Travel Demand Control via Dynamic Pricing: Constructing Equitable Market Mechanisms",
+        "topic3.desc": "The origins of travel demand control date back to the proposal of the Pigouvian tax in 1920. While many proposals have relied on pursuing social optimality through internalizing externalities via marginal cost pricing or limiting access for some users, challenges remain regarding social acceptance and ensuring equity when applied to public transport. On the other hand, social understanding of dynamic pricing is progressing. I aim to build new feasible mechanism designs that focus more on implementation scenarios."
+    },
+    ja: {
+        "site.title": "Takahiro Matsunaga",
+        "page.title": "研究内容",
+        "nav.home": "表紙",
+        "nav.research": "研究",
+        "nav.publications": "論文",
+        "nav.awards": "受賞・助成金",
+        "nav.activities": "その他活動",
+        "hero.name": "松永 隆宏",
+        "site.footer": "© 2025 Takahiro Matsunaga. 禁無断転載",
+
+        // Topic 1
+        "topic1.title": "屋内空間における歩行者行動の観測・モデリング：センサ型観測の援用",
+        "topic1.desc": "鉄道駅などの詳細な屋内都市空間においては，従来のGPSを用いた測位が機能しない問題があり，克服する代替手段として，BLE, Wi-Fi, カメラ等を用いたセンサ型・オイラー型の観測に着目しています．特にBLEは，高い母集団代表性を保証した，手軽で実効性の高い観測手段として今後一層の利用可能性を秘めていると考えています．センサ観測の処理には特に高い観測不確実性の処理が重要であり，不確実性に起因するモデル推定バイアスの逓減に着目した新しい歩行者ダイナミクスの観測実験およびそのモデリング手法に興味を持っています．今後は特に混雑空間での観測誤差の補正，より微視的な連続モデルと観測の同時推定手法，相互作用の抽出，などに取り組みたいと考えています．",
+
+        // Topic 2
+        "topic2.title": "活動需要の予測・生成：経路選択問題への言語生成モデルの援用",
+        "topic2.desc": "交通需要は活動の派生であるとするActivity-based models（ABMs）の考え方に立てば，活動需要の予測が交通需要分析の際の最も根源的なアプローチといえます．これらの活動需要は一定のダイナミクスを持ちながら日々変動していると考えられ，複数日にまたがったパネル調査を用いてこれらを捕捉する試みがなされてきました．この時系列構造に着目して，言語生成モデル（Transformer）をActivity modelに援用しより汎化性の高いモデルの構築に取り組んでいます．",
+        
+        // Topic 3
+        "topic3.title": "変動料金を通した交通需要制御：公平（Equity）な市場メカニズムの構築",
+        "topic3.desc": "交通需要の制御の源流は1920年のPigou税の提案に遡り多くが提案されてきましたが，多くは限界費用課金を通した外部性の内部化による社会最適の追求や一部利用者への利用の限定（アクセスの制限）に依拠しており，社会受容性や公共交通への援用にあたっての公平（Equity）の確保には課題が残されていると考えています．一方で動的課金に対する社会の理解も進みつつあり，実装場面により着目した新しいfeasibleなメカニズムデザインの構築に取り組みたいと考えています．"
+    }
+  };
+
+  // Helper functions
+  const $ = (q, r=document) => r.querySelector(q);
+  const $$ = (q, r=document) => Array.from(r.querySelectorAll(q));
+
+  function applyLang(lang) {
+    const dict = I18N[lang] || I18N.en;
+
+    // Text content update
+    $$('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key]) el.textContent = dict[key];
+    });
+
+    document.documentElement.lang = lang;
+    
+    // Update Title tag
+    const titleEl = $('title[data-i18n]');
+    if (titleEl && dict[titleEl.getAttribute('data-i18n')]) {
+      document.title = dict[titleEl.getAttribute('data-i18n')];
+    }
+
+    // Button Styles
+    $$('.lang-switch button').forEach(btn => {
+      const isActive = btn.dataset.lang === lang;
+      btn.style.textDecoration = isActive ? 'underline' : 'none';
+      btn.style.opacity = isActive ? '1' : '.6';
+      btn.setAttribute('aria-pressed', isActive);
+    });
+
+    try { localStorage.setItem('site.lang', lang); } catch(e) {}
+  }
+
+  // Initialize
+  const savedLang = localStorage.getItem('site.lang');
+  const browserLang = (navigator.language || 'en').toLowerCase().startsWith('ja') ? 'ja' : 'en';
+  applyLang(savedLang || browserLang);
+
+  // Event Listeners
+  $$('.lang-switch button').forEach(btn => 
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang))
+  );
+
+  // Menu Logic
+  const nav = $('.site-nav');
+  const menuBtn = $('#menuBtn');
   function setExpanded(on) {
-    nav.setAttribute('aria-expanded', on ? 'true' : 'false');
-    if (menuBtn) menuBtn.setAttribute('aria-expanded', on ? 'true' : 'false');
-    if (iconBurger) iconBurger.style.display = on ? 'none' : 'block';
-    if (iconClose) iconClose.style.display = on ? 'block' : 'none';
+    nav.setAttribute('aria-expanded', on);
+    menuBtn.setAttribute('aria-expanded', on);
   }
   if (menuBtn) {
     menuBtn.addEventListener('click', () => {
-      const open = nav.getAttribute('aria-expanded') === 'true';
-      setExpanded(!open);
+      const isOpen = nav.getAttribute('aria-expanded') === 'true';
+      setExpanded(!isOpen);
     });
   }
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setExpanded(false); });
-  const mql = window.matchMedia('(min-width: 861px)');
-  mql.addEventListener('change', e => { if (e.matches) setExpanded(false); });
-
-  // === i18n（homeで使っている applyLang を関数ごと共通化して読み込むのが理想）===
-  // もし各ページに辞書を置いていない場合は、最低限保存済み言語に合わせてボタンの見た目だけ整える：
-  try {
-    const saved = localStorage.getItem('site.lang') || 'en';
-    document.documentElement.setAttribute('lang', saved);
-    document.querySelectorAll('.lang-switch button').forEach(btn => {
-      const on = btn.dataset.lang === saved;
-      btn.style.textDecoration = on ? 'underline' : 'none';
-      btn.style.opacity = on ? '1' : '.6';
-      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      btn.addEventListener('click', () => { localStorage.setItem('site.lang', btn.dataset.lang); location.reload(); });
-    });
-  } catch(e) {}
+  $$('#primary-nav a').forEach(a => a.addEventListener('click', () => setExpanded(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setExpanded(false);
+  });
+  window.matchMedia('(min-width: 861px)').addEventListener('change', e => {
+    if (e.matches) setExpanded(false);
+  });
 </script>
 
 </body>
