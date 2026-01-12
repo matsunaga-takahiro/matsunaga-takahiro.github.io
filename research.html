@@ -6,11 +6,12 @@
     <title data-i18n="nav.research">Research</title>
     
     <!-- フォントは index.html と同様に Light (300) を追加 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap" rel="stylesheet"> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" type="image/png" href="images/nyankoA.png">
-
+<!-- 
     <style>
         /* Research ページ独自のスタイル */
         .research-section {
@@ -53,7 +54,84 @@
             object-fit: cover;
             margin: 0 auto;   /* 中央寄せ（左寄せにしたい場合は margin: 0; に変更） */
         }
-    </style>
+    </style> -->
+<style>
+    /* Research ページ全体のベース設定 */
+    :root {
+        --font-serif: 'EB Garamond', serif;
+        --font-sans: 'Inter', sans-serif;
+        --text: #000000;
+        --text-light: #666666;
+    }
+
+    /* ページタイトル (Research Interests) */
+    main h1 {
+        font-family: var(--font-serif);
+        font-size: 2.5rem;
+        font-weight: 500;
+        margin-bottom: 4rem;
+        letter-spacing: -0.02em;
+    }
+
+    /* 各研究セクション */
+    .research-section {
+        margin-bottom: 6rem; /* セクション間の余白をより広く */
+        padding-bottom: 2rem;
+    }
+
+    /* 研究トピックのタイトル (H2) */
+    .research-section h2 {
+        font-family: var(--font-serif);
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 1.4;
+        margin-bottom: 2rem;
+        color: var(--text);
+        /* 装飾的な線を細く、または消してミニマルに */
+        border-left: 1px solid var(--text); 
+        padding-left: 1.5rem;
+    }
+
+    .topic-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    /* 研究内容の本文 */
+    .topic-text {
+        font-family: var(--font-serif); /* セリフ体に統一 */
+        font-size: 1.1rem;
+        font-weight: 400;
+        line-height: 2.0;       /* ゆったりとした行間 */
+        text-align: justify;
+        color: var(--text);
+        letter-spacing: 0.01em;
+    }
+
+    /* 画像のスタイリング */
+    .topic-img {
+        display: block;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        /* モノクロームを適用（お好みで） */
+        filter: grayscale(100%);
+        transition: filter 0.5s ease;
+        margin: 1rem 0;
+    }
+
+    .topic-img:hover {
+        filter: grayscale(0%);
+    }
+
+    /* スマホ対応の調整 */
+    @media (max-width: 768px) {
+        main h1 { font-size: 2rem; }
+        .research-section h2 { font-size: 1.3rem; }
+        .topic-text { font-size: 1rem; }
+    }
+</style>
 </head>
 <body>    
     <header>
