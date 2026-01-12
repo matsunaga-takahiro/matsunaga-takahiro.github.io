@@ -80,12 +80,63 @@ header {
   opacity: 0.5;
 }
 
+/* =============================
+   Language Switcher (Updated)
+============================= */
 .lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;             /* 文字と「/」の間隔 */
+  margin-left: 2rem;       /* メニューとの距離 */
   font-family: var(--font-sans);
   font-size: 0.75rem;
-  letter-spacing: 0.05em;
+  text-transform: uppercase; /* 大文字にしてメニューと統一 */
+  letter-spacing: 0.1em;
 }
 
+.lang-switch button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: var(--text);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* ホバー時の挙動 */
+.lang-switch button:hover {
+  opacity: 0.5;
+}
+
+/* 選択されている言語（JSで style.opacity が制御されている場合も考慮） */
+.lang-switch button[aria-pressed="true"] {
+  font-weight: 700; /* 選択中を少しだけ強調（お好みで） */
+  opacity: 1;
+}
+
+/* 区切り文字「/」の調整 */
+.lang-switch span {
+  opacity: 0.3;
+  font-weight: 300;
+  user-select: none;
+}
+
+/* モバイル時の微調整（メニューパネル内での配置） */
+@media (max-width: 860px) {
+  .lang-switch {
+    margin-left: 0;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    justify-content: flex-start;
+  }
+}
 /* =============================
    Main Content
 ============================= */
