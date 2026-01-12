@@ -105,13 +105,13 @@ main h1 {
   letter-spacing: -0.03em;
 }
 
-.bio-text {
+/* .bio-text {
   font-size: 1.2rem;
   line-height: 1.8;
   margin-bottom: 4rem;
   color: var(--text);
   font-weight: 400;
-}
+} */
 
 /* 連絡先・リンク部分 */
 main p {
@@ -164,4 +164,59 @@ footer {
   letter-spacing: 0.05em;
   color: var(--text-light);
   text-align: center;
+}
+
+/* =============================
+   Home Section Content
+============================= */
+
+/* 自己紹介文（Bio） */
+.bio-text {
+  font-family: var(--font-serif); /* タイトルと同じセリフ体 */
+  font-size: 1.15rem;           /* 本文として読みやすい少し大きめのサイズ */
+  font-weight: 400;             /* 標準的な太さ */
+  line-height: 2.0;             /* 余白を感じさせる広めの行間 */
+  color: var(--text);           /* 純粋な黒 */
+  margin-top: 2rem;
+  margin-bottom: 3.5rem;
+  letter-spacing: 0.01em;       /* わずかに字間を広げて上品に */
+}
+
+/* 所属・連絡先・リンクのリスト部分 */
+#home p:not(.bio-text) {
+  font-family: var(--font-serif); /* ここもセリフ体に統一 */
+  font-size: 0.95rem;           /* 少し小さくして「情報の密度」を下げる */
+  font-weight: 400;
+  color: var(--text);
+  margin: 1rem 0;               /* 段落間の余白 */
+  display: flex;
+  align-items: center;          /* アイコンとテキストの高さを揃える */
+}
+
+/* リンクのスタイル */
+#home a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 控えめな下線 */
+  transition: all 0.3s ease;
+}
+
+#home a:hover {
+  border-bottom: 1px solid var(--text); /* ホバーで線をはっきりさせる */
+  opacity: 0.7;
+}
+
+/* アイコンの調整 */
+.icon-text-gap {
+  margin-right: 1.2rem;
+  font-size: 0.85rem;           /* アイコンは主張しすぎないよう小さめに */
+  color: #000;                  /* 青系をやめてモノトーン（黒）に */
+  opacity: 0.5;                 /* 少し透かして背景に馴染ませる */
+  width: 1.5rem;                /* アイコンの幅を固定してテキストの開始位置を揃える */
+  text-align: center;
+}
+
+/* CV | Google Scholar などの区切り線 (|) の調整 */
+#home p span {
+  /* パイプ記号などの微調整用 */
 }
