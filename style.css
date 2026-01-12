@@ -208,6 +208,24 @@ main h1 {
   opacity: 0.7;
 }
 
+.profile-photo {
+  /* width: 100%;  <-- 削除: これが原因で巨大化していました */
+  width: auto;      /* 必要に応じて追加: 本来のアスペクト比を維持 */
+  max-width: 400px; /* 追加: ここで最大幅を制限します（値はお好みで調整してください） */
+  height: auto;
+  filter: grayscale(100%);
+  margin-top: 4rem;
+  transition: filter 0.5s;
+  
+  /* もし画像を中央寄せにしたい場合は、以下の2行のコメントを外してください */
+  /* display: block; */
+  /* margin-left: auto; margin-right: auto; */
+}
+
+.profile-photo:hover {
+  filter: grayscale(0%);
+}
+
 .icon-text-gap {
   margin-right: 1.2rem;
   font-size: 0.85rem;
