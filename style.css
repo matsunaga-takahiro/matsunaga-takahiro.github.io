@@ -2,13 +2,11 @@
    Base / Reset
 ============================= */
 :root {
-  --nav-h: 80px;         /* 余白を広げるため高めに設定 */
-  --text: #000000;       /* 純粋な黒 */
-  --text-light: #666666; /* 補助テキスト用のグレー */
-  --bg: #ffffff;         /* 純粋な白 */
-  --border: #eeeeee;     /* 繊細な境界線 */
-  
-  /* フォント指定 */
+  --nav-h: 80px;
+  --text: #000000;
+  --text-light: #666666;
+  --bg: #ffffff;
+  --border: #eeeeee;
   --font-serif: 'EB Garamond', serif;
   --font-sans: 'Inter', sans-serif;
 }
@@ -18,8 +16,8 @@ body {
   padding: 0;
   background-color: var(--bg);
   color: var(--text);
-  font-family: var(--font-serif); /* メインをセリフ体に */
-  font-size: 15px;               /* 相対的に小さめ */
+  font-family: var(--font-serif);
+  font-size: 15px;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
 }
@@ -33,7 +31,7 @@ header {
   background-color: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(5px);
   z-index: 1000;
-  border-bottom: 1px solid transparent; /* 最初は線を出さない */
+  border-bottom: 1px solid transparent;
 }
 
 .site-nav {
@@ -41,7 +39,7 @@ header {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* ブランド名とパネルを両端に */
   height: var(--nav-h);
   padding: 0 2rem;
 }
@@ -53,44 +51,57 @@ header {
   letter-spacing: -0.02em;
   text-decoration: none;
   color: var(--text);
+  white-space: nowrap;
 }
+.brand img { display: none; }
 
-.brand img {
-  display: none; /* ミニマルにするためにロゴ画像を隠す（お好みで） */
+/* メニューパネル（メニュー＋言語切替） */
+.menu-panel {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
 }
 
 .menu {
   display: flex;
-  gap: 2.5rem;   /* メニュー間の余白を広く */
+  gap: 2.5rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .menu a {
   text-decoration: none;
   color: var(--text);
-  font-family: var(--font-sans); /* メニューは読みやすさのためサンセリフ */
+  font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 400;
-  text-transform: uppercase;   /* 大文字化でデザイン性を高める */
+  text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: opacity 0.3s;
 }
+.menu a:hover { opacity: 0.5; }
 
-.menu a:hover {
-  opacity: 0.5;
+/* ハンバーガーボタン：デフォルトは非表示 */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--text);
 }
 
 /* =============================
-   Language Switcher (Updated)
+   Language Switcher
 ============================= */
 .lang-switch {
   display: flex;
   align-items: center;
-  gap: 0.5rem;             /* 文字と「/」の間隔 */
-  margin-left: 2rem;       /* メニューとの距離 */
+  gap: 0.5rem;
   font-family: var(--font-sans);
   font-size: 0.75rem;
-  text-transform: uppercase; /* 大文字にしてメニューと統一 */
+  text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
@@ -98,114 +109,113 @@ header {
   background: none;
   border: none;
   padding: 0;
-  margin: 0;
   cursor: pointer;
   color: var(--text);
   font-family: inherit;
   font-size: inherit;
-  font-weight: 400;
-  transition: opacity 0.3s ease;
-  appearance: none;
-  -webkit-appearance: none;
+  transition: opacity 0.3s;
 }
+.lang-switch button:hover { opacity: 0.5; }
+.lang-switch button[aria-pressed="true"] { font-weight: 700; opacity: 1; }
+.lang-switch span { opacity: 0.3; user-select: none; }
 
-/* ホバー時の挙動 */
-.lang-switch button:hover {
-  opacity: 0.5;
-}
-
-/* 選択されている言語（JSで style.opacity が制御されている場合も考慮） */
-.lang-switch button[aria-pressed="true"] {
-  font-weight: 700; /* 選択中を少しだけ強調（お好みで） */
-  opacity: 1;
-}
-
-/* 区切り文字「/」の調整 */
-.lang-switch span {
-  opacity: 0.3;
-  font-weight: 300;
-  user-select: none;
-}
-
-/* モバイル時の微調整（メニューパネル内での配置） */
+/* =============================
+   Mobile Responsive (860px以下)
+============================= */
 @media (max-width: 860px) {
+  .menu-toggle {
+    display: block; /* モバイル時のみ表示 */
+  }
+
+  .menu-panel {
+    display: none; /* デフォルトで隠す */
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--bg);
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  /* JSで aria-expanded="true" になった時に表示 */
+  .site-nav[aria-expanded="true"] .menu-panel {
+    display: flex;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
   .lang-switch {
-    margin-left: 0;
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 1px solid var(--border);
-    justify-content: flex-start;
+    width: 100%;
   }
 }
+
 /* =============================
-   Main Content
+   Main / Home Section (共通設定)
 ============================= */
 main {
-  max-width: 800px;  /* コンテンツ幅を絞って余白を作る */
-  margin: 100px auto; /* 上下の余白を大幅に確保 */
+  max-width: 800px;
+  margin: 100px auto;
   padding: 0 2rem;
 }
 
-/* ヒーロータイトルのデザイン（Infrasのロゴ風） */
 main h1 {
   font-family: var(--font-serif);
-  font-size: 3rem; /* 大きく表示 */
+  font-size: 3rem;
   font-weight: 500;
   line-height: 1.1;
   margin-bottom: 3rem;
   letter-spacing: -0.03em;
 }
 
-/* .bio-text {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  margin-bottom: 4rem;
-  color: var(--text);
+.bio-text {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
   font-weight: 400;
-} */
-
-/* 連絡先・リンク部分 */
-main p {
-  margin: 1.2rem 0;
-  font-family: var(--font-sans); /* 属性情報はサンセリフで整理 */
-  font-size: 0.9rem;
-  color: var(--text-light);
+  line-height: 2.0;
+  color: var(--text);
+  margin-top: 2rem;
+  margin-bottom: 3.5rem;
+  letter-spacing: 0.01em;
 }
 
-main a {
+#home p:not(.bio-text) {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--text);
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+#home a {
   color: var(--text);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
-
-main a:hover {
+#home a:hover {
   border-bottom: 1px solid var(--text);
-}
-
-.icon-text-gap {
-  margin-right: 1rem;
-  font-size: 0.9rem;
   opacity: 0.7;
 }
 
-/* 画像のスタイリング */
-.profile-photo {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  filter: grayscale(100%); /* モノトーンの徹底 */
-  margin-top: 4rem;
-  transition: filter 0.5s;
+.icon-text-gap {
+  margin-right: 1.2rem;
+  font-size: 0.85rem;
+  opacity: 0.5;
+  width: 1.5rem;
+  text-align: center;
 }
 
-.profile-photo:hover {
-  filter: grayscale(0%); /* ホバーで色を出す演出 */
-}
-
-/* =============================
-   Footer
-============================= */
 footer {
   margin-top: 150px;
   padding: 4rem 2rem;
@@ -215,59 +225,4 @@ footer {
   letter-spacing: 0.05em;
   color: var(--text-light);
   text-align: center;
-}
-
-/* =============================
-   Home Section Content
-============================= */
-
-/* 自己紹介文（Bio） */
-.bio-text {
-  font-family: var(--font-serif); /* タイトルと同じセリフ体 */
-  font-size: 1.15rem;           /* 本文として読みやすい少し大きめのサイズ */
-  font-weight: 400;             /* 標準的な太さ */
-  line-height: 2.0;             /* 余白を感じさせる広めの行間 */
-  color: var(--text);           /* 純粋な黒 */
-  margin-top: 2rem;
-  margin-bottom: 3.5rem;
-  letter-spacing: 0.01em;       /* わずかに字間を広げて上品に */
-}
-
-/* 所属・連絡先・リンクのリスト部分 */
-#home p:not(.bio-text) {
-  font-family: var(--font-serif); /* ここもセリフ体に統一 */
-  font-size: 0.95rem;           /* 少し小さくして「情報の密度」を下げる */
-  font-weight: 400;
-  color: var(--text);
-  margin: 1rem 0;               /* 段落間の余白 */
-  display: flex;
-  align-items: center;          /* アイコンとテキストの高さを揃える */
-}
-
-/* リンクのスタイル */
-#home a {
-  color: var(--text);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 控えめな下線 */
-  transition: all 0.3s ease;
-}
-
-#home a:hover {
-  border-bottom: 1px solid var(--text); /* ホバーで線をはっきりさせる */
-  opacity: 0.7;
-}
-
-/* アイコンの調整 */
-.icon-text-gap {
-  margin-right: 1.2rem;
-  font-size: 0.85rem;           /* アイコンは主張しすぎないよう小さめに */
-  color: #000;                  /* 青系をやめてモノトーン（黒）に */
-  opacity: 0.5;                 /* 少し透かして背景に馴染ませる */
-  width: 1.5rem;                /* アイコンの幅を固定してテキストの開始位置を揃える */
-  text-align: center;
-}
-
-/* CV | Google Scholar などの区切り線 (|) の調整 */
-#home p span {
-  /* パイプ記号などの微調整用 */
 }
