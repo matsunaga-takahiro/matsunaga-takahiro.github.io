@@ -3,9 +3,10 @@
 ============================= */
 :root {
   --nav-h: 56px;
-  --text: #030363;       /* 既存のテキストカラー */
-  --bg: #f9f9f9;         /* 既存の背景色 */
-  --header-bg: #dcdcdc;  /* 既存ヘッダー色 */
+  --text: #204064;       /* 見出し・ナビ用：濃い紺（コントラスト維持） */
+  --bg: #f9f9f9;         /* 背景色 */
+  --header-bg: #dcdcdc;  /* ヘッダー背景 */
+  --body-text: #546e8c;  /* 新設：本文用の薄くて淡めの紺色 */
 }
 
 *,
@@ -19,9 +20,12 @@ html, body {
 
 body {
   font-family: 'Noto Sans', system-ui, -apple-system, Segoe UI, Roboto, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-  line-height: 1.6;
+  line-height: 1.8;      /* フォントが細くなる分、行間を少し広げて読みやすく */
   background-color: var(--bg);
-  color: #191970; /* 既存: body の基本色 */
+  
+  /* 変更: 色と太さの調整 */
+  color: var(--body-text);
+  font-weight: 300;      /* 細めのウェイト（HTMLでwght@300の読み込みが必要） */
 }
 
 /* =============================
@@ -33,7 +37,7 @@ header {
   border-bottom: 1px solid #eee;
 }
 
-/* ナビ本体（デスクトップ既定） */
+/* ナビ本体 */
 .site-nav {
   display: flex;
   align-items: center;
@@ -44,7 +48,7 @@ header {
   color: var(--text);
 }
 
-/* 左側のブランド（任意） */
+/* ブランドロゴ */
 .brand {
   display: flex;
   align-items: center;
@@ -60,9 +64,9 @@ header {
   object-fit: cover;
 }
 
-/* ハンバーガー */
+/* ハンバーガーボタン */
 .menu-toggle {
-  display: none;                 /* モバイルで表示 */
+  display: none; /* デスクトップでは非表示 */
   appearance: none;
   border: none;
   background: none;
@@ -72,6 +76,13 @@ header {
   color: inherit;
 }
 .menu-toggle:focus-visible { outline: 2px solid #333; outline-offset: 2px; }
+
+/* アイコン切り替え制御（JSなしでCSSで完結） */
+.menu-toggle[aria-expanded="true"] #iconBurger { display: none; }
+.menu-toggle[aria-expanded="true"] #iconClose  { display: block; }
+.menu-toggle[aria-expanded="false"] #iconBurger { display: block; }
+.menu-toggle[aria-expanded="false"] #iconClose  { display: none; }
+
 
 /* パネルとメニュー */
 .menu-panel {
@@ -92,13 +103,14 @@ header {
   padding: .375rem .5rem;
   border-radius: 8px;
   transition: background-color .2s ease;
+  font-weight: 400; /* メニューは見やすさのため少し太さを残す */
 }
 .menu a:hover,
 .menu a:focus-visible {
-  background: #c0c0c0; /* 既存のホバー系の雰囲気に寄せる */
+  background: #c0c0c0;
 }
 
-/* 言語切替（右側） */
+/* 言語切替 */
 .lang-switch {
   display: flex;
   gap: .5rem;
@@ -122,14 +134,12 @@ header {
 @media (max-width: 860px) {
   .site-nav { position: relative; }
 
-  /* ハンバーガー表示 */
   .menu-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
 
-  /* 折りたたみパネル（初期は非表示） */
   .menu-panel {
     position: absolute;
     inset: var(--nav-h) .5rem auto .5rem;
@@ -143,13 +153,11 @@ header {
     box-shadow: 0 8px 24px rgba(0,0,0,.08);
     z-index: 1000;
   }
-  /* aria-expanded=true のときに開く */
   .site-nav[aria-expanded="true"] .menu-panel { display: flex; }
 
   .menu { flex-direction: column; }
   .menu a { padding: .5rem; }
 
-  /* 言語切替はパネル内に */
   .lang-switch { justify-content: flex-start; }
 }
 
@@ -168,19 +176,25 @@ main {
 main h1 {
   text-align: left;
   color: var(--text);
+  font-weight: 700; /* 見出しは強調 */
+  margin-bottom: 1.5rem;
 }
 
 main p {
   text-align: left;
-  margin: 0.5rem 0;
+  margin: 0.8rem 0; /* 行間広げた分、段落間も少し広く */
 }
 
 main a {
-  color: var(--text);
+  color: var(--body-text);
   text-decoration: none;
-  font-weight: normal;
+  font-weight: 400; /* リンクは本文より少しだけ太くして識別しやすく */
+  transition: opacity 0.2s;
 }
-main a:hover { text-decoration: underline; }
+main a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
 
 /* 画像 */
 .profile-photo {
@@ -188,6 +202,28 @@ main a:hover { text-decoration: underline; }
   height: auto;
   border-radius: 8px;
   margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* =============================
+   Custom Components (統合分)
+============================= */
+
+/* 自己紹介文 */
+.bio-text {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 800px;
+}
+
+/* アイコンとテキストの間隔 */
+.icon-text-gap {
+  margin-right: 0.6em;
+  color: #7da0c4; /* 本文よりさらに淡く、明るめの青グレーでアクセント */
+  width: 1.2em;
+  text-align: center;
 }
 
 /* =============================
@@ -197,6 +233,8 @@ footer {
   text-align: left;
   padding: 1rem;
   background-color: var(--bg);
-  color: var(--text);
+  color: var(--body-text);
   margin-top: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
