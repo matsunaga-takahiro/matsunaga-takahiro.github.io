@@ -98,7 +98,7 @@ main {
 /* ヒーロータイトルのデザイン（Infrasのロゴ風） */
 main h1 {
   font-family: var(--font-serif);
-  font-size: 3.5rem; /* 大きく表示 */
+  font-size: 3rem; /* 大きく表示 */
   font-weight: 500;
   line-height: 1.1;
   margin-bottom: 3rem;
