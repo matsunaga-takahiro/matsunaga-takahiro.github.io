@@ -23,11 +23,11 @@
       \list{organization}{1}{%
         {Japan Society for the Promotion of Science}%
       }
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{labeltitlesource}{title}
       \field{title}{JSPS Research Fellow (DC1)}
-      \field{year}{2026.04 -}
+      \field{year}{Apr, 2026 -}
       \true{nocite}
       \keyw{fellowship}
     \endentry
@@ -35,11 +35,11 @@
       \list{organization}{1}{%
         {The University of Tokyo, Fostering Advanced Human Resources to Green Transformation}%
       }
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
       \field{labeltitlesource}{title}
       \field{title}{SPRING GX (Support for doctoral student)}
-      \field{year}{2025.10 -}
+      \field{year}{Oct, 2025 -}
       \true{nocite}
       \keyw{fellowship}
     \endentry
@@ -47,11 +47,11 @@
       \list{organization}{1}{%
         {The University of Tokyo, Institute of Gerontology}%
       }
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
       \field{labeltitlesource}{title}
       \field{title}{WINGS-GLAFS (Support for master and doctoral student)}
-      \field{year}{2024.10 - 2025.09}
+      \field{year}{Oct, 2024 - Sep, 2025}
       \true{nocite}
       \keyw{fellowship}
     \endentry
@@ -117,13 +117,12 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Transportation Research Board Annual Meeting (TRB 2025)}
-      \field{month}{1}
       \field{note}{Peer-reviewed}
       \field{title}{Dynamic Congestion Control in Metropolitan Railways using Generative Language Models: Approach by Bid-free Reverse Auctions}
       \field{year}{2026}
-      \field{dateera}{ce}
       \true{nocite}
       \keyw{conference-international}
+      \warn{\item inproceedings entry 'matsunaga_hato_2026_trb' (../ref.bib): Invalid format 'Jan, 2026' of date field 'date' - ignoring}
     \endentry
     \entry{matsunaga_hato_2025_hksts}{inproceedings}{}{}
       \name{author}{2}{}{%
@@ -155,13 +154,12 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{The 29th International Conference of Hong Kong Society for Transportation Studies (HKSTS 2025)}
-      \field{month}{12}
       \field{note}{Peer-reviewed, oral presentation}
       \field{title}{Activity Generation using Panel Data of Day-to-day Activity-travel Pattern in Tokyo Metropolitan Area}
       \field{year}{2025}
-      \field{dateera}{ce}
       \true{nocite}
       \keyw{conference-international}
+      \warn{\item inproceedings entry 'matsunaga_hato_2025_hksts' (../ref.bib): Invalid format 'Dec, 2025' of date field 'date' - ignoring}
     \endentry
     \entry{matsunaga2025jsce}{inproceedings}{}{}
       \name{author}{2}{}{%
@@ -225,13 +223,12 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{The 12th International Conference on Pedestrian and Evacuation Dynamics (PED 2025)}
-      \field{month}{9}
       \field{note}{Peer-reviewed, accepted, oral presentation}
       \field{title}{Interaction of 3D pedestrian flow in a congested railway station: Structural estimation based on Mean Field Game theory}
       \field{year}{2025}
-      \field{dateera}{ce}
       \true{nocite}
       \keyw{conference-international}
+      \warn{\item inproceedings entry 'matsunaga_hato_2025_ped_presentation' (../ref.bib): Invalid format 'Sep, 2025' of date field 'date' - ignoring}
     \endentry
     \entry{matsunaga_award2025}{misc}{}{}
       \list{organization}{1}{%
@@ -363,13 +360,12 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{The 28th International Conference of Hong Kong Society for Transportation Studies (HKSTS 2024)}
-      \field{month}{12}
       \field{note}{Peer-reviewed, oral presentation}
       \field{title}{Joint Estimation of Latent OD Matrix and 3D Route Choice Model Across Railway Station Boundaries based on Manifold Learning}
       \field{year}{2024}
-      \field{dateera}{ce}
       \true{nocite}
       \keyw{conference-international}
+      \warn{\item inproceedings entry 'matsunaga_hato_2024_hksts_presentation' (../ref.bib): Invalid format 'Dec, 2024' of date field 'date' - ignoring}
     \endentry
     \entry{matsunaga_hato_2024_itsc_presentation}{inproceedings}{}{}
       \name{author}{2}{}{%
@@ -401,13 +397,12 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{IEEE International Conference on Intelligent Transportation Systems (ITSC)}
-      \field{month}{9}
       \field{note}{Peer-reviewed, oral presentation}
       \field{title}{Three-Dimensional Pedestrian Route Choice Model with Quantization of Observational Uncertainty}
       \field{year}{2024}
-      \field{dateera}{ce}
       \true{nocite}
       \keyw{conference-international}
+      \warn{\item inproceedings entry 'matsunaga_hato_2024_itsc_presentation' (../ref.bib): Invalid format 'Sep, 2024' of date field 'date' - ignoring}
     \endentry
     \entry{matsunaga_hato_2024_jscp_article}{article}{}{}
       \name{author}{2}{}{%
