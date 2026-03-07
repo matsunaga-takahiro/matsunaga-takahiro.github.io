@@ -118,11 +118,23 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{issn}{0968-090X}
       \field{journaltitle}{Transportation Research Part C: Emerging Technologies}
-      \field{note}{In press}
-      \field{title}{Mean Field Dynamics for Pedestrian Interaction in Quantized Observation-based 3D Route Choice Modeling}
+      \field{title}{Mean field dynamics for pedestrian interaction in quantized observation-based 3D route choice modeling}
+      \field{volume}{186}
       \field{year}{2026}
       \true{nocite}
+      \field{pages}{105608}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.trc.2026.105608
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0968090X26000963
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0968090X26000963
+      \endverb
       \keyw{journal-int}
     \endentry
     \entry{matsunaga_hato_2025_hksts}{inproceedings}{}{}
@@ -403,6 +415,43 @@
       \true{nocite}
       \keyw{conference-international}
       \warn{\item inproceedings entry 'matsunaga_hato_2024_itsc_presentation' (../ref.bib): Invalid format 'Sep, 2024' of date field 'date' - ignoring}
+    \endentry
+    \entry{matsunaga2024ieee}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=463ed2a3d2d670232889d49d5a3e769d}{%
+           family={Matsunaga},
+           familyi={M\bibinitperiod},
+           given={Takahiro},
+           giveni={T\bibinitperiod}}}%
+        {{hash=bad6b8cfbba1cdd01a263b258e9d89be}{%
+           family={Hato},
+           familyi={H\bibinitperiod},
+           given={Eiji},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{fullhash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{fullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{bibnamehash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{authorbibnamehash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{authornamehash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{authorfullhash}{8379f02eed74cf86a0ef499037ea0f07}
+      \strng{authorfullhashraw}{8379f02eed74cf86a0ef499037ea0f07}
+      \field{extraname}{8}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2024 IEEE 27th International Conference on Intelligent Transportation Systems (ITSC)}
+      \field{title}{Three-Dimensional Pedestrian Route Choice Model with Quantization of Observational Uncertainty}
+      \field{year}{2024}
+      \true{nocite}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+      \keyw{conference-international}
     \endentry
     \entry{matsunaga2024cpij}{article}{}{}
       \name{author}{2}{}{%
