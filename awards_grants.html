@@ -83,15 +83,15 @@
 
     <main>
     <section id="awards">
-      <h1>Awards</h1>
+      <h1 data-i18n="awards.awards">Awards</h1>
       <ol id="awardsList" class="biblist"></ol>
     </section>
     <section id="grants">
-      <h1>Grants</h1>
+      <h1 data-i18n="awards.grants">Grants</h1>
       <ol id="grantsList" class="biblist"></ol>
     </section>
     <section id="fellowships">
-      <h1>Fellowships</h1>
+      <h1 data-i18n="awards.fellowships">Fellowships</h1>
       <ol id="fellowshipsList" class="biblist"></ol>
     </section>
     </main>
@@ -203,17 +203,47 @@ renderBibByKeys('fellowshipsList', [
   const mql = window.matchMedia('(min-width: 861px)');
   mql.addEventListener('change', e => { if (e.matches) setExpanded(false); });
 
-  // === i18n（homeで使っている applyLang を関数ごと共通化して読み込むのが理想）===
-  // もし各ページに辞書を置いていない場合は、最低限保存済み言語に合わせてボタンの見た目だけ整える：
-  try {
-    const saved = localStorage.getItem('site.lang') || 'en';
-    document.documentElement.setAttribute('lang', saved);
+  const I18N = {
+    en: {
+      "nav.home": "Home", "nav.research": "Research", "nav.publications": "Outputs",
+      "nav.awards": "Awards/Grants", "nav.activities": "Activities",
+      "hero.name": "Takahiro Matsunaga",
+      "awards.awards": "Awards",
+      "awards.grants": "Grants",
+      "awards.fellowships": "Fellowships",
+    },
+    ja: {
+      "nav.home": "表紙", "nav.research": "研究", "nav.publications": "業績",
+      "nav.awards": "受賞・獲得資金", "nav.activities": "活動",
+      "hero.name": "Takahiro Matsunaga",
+      "awards.awards": "受賞",
+      "awards.grants": "獲得資金",
+      "awards.fellowships": "フェローシップ",
+    },
+  };
+
+  function applyLang(lang) {
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (I18N[lang] && I18N[lang][key]) el.textContent = I18N[lang][key];
+    });
     document.querySelectorAll('.lang-switch button').forEach(btn => {
-      const on = btn.dataset.lang === saved;
+      const on = btn.dataset.lang === lang;
       btn.style.textDecoration = on ? 'underline' : 'none';
       btn.style.opacity = on ? '1' : '.6';
       btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      btn.addEventListener('click', () => { localStorage.setItem('site.lang', btn.dataset.lang); location.reload(); });
+    });
+  }
+
+  try {
+    const saved = localStorage.getItem('site.lang') || 'en';
+    applyLang(saved);
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        localStorage.setItem('site.lang', btn.dataset.lang);
+        applyLang(btn.dataset.lang);
+      });
     });
   } catch(e) {}
 </script>

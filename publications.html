@@ -75,7 +75,7 @@
   <main>
 
     <section id="journal-int">
-      <h1>Peer-Reviewed International Journal Papers</h1>
+      <h1 data-i18n="pub.intl-journal">Peer-Reviewed International Journal Papers</h1>
       <ol id="IntJournalList" class="biblist"></ol>
     </section>
 
@@ -85,22 +85,22 @@
     </section>
 
     <section id="journal-jpn">
-      <h1>Peer-Reviewed Japanese Journal Papers</h1>
+      <h1 data-i18n="pub.jpn-journal">Peer-Reviewed Japanese Journal Papers</h1>
       <ol id="JpnJournalList" class="biblist"></ol>
     </section>
-    
+
     <section id="conf-intl">
-      <h1>Peer-Reviewed International Conferences</h1>
+      <h1 data-i18n="pub.intl-conf">Peer-Reviewed International Conferences</h1>
       <ol id="IntConfList" class="biblist"></ol>
     </section>
-<!-- 
+<!--
     <section id="conf-dom">
       <h1>Peer-Reviewed Japanese Conferences</h1>
       <ol id="JpnConfList" class="biblist"></ol>
     </section> -->
 
     <section id="pre-dom">
-      <h1> Oral Presentation without Review (in Japanese)</h1>
+      <h1 data-i18n="pub.jpn-oral">Oral Presentation without Review (in Japanese)</h1>
       <ol id="JpnPreList" class="biblist"></ol>
     </section>
 
@@ -229,15 +229,49 @@ renderBibByKeys('JpnPreList', [
   const mql = window.matchMedia('(min-width: 861px)');
   mql.addEventListener('change', e => { if (e.matches) setExpanded(false); });
 
-  try {
-    const saved = localStorage.getItem('site.lang') || 'en';
-    document.documentElement.setAttribute('lang', saved);
+  const I18N = {
+    en: {
+      "nav.home": "Home", "nav.research": "Research", "nav.publications": "Outputs",
+      "nav.awards": "Awards/Grants", "nav.activities": "Activities",
+      "hero.name": "Takahiro Matsunaga",
+      "pub.intl-journal": "Peer-Reviewed International Journal Papers",
+      "pub.jpn-journal": "Peer-Reviewed Japanese Journal Papers",
+      "pub.intl-conf": "Peer-Reviewed International Conferences",
+      "pub.jpn-oral": "Oral Presentation without Review (in Japanese)",
+    },
+    ja: {
+      "nav.home": "表紙", "nav.research": "研究", "nav.publications": "業績",
+      "nav.awards": "受賞・獲得資金", "nav.activities": "活動",
+      "hero.name": "Takahiro Matsunaga",
+      "pub.intl-journal": "査読付き国際論文誌",
+      "pub.jpn-journal": "査読付き国内論文誌",
+      "pub.intl-conf": "査読付き国際会議",
+      "pub.jpn-oral": "口頭発表（査読なし・国内）",
+    },
+  };
+
+  function applyLang(lang) {
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (I18N[lang] && I18N[lang][key]) el.textContent = I18N[lang][key];
+    });
     document.querySelectorAll('.lang-switch button').forEach(btn => {
-      const on = btn.dataset.lang === saved;
+      const on = btn.dataset.lang === lang;
       btn.style.textDecoration = on ? 'underline' : 'none';
       btn.style.opacity = on ? '1' : '.6';
       btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      btn.addEventListener('click', () => { localStorage.setItem('site.lang', btn.dataset.lang); location.reload(); });
+    });
+  }
+
+  try {
+    const saved = localStorage.getItem('site.lang') || 'en';
+    applyLang(saved);
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        localStorage.setItem('site.lang', btn.dataset.lang);
+        applyLang(btn.dataset.lang);
+      });
     });
   } catch(e) {}
 </script>
