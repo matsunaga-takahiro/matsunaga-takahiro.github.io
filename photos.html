@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos — Takahiro Matsunaga</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="images/nyankoA.png">
+    <style>
+        main.gallery-main {
+            max-width: 1200px;
+            margin: 60px auto 100px;
+            padding: 0 2rem;
+        }
+
+        .gallery-heading {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.4rem;
+        }
+
+        .gallery-sub {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--text-light);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-grid {
+            columns: 3 280px;
+            column-gap: 8px;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 8px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover img {
+            opacity: 0.85;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #lightbox.open {
+            display: flex;
+        }
+
+        #lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .lb-close {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        .lb-close:hover { opacity: 1; }
+
+        .lb-prev, .lb-next {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            padding: 1rem;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+            user-select: none;
+        }
+        .lb-prev:hover, .lb-next:hover { opacity: 1; }
+        .lb-prev { left: 1rem; }
+        .lb-next { right: 1rem; }
+
+        .lb-counter {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid { columns: 2 140px; column-gap: 4px; }
+            .gallery-item { margin-bottom: 4px; }
+            .lb-prev { left: 0.25rem; }
+            .lb-next { right: 0.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <nav class="site-nav" aria-label="Primary" aria-expanded="false">
+        <a href="index.html" class="brand">
+        <img src="images/nyankoA.jpeg" alt="" aria-hidden="true" />
+        <span data-i18n="hero.name">Takahiro Matsunaga</span>
+        </a>
+
+        <button class="menu-toggle" id="menuBtn" type="button"
+                aria-controls="primary-nav" aria-expanded="false"
+                aria-label="Toggle menu">
+        <svg id="iconBurger" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        </button>
+
+        <div class="menu-panel" id="menuPanel">
+        <ul class="menu" id="primary-nav">
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="research.html" data-i18n="nav.research">Research</a></li>
+            <li><a href="publications.html" data-i18n="nav.publications">Outputs</a></li>
+            <li><a href="awards_grants.html" data-i18n="nav.awards">Awards/Grants</a></li>
+            <li><a href="activities.html" data-i18n="nav.activities">Others</a></li>
+        </ul>
+        <div class="lang-switch" aria-label="Language switcher">
+            <button type="button" data-lang="en">🇬🇧 En</button><span>/</span>
+            <button type="button" data-lang="ja">🇯🇵 Jp</button>
+        </div>
+        </div>
+    </nav>
+    </header>
+
+    <main class="gallery-main">
+        <h1 class="gallery-heading" data-i18n="photos.heading">Photos</h1>
+        <p class="gallery-sub" data-i18n="photos.sub">favorites</p>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <div class="gallery-item"><img src="images/favorites/DSC_0016.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0065.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0165.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0170.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0193.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0202.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0255.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0262.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0290.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0317.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0351.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0365.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0385.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0404.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0684.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0708.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0745.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0763.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0830.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0853.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0880.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0951.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_0975.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_1004.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_1069.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_1134.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_1162.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_1391.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_1425.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_1540.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_1591.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_2049.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_3543.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_3552.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_4579.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_4702.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6472.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6497.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6519.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6587.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6673.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6702.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6742.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6749.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6769.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6796.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6802.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6809.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6811.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6854.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6914.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6926.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6935.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6948.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6968.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6981.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_6997.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7025.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7054.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7099.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7197.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7199.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7292.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7301.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7306.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7317.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7322.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7332.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7333.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7339.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7343.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7355.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7366.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7401.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7435.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7450.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7473.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7475.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7482.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7633.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7663.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7710.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7730.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7834.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7870.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7886.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7888.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7898.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7911.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7944.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7971.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7981.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7983.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7986.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7993.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_7996.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_8001.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_8003.JPG" alt="" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/favorites/DSC_8016.JPG" alt="" loading="lazy"></div>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+        <button class="lb-close" id="lbClose" aria-label="Close">&#x2715;</button>
+        <button class="lb-prev" id="lbPrev" aria-label="Previous">&#x2039;</button>
+        <img id="lbImg" src="" alt="">
+        <button class="lb-next" id="lbNext" aria-label="Next">&#x203a;</button>
+        <div class="lb-counter" id="lbCounter"></div>
+    </div>
+
+<script>
+  // Nav
+  const nav = document.querySelector('.site-nav');
+  const menuBtn = document.getElementById('menuBtn');
+  const iconBurger = document.getElementById('iconBurger');
+  const iconClose = document.getElementById('iconClose');
+  function setExpanded(on) {
+    nav.setAttribute('aria-expanded', on ? 'true' : 'false');
+    if (menuBtn) menuBtn.setAttribute('aria-expanded', on ? 'true' : 'false');
+    if (iconBurger) iconBurger.style.display = on ? 'none' : 'block';
+    if (iconClose) iconClose.style.display = on ? 'block' : 'none';
+  }
+  if (menuBtn) menuBtn.addEventListener('click', () => setExpanded(nav.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { setExpanded(false); closeLb(); } });
+  window.matchMedia('(min-width: 861px)').addEventListener('change', e => { if (e.matches) setExpanded(false); });
+
+  // i18n
+  const I18N = {
+    en: {
+      "nav.home": "Home", "nav.research": "Research", "nav.publications": "Outputs",
+      "nav.awards": "Awards/Grants", "nav.activities": "Others",
+      "hero.name": "Takahiro Matsunaga",
+      "photos.heading": "Photos",
+      "photos.sub": "favorites",
+    },
+    ja: {
+      "nav.home": "表紙", "nav.research": "研究", "nav.publications": "業績",
+      "nav.awards": "受賞・獲得資金", "nav.activities": "その他",
+      "hero.name": "Takahiro Matsunaga",
+      "photos.heading": "写真館",
+      "photos.sub": "お気に入り",
+    },
+  };
+  function applyLang(lang) {
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (I18N[lang]?.[key]) el.textContent = I18N[lang][key];
+    });
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      const on = btn.dataset.lang === lang;
+      btn.style.textDecoration = on ? 'underline' : 'none';
+      btn.style.opacity = on ? '1' : '.6';
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  try {
+    const saved = localStorage.getItem('site.lang') || 'en';
+    applyLang(saved);
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      btn.addEventListener('click', () => { localStorage.setItem('site.lang', btn.dataset.lang); applyLang(btn.dataset.lang); });
+    });
+  } catch(e) {}
+
+  // Lightbox
+  const items = Array.from(document.querySelectorAll('.gallery-item img'));
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+  let current = 0;
+
+  function openLb(idx) {
+    current = idx;
+    lbImg.src = items[current].src;
+    lbCounter.textContent = (current + 1) + ' / ' + items.length;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function showPrev() { openLb((current - 1 + items.length) % items.length); }
+  function showNext() { openLb((current + 1) % items.length); }
+
+  items.forEach((img, i) => img.parentElement.addEventListener('click', () => openLb(i)));
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', showPrev);
+  document.getElementById('lbNext').addEventListener('click', showNext);
+  lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+</script>
+</body>
+</html>
