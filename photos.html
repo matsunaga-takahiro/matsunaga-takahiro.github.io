@@ -41,6 +41,7 @@
             margin-bottom: 8px;
             cursor: pointer;
             overflow: hidden;
+            position: relative;
         }
 
         .gallery-item img {
@@ -51,7 +52,39 @@
         }
 
         .gallery-item:hover img {
-            opacity: 0.85;
+            opacity: 0.45;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: var(--font-sans);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            gap: 0.25rem;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        .cap-location {
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .cap-year {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            opacity: 0.75;
         }
 
         /* Lightbox */
@@ -356,6 +389,148 @@
       btn.addEventListener('click', () => { localStorage.setItem('site.lang', btn.dataset.lang); applyLang(btn.dataset.lang); });
     });
   } catch(e) {}
+
+  // Photo metadata — add location strings here as needed
+  const photoMeta = {
+    'DSC_0016.JPG': { location: 'Shibuya', year: '2025' },
+    'DSC_0065.JPG': { location: 'Shibuya', year: '2025' },
+    'DSC_0165.JPG': { location: 'Bichy-Matsuyana, Okayama', year: '2025' },
+    'DSC_0170.JPG': { location: 'Bichy-Matsuyana, Okayama', year: '2025' },
+    'DSC_0193.JPG': { location: 'Bichy-Matsuyana, Okayama', year: '2025' },
+    'DSC_0202.JPG': { location: 'Bichy-Matsuyana, Okayama', year: '2025' },
+    'DSC_0255.JPG': { location: 'Tomonoura, Hiroshima', year: '2025' },
+    'DSC_0262.JPG': { location: 'Tomonoura, Hiroshima', year: '2025' },
+    'DSC_0290.JPG': { location: 'Okayama', year: '2025' },
+    'DSC_0317.JPG': { location: 'Seto-bridge', year: '2025' },
+    'DSC_0351.JPG': { location: 'Shimanami road', year: '2025' },
+    'DSC_0365.JPG': { location: 'Matsunaga station, Hiroshima', year: '2025' },
+    'DSC_0385.JPG': { location: 'Mt. Fuji', year: '2025' },
+    'DSC_0404.JPG': { location: 'Naruto, Tokushima', year: '2025' },
+    'DSC_0684.JPG': { location: 'Abashiri, Hokkaido', year: '2025' },
+    'DSC_0708.JPG': { location: 'Abashiri, Hokkaido', year: '2025' },
+    'DSC_0745.JPG': { location: 'Abashiri, Hokkaido', year: '2025' },
+    'DSC_0763.JPG': { location: 'Abashiri, Hokkaido', year: '2025' },
+    'DSC_0830.JPG': { location: 'Abashiri, Hokkaido', year: '2025' },
+    'DSC_0853.JPG': { location: 'Akan, Hokkaido', year: '2025' },
+    'DSC_0880.JPG': { location: 'Akan, Hokkaido', year: '2025' },
+    'DSC_0951.JPG': { location: 'Nemuro, Hokkaido', year: '2025' },
+    'DSC_0975.JPG': { location: 'Nemuro, Hokkaido', year: '2025' },
+    'DSC_1004.JPG': { location: 'Nemuro, Hokkaido', year: '2025' },
+    'DSC_1069.JPG': { location: 'Nemuro, Hokkaido', year: '2025' },
+    'DSC_1134.JPG': { location: 'Shyari, Hokkaido', year: '2025' },
+    'DSC_1162.JPG': { location: 'Shyari, Hokkaido', year: '2025' },
+    'DSC_1391.JPG': { location: 'Yanagawa, Fukuoka', year: '2025' },
+    'DSC_2049.JPG': { location: 'Okinawa', year: '2025' },
+    'DSC_3543.JPG': { location: 'Doai station, Gunma', year: '2025' },
+    'DSC_3552.JPG': { location: 'Doai station, Gunma', year: '2025' },
+    'DSC_4131.JPG': { location: 'Rainbow Bridge', year: '2025' },
+    'DSC_4150.JPG': { location: 'Venice, Italy', year: '2025' },
+    'DSC_4191.JPG': { location: 'Venice, Italy', year: '2025' },
+    'DSC_4222.JPG': { location: 'Venice, Italy', year: '2025' },
+    'DSC_4227.JPG': { location: 'Venice, Italy', year: '2025' },
+    'DSC_4243.JPG': { location: 'Venice, Italy', year: '2025' },
+    'DSC_4337.JPG': { location: 'Venice, Italy', year: '2025' },
+    'DSC_4343.JPG': { location: 'Venice, Italy', year: '2025' },
+    'DSC_4346.JPG': { location: 'Venice, Italy', year: '2025' },
+    'DSC_4404.JPG': { location: 'Venice, Italy', year: '2025' },
+    'DSC_4579.JPG': { location: 'Haneda Airport', year: '2024' },
+    'DSC_4691.JPG': { location: 'Ferrara, Italy', year: '2025' },
+    'DSC_4702.JPG': { location: 'Kure, Hiroshima', year: '2024' },
+    'DSC_4962.JPG': { location: '', year: '2025' },
+    'DSC_5612.JPG': { location: 'Antwerp, Belgium', year: '2025' },
+    'DSC_5636.JPG': { location: 'Antwerp, Belgium', year: '2025' },
+    'DSC_5760.JPG': { location: 'Antwerp, Belgium', year: '2025' },
+    'DSC_5779.JPG': { location: 'Antwerp, Belgium', year: '2025' },
+    'DSC_5864.JPG': { location: 'Antwerp, Belgium', year: '2025' },
+    'DSC_5874.JPG': { location: 'Antwerp, Belgium', year: '2025' },
+    'DSC_6069.JPG': { location: 'Utrecht, Netherlands', year: '2025' },
+    'DSC_6142.JPG': { location: 'Utrecht, Netherlands', year: '2025' },
+    'DSC_6172.JPG': { location: 'Utrecht, Netherlands', year: '2025' },
+    'DSC_6340.JPG': { location: 'Utrecht, Netherlands', year: '2025' },
+    'DSC_6378.JPG': { location: 'Amsterdam, Netherlands', year: '2025' },
+    'DSC_6472.JPG': { location: 'Kuroshio, Kochi', year: '2025' },
+    'DSC_6497.JPG': { location: 'Tosa, Kochi', year: '2025' },
+    'DSC_6519.JPG': { location: 'Tosa, Kochi', year: '2025' },
+    'DSC_6587.JPG': { location: 'Kashiwa Island, Kochi', year: '2025' },
+    'DSC_6673.JPG': { location: 'Sata cape, Ehime', year: '2025' },
+    'DSC_6702.JPG': { location: 'Sata cape, Ehime', year: '2025' },
+    'DSC_6749.JPG': { location: 'Kure, Hiroshima', year: '2025' },
+    'DSC_6769.JPG': { location: 'Kure, Hiroshima', year: '2025' },
+    'DSC_6796.JPG': { location: 'Kure, Hiroshima', year: '2025' },
+    'DSC_6802.JPG': { location: 'Kure, Hiroshima', year: '2025' },
+    'DSC_6809.JPG': { location: 'Kure, Hiroshima', year: '2025' },
+    'DSC_6811.JPG': { location: 'Kure, Hiroshima', year: '2025' },
+    'DSC_6854.JPG': { location: 'B737', year: '2025' },
+    'DSC_6914.JPG': { location: 'Seiyo, Ehime', year: '2025' },
+    'DSC_6926.JPG': { location: 'Seiyo, Ehime', year: '2025' },
+    'DSC_6935.JPG': { location: 'Uchiko, Ehime', year: '2025' },
+    'DSC_6948.JPG': { location: 'Uchiko, Ehime', year: '2025' },
+    'DSC_6968.JPG': { location: 'Yawatahama, Ehime', year: '2025' },
+    'DSC_6981.JPG': { location: 'Yawatahama, Ehime', year: '2025' },
+    'DSC_6997.JPG': { location: 'Yawatahama, Ehime', year: '2025' },
+    'DSC_7025.JPG': { location: '', year: '2025' },
+    'DSC_7054.JPG': { location: 'Yawatahama, Ehime', year: '2025' },
+    'DSC_7099.JPG': { location: 'Yawatahama, Ehime', year: '2025' },
+    'DSC_7197.JPG': { location: 'Nakatsugawa, Gifu', year: '2025' },
+    'DSC_7199.JPG': { location: 'Nakatsugawa, Gifu', year: '2025' },
+    'DSC_7292.JPG': { location: '', year: '2026' },
+    'DSC_7301.JPG': { location: '', year: '2026' },
+    'DSC_7306.JPG': { location: '', year: '2026' },
+    'DSC_7317.JPG': { location: '', year: '2026' },
+    'DSC_7322.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7332.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7333.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7339.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7343.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7355.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7366.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7401.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7435.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7450.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7473.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7475.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7482.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7633.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7663.JPG': { location: 'NY, USA', year: '2026' },
+    'DSC_7710.JPG': { location: 'Washington D.C., USA', year: '2026' },
+    'DSC_7730.JPG': { location: 'Washington D.C., USA', year: '2026' },
+    'DSC_7834.JPG': { location: 'Teshima Island, Kagawa', year: '2026' },
+    'DSC_7870.JPG': { location: 'Teshima Island, Kagawa', year: '2026' },
+    'DSC_7886.JPG': { location: 'Teshima Island, Kagawa', year: '2026' },
+    'DSC_7888.JPG': { location: 'Teshima Island, Kagawa', year: '2026' },
+    'DSC_7898.JPG': { location: 'Teshima Island, Kagawa', year: '2026' },
+    'DSC_7911.JPG': { location: 'Uno, Okayama', year: '2026' },
+    'DSC_7944.JPG': { location: 'Kobe, Hyogo', year: '2026' },
+    'DSC_7971.JPG': { location: 'Kobe, Hyogo', year: '2026' },
+    'DSC_7981.JPG': { location: 'Naruto, Tokushima', year: '2026' },
+    'DSC_7983.JPG': { location: 'Naruto, Tokushima', year: '2026' },
+    'DSC_7986.JPG': { location: 'Naruto, Tokushima', year: '2026' },
+    'DSC_7993.JPG': { location: '', year: '2026' },
+    'DSC_7996.JPG': { location: '', year: '2026' },
+    'DSC_8001.JPG': { location: '', year: '2026' },
+    'DSC_8003.JPG': { location: 'Tokushima', year: '2026' },
+    'DSC_8016.JPG': { location: 'Tokyo', year: '2026' },
+  };
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    const filename = img.src.split('/').pop();
+    const meta = photoMeta[filename];
+    if (!meta || (!meta.location && !meta.year)) return;
+    const cap = document.createElement('div');
+    cap.className = 'gallery-caption';
+    if (meta.location) {
+      const loc = document.createElement('span');
+      loc.className = 'cap-location';
+      loc.textContent = meta.location;
+      cap.appendChild(loc);
+    }
+    if (meta.year) {
+      const yr = document.createElement('span');
+      yr.className = 'cap-year';
+      yr.textContent = meta.year;
+      cap.appendChild(yr);
+    }
+    img.parentElement.appendChild(cap);
+  });
 
   // Lightbox
   const items = Array.from(document.querySelectorAll('.gallery-item img'));
