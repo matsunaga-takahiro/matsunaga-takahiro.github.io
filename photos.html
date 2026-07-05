@@ -48,11 +48,13 @@
             display: block;
             width: 100%;
             height: auto;
-            transition: opacity 0.3s;
+            filter: grayscale(100%);
+            transition: opacity 0.3s, filter 0.4s;
         }
 
         .gallery-item:hover img {
             opacity: 0.45;
+            filter: grayscale(0%);
         }
 
         .gallery-caption {
@@ -394,10 +396,10 @@
   const photoMeta = {
     'DSC_0016.JPG': { location: 'Shibuya', year: '2025' },
     'DSC_0065.JPG': { location: 'Shibuya', year: '2025' },
-    'DSC_0165.JPG': { location: 'Bichy-Matsuyana, Okayama', year: '2025' },
-    'DSC_0170.JPG': { location: 'Bichy-Matsuyana, Okayama', year: '2025' },
-    'DSC_0193.JPG': { location: 'Bichy-Matsuyana, Okayama', year: '2025' },
-    'DSC_0202.JPG': { location: 'Bichy-Matsuyana, Okayama', year: '2025' },
+    'DSC_0165.JPG': { location: 'Bitchu-Matsuyana, Okayama', year: '2025' },
+    'DSC_0170.JPG': { location: 'Bitchu-Matsuyana, Okayama', year: '2025' },
+    'DSC_0193.JPG': { location: 'Bitchu-Matsuyana, Okayama', year: '2025' },
+    'DSC_0202.JPG': { location: 'Bitchu-Matsuyana, Okayama', year: '2025' },
     'DSC_0255.JPG': { location: 'Tomonoura, Hiroshima', year: '2025' },
     'DSC_0262.JPG': { location: 'Tomonoura, Hiroshima', year: '2025' },
     'DSC_0290.JPG': { location: 'Okayama', year: '2025' },
