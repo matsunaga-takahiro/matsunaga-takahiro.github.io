@@ -53,40 +53,38 @@
         }
 
         .gallery-item:hover img {
-            opacity: 0.45;
             filter: grayscale(0%);
         }
 
-        .gallery-caption {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        #photo-tooltip {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            padding: 0.35rem 0.65rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
             color: #fff;
             font-family: var(--font-sans);
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-            gap: 0.25rem;
+            display: none;
+            flex-direction: column;
+            gap: 0.1rem;
         }
 
-        .gallery-item:hover .gallery-caption {
-            opacity: 1;
+        #photo-tooltip.visible {
+            display: flex;
         }
 
-        .cap-location {
-            font-size: 0.85rem;
+        .tip-location {
+            font-size: 0.78rem;
             font-weight: 400;
             letter-spacing: 0.12em;
             text-transform: uppercase;
         }
 
-        .cap-year {
-            font-size: 0.75rem;
+        .tip-year {
+            font-size: 0.68rem;
             letter-spacing: 0.1em;
-            opacity: 0.75;
+            opacity: 0.7;
         }
 
         /* Lightbox */
@@ -513,25 +511,49 @@
     'DSC_8003.JPG': { location: 'Tokushima', year: '2026' },
     'DSC_8016.JPG': { location: 'Tokyo', year: '2026' },
   };
+  const tooltip = document.createElement('div');
+  tooltip.id = 'photo-tooltip';
+  document.body.appendChild(tooltip);
+
   document.querySelectorAll('.gallery-item img').forEach(img => {
     const filename = img.src.split('/').pop();
     const meta = photoMeta[filename];
-    if (!meta || (!meta.location && !meta.year)) return;
-    const cap = document.createElement('div');
-    cap.className = 'gallery-caption';
-    if (meta.location) {
-      const loc = document.createElement('span');
-      loc.className = 'cap-location';
-      loc.textContent = meta.location;
-      cap.appendChild(loc);
-    }
-    if (meta.year) {
-      const yr = document.createElement('span');
-      yr.className = 'cap-year';
-      yr.textContent = meta.year;
-      cap.appendChild(yr);
-    }
-    img.parentElement.appendChild(cap);
+    if (!meta) return;
+    const item = img.parentElement;
+    if (meta.location) item.dataset.tipLocation = meta.location;
+    if (meta.year) item.dataset.tipYear = meta.year;
+  });
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      const loc = item.dataset.tipLocation || '';
+      const yr = item.dataset.tipYear || '';
+      if (!loc && !yr) return;
+      tooltip.innerHTML = '';
+      if (loc) {
+        const el = document.createElement('span');
+        el.className = 'tip-location';
+        el.textContent = loc;
+        tooltip.appendChild(el);
+      }
+      if (yr) {
+        const el = document.createElement('span');
+        el.className = 'tip-year';
+        el.textContent = yr;
+        tooltip.appendChild(el);
+      }
+      tooltip.classList.add('visible');
+    });
+    item.addEventListener('mouseleave', () => tooltip.classList.remove('visible'));
+    item.addEventListener('mousemove', e => {
+      const offset = 14;
+      let x = e.clientX + offset;
+      let y = e.clientY + offset;
+      if (x + tooltip.offsetWidth > window.innerWidth) x = e.clientX - tooltip.offsetWidth - offset;
+      if (y + tooltip.offsetHeight > window.innerHeight) y = e.clientY - tooltip.offsetHeight - offset;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top = y + 'px';
+    });
   });
 
   // Lightbox
