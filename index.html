@@ -22,8 +22,50 @@
     .bio-text {
       margin-top: 1rem;
       margin-bottom: 1.5rem;
-      font-weight: 500; /* 少しだけ太くして読みやすく */
+      font-weight: 500;
     }
+
+    .photo-strip {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-top: 4rem;
+    }
+    .photo-strip .profile-photo {
+      margin-top: 0;
+    }
+    .gallery-preview-link {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .gallery-preview-img {
+      display: block;
+      width: 130px;
+      height: auto;
+      filter: grayscale(100%);
+      transition: filter 0.5s;
+    }
+    .gallery-preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .gallery-preview-link:hover .gallery-preview-overlay { opacity: 1; }
+    .gallery-preview-link:hover .gallery-preview-img { filter: grayscale(0%); }
   </style>
 </head>
 <body>
@@ -90,9 +132,16 @@
         <a href="https://www.linkedin.com/in/takahiro-matsunaga-377864326/" target="_blank"><i class="fab fa-linkedin"></i> <span data-i18n="hero.linkedin">LinkedIn</span></a> |
         <!-- <a href="https://matsunaga-takahiro.github.io/note/" target="_blank"><i class="fab fa-clipboard"></i> <span data-i18n="hero.note">Note</span></a>  -->
       </p>
-      <p>
+      <div class="photo-strip">
         <img src="images/home_image.jpeg" alt="Takahiro Matsunaga" class="profile-photo" data-i18n-attr='{"alt":"hero.imageAlt"}'>
-      </p>
+        <a href="photos.html" class="gallery-preview-link" aria-label="Photo gallery">
+          <img src="images/favorites/DSC_0016.JPG" alt="" class="gallery-preview-img" loading="lazy">
+          <img src="images/favorites/DSC_0065.JPG" alt="" class="gallery-preview-img" loading="lazy">
+          <div class="gallery-preview-overlay">
+            <span data-i18n="hero.photos">Photos</span>
+          </div>
+        </a>
+      </div>
     </section>
   </main>
 
@@ -120,6 +169,7 @@
         "hero.scholar": "Google Scholar",
         "hero.linkedin": "LinkedIn",
         "hero.imageAlt": "Portrait of Takahiro Matsunaga",
+        "hero.photos": "Photos",
         "site.footer": "© 2025 Takahiro Matsunaga. All rights reserved."
       },
       ja: {
@@ -140,6 +190,7 @@
         "hero.linkedin": "LinkedIn",
         "hero.note": "Note",
         "hero.imageAlt": "松永隆宏の写真",
+        "hero.photos": "写真館へ",
         "site.footer": "© 2025 Takahiro Matsunaga. 禁無断転載"
       }
     };
