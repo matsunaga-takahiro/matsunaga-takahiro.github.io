@@ -66,6 +66,21 @@
         letter-spacing: 0.01em;
     }
 
+    .selected-publications {
+        margin-top: 1.5rem;
+        text-align: left;
+    }
+
+    .selected-publications .label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.35rem;
+    }
+
+    .selected-publications cite {
+        font-style: normal;
+    }
+
     /* 画像のスタイリング */
     .topic-img {
         display: block;
@@ -131,11 +146,15 @@
         
         <!-- Topic 1 -->
         <section class="research-section">
-            <h2 data-i18n="topic1.title">Observation and Modeling of Pedestrian Behavior in Indoor Spaces</h2>
+            <h2 data-i18n="topic1.title">Observation and Modeling of Three-Dimensional Pedestrian Spaces: Leveraging Sensor-Based Observation</h2>
             <div class="topic-content">
                 <div class="topic-text">
                     <p data-i18n="topic1.desc">
-                        In detailed indoor urban spaces such as railway stations, conventional GPS-based positioning often fails. To overcome this, I focus on sensor-based or Eulerian observation methods using BLE, Wi-Fi, and cameras...
+                        Railway stations and their surrounding areas contain complex three-dimensional, semi-indoor spaces in which multiple levels and passageways are interconnected. In these environments, detailed observation and prediction of pedestrian behavior are essential not only for preventing crowd accidents, but also for designing spaces that can accommodate robots and emerging forms of mobility in the future...
+                    </p>
+                    <p class="selected-publications">
+                        <span class="label" data-i18n="topic.selectedPublications">Selected publications on this topic:</span>
+                        <cite>Takahiro Matsunaga and Eiji Hato. “<a href="https://doi.org/10.1016/j.trc.2026.105608">Mean field dynamics for pedestrian interaction in quantized observation-based 3D route choice modeling</a>.” <em>Transportation Research Part C: Emerging Technologies</em>, 186, 105608, 2026.</cite>
                     </p>
                 </div>
                 <!-- 画像をテキストの下に移動 -->
@@ -146,30 +165,30 @@
 
         <!-- Topic 2 -->
         <section class="research-section">
-            <h2 data-i18n="topic2.title">Prediction and Generation of Activity Demand</h2>
+            <h2 data-i18n="topic2.title">Prediction and Generation of Activity Demand: Applying Language Generation Models to Activity Modeling</h2>
             <div class="topic-content">
                 <div class="topic-text">
                     <p data-i18n="topic2.desc">
-                        Based on Activity-based models (ABMs), which view travel demand as derived from activities, predicting activity demand is the most fundamental approach to travel demand analysis...
+                        From the perspective of activity-based models (ABMs), which view travel demand as being derived from people's activities, predicting daily activity trajectories is one of the most fundamental approaches to understanding travel demand...
                     </p>
                 </div>
                 <!-- 画像をテキストの下に移動 -->
-                <img src="images/res2-A.png" alt="Activity Demand Prediction" class="topic-img" onerror="this.style.display='none'">
-                <img src="images/res2-B.png" alt="Activity Demand Prediction" class="topic-img" onerror="this.style.display='none'">
+                <img src="images/res2-C.jpg" alt="Activity Demand Prediction" class="topic-img" onerror="this.style.display='none'">
+                <!-- <img src="images/res2-B.png" alt="Activity Demand Prediction" class="topic-img" onerror="this.style.display='none'"> -->
             </div>
         </section>
 
         <!-- Topic 3 -->
         <section class="research-section">
-            <h2 data-i18n="topic3.title">Travel Demand Control via Dynamic Pricing</h2>
+            <h2 data-i18n="topic3.title">Mechanism Design for Participatory Travel Demand Management</h2>
             <div class="topic-content">
                 <div class="topic-text">
                     <p data-i18n="topic3.desc">
-                        The origins of travel demand control date back to the proposal of the Pigouvian tax in 1920. While many proposals have relied on pursuing social optimality through internalizing externalities...
+                        One of the theoretical origins of travel demand management can be traced back to Pigou's proposal to tax congestion externalities. Since then, a wide range of approaches, including marginal-cost pricing and capacity constraints, have been proposed...
                     </p>
                 </div>
                 <!-- 画像をテキストの下に移動 -->
-                <img src="images/res3-A.png" alt="Dynamic Pricing Mechanism" class="topic-img" onerror="this.style.display='none'">
+                <img src="images/res3-B.png" alt="Dynamic Pricing Mechanism" class="topic-img" onerror="this.style.display='none'">
             </div>
         </section>
 
@@ -192,18 +211,19 @@
         "nav.awards": "Awards/Grants",
         "hero.name": "Takahiro Matsunaga",
         "site.footer": "© 2025 Takahiro Matsunaga. All rights reserved.",
+        "topic.selectedPublications": "Selected publications on this topic:",
         
         // Topic 1
-        "topic1.title": "Observation and Modeling of Pedestrian Behavior in Indoor Spaces: Application of Sensor-based Observation",
-        "topic1.desc": "In detailed indoor urban spaces such as railway stations, conventional GPS-based positioning often fails. To overcome this, I focus on sensor-based or Eulerian observation methods using BLE, Wi-Fi, and cameras. In particular, I believe BLE has significant potential as a simple and effective observation method that ensures high population representativeness. Handling high observation uncertainty is crucial in sensor data processing. I am interested in new pedestrian dynamics observation experiments and modeling methods that focus on reducing model estimation bias caused by this uncertainty. In the future, I aim to work on correcting observation errors in crowded spaces, simultaneous estimation of microscopic continuous models and observations, and extracting interactions.",
+        "topic1.title": "Observation and Modeling of 3D Pedestrian Spaces: Leveraging Sensor-Based Observation",
+        "topic1.desc": "Railway stations and their surrounding areas contain complex three-dimensional, semi-indoor spaces in which multiple levels and passageways are interconnected. In these environments, detailed observation and prediction of pedestrian behavior are essential not only for preventing crowd accidents, but also for designing spaces that can accommodate robots and emerging forms of mobility in the future. However, GPS, despite its widespread use, has difficulty providing accurate positioning in complex indoor and underground environments, while sample surveys alone make it difficult to capture congestion throughout an entire space. Camera-based observation also raises privacy concerns and limits the area over which individuals can be continuously tracked. I therefore focus on sensor-driven observation that combines BLE, Wi-Fi, cameras, and other technologies. BLE, in particular, has the potential to track pedestrian movement over wide areas at relatively low cost. I am developing modeling methods that explicitly account for measurement errors and missed detections, reduce the resulting estimation bias, and reconstruct pedestrians' route choices and spatial interactions.",
         
         // Topic 2
-        "topic2.title": "Prediction and Generation of Activity Demand: Application of Language Generation Models to Route Choice Problems",
-        "topic2.desc": "Based on Activity-based models (ABMs), which view travel demand as derived from activities, predicting activity demand is the most fundamental approach to travel demand analysis. These activity demands are thought to fluctuate daily while maintaining certain dynamics, and attempts have been made to capture them using multi-day panel surveys. Focusing on this time-series structure, I am working on building more generalizable models by applying language generation models (Transformers) to activity models.",
+        "topic2.title": "Prediction and Generation of Activity Demand: Applying Language Generation Models to Activity Modeling",
+        "topic2.desc": "From the perspective of activity-based models (ABMs), which view travel demand as being derived from people's activities, predicting daily activity trajectories is one of the most fundamental approaches to understanding travel demand. An individual's activities form a multiday time series shaped by factors such as the day of the week, past behavior, and everyday constraints. Using multiday panel survey data, I analyze the temporal dependencies within activity sequences composed of activity types, locations, and times. I am developing models that draw on each individual's behavioral history to generate diverse, feasible activity sequences.",
         
         // Topic 3
-        "topic3.title": "Travel Demand Control via Dynamic Pricing: Constructing Equitable Market Mechanisms",
-        "topic3.desc": "The origins of travel demand control date back to the proposal of the Pigouvian tax in 1920. While many proposals have relied on pursuing social optimality through internalizing externalities via marginal cost pricing or limiting access for some users, challenges remain regarding social acceptance and ensuring equity when applied to public transport. On the other hand, social understanding of dynamic pricing is progressing. I aim to build new feasible mechanism designs that focus more on implementation scenarios."
+        "topic3.title": "Mechanism Design for Participatory Travel Demand Management",
+        "topic3.desc": "One of the theoretical origins of travel demand management can be traced back to Pigou's proposal to tax congestion externalities. Since then, a wide range of approaches, including marginal-cost pricing and capacity constraints, have been proposed. However, methods that impose costs or restrictions on users continue to face challenges in terms of public acceptance, the public-service role of transportation, and practical implementation. At the same time, mechanisms that encourage behavioral change while respecting user choice—such as time-of-day pricing and reward points—are becoming more widely implemented and understood. I therefore focus on interactive demand management, in which an operator offers incentives to users and updates subsequent allocation rules in response to their choices and past behavior. My research aims to design practical mechanisms that can reliably secure the required behavioral changes within a limited budget while remaining robust to users' strategic reporting and participation decisions."
     },
     ja: {
         "site.title": "Takahiro Matsunaga",
@@ -215,18 +235,20 @@
         "nav.activities": "その他",
         "hero.name": "Takahiro Matsunaga",
         "site.footer": "© 2025 Takahiro Matsunaga. 禁無断転載",
+        "topic.selectedPublications": "このトピックに関する主要論文：",
 
         // Topic 1
-        "topic1.title": "屋内空間における歩行者行動の観測・モデリング：センサ型観測の援用",
-        "topic1.desc": "鉄道駅などの詳細な屋内都市空間においては，従来のGPSを用いた測位が機能しない問題があり，克服する代替手段として，BLE, Wi-Fi, カメラ等を用いたセンサ型・オイラー型の観測に着目しています．特にBLEは，高い母集団代表性を保証した，手軽で実効性の高い観測手段として今後一層の利用可能性を秘めていると考えています．センサ観測の処理には特に高い観測不確実性の処理が重要であり，不確実性に起因するモデル推定バイアスの逓減に着目した新しい歩行者ダイナミクスの観測実験およびそのモデリング手法に興味を持っています．今後は特に混雑空間での観測誤差の補正，より微視的な連続モデルと観測の同時推定手法，相互作用の抽出，などに取り組みたいと考えています．",
+        "topic1.title": "3次元歩行者空間の観測とモデリング：センサ型観測の活用",
+        "topic1.desc": "鉄道駅やその周辺には複数の階層や通路が複雑に接続された3次元の半屋内空間が広がっています．このような空間では雑踏事故を防ぐための安全性の確保に加え，将来的にはロボットや新たなモビリティの参加も想定されることから，歩行者行動をより詳細に観測・予測し，空間設計に反映することが求められます．一方，従来広く用いられてきたGPSは複雑な屋内・地下空間での測位が難しく，サンプリング調査だけでは空間全体の混雑状況を把握しにくいという課題があります．またカメラ観測にはプライバシーの問題や個人を継続的に追跡できる範囲の制約があります．そこで，BLE、Wi-Fi、カメラなどを組み合わせたセンサ駆動型の観測に着目しています．特にBLEは比較的低コストかつ広範囲に歩行者の移動を観測できる可能性があります．観測誤差や検知漏れを明示的に考慮し，それらに起因する推定バイアスを抑えながら，歩行者の経路選択と空間的な相互作用を復元するモデリング手法の開発に取り組んでいます．",
 
         // Topic 2
-        "topic2.title": "活動需要の予測・生成：経路選択問題への言語生成モデルの援用",
-        "topic2.desc": "交通需要は活動の派生であるとするActivity-based models（ABMs）の考え方に立てば，活動需要の予測が交通需要分析の際の最も根源的なアプローチといえます．これらの活動需要は一定のダイナミクスを持ちながら日々変動していると考えられ，複数日にまたがったパネル調査を用いてこれらを捕捉する試みがなされてきました．この時系列構造に着目して，言語生成モデル（Transformer）をActivity modelに援用しより汎化性の高いモデルの構築に取り組んでいます．",
-        
+        "topic2.title": "活動需要の予測と生成：活動モデルへの言語生成モデルの応用",
+        "topic2.desc": "交通需要を人々の活動から派生するものとして捉えるActivity-based models（ABMs）の考え方に立てば，日々の活動経路の予測が交通需要を理解するための根源的なアプローチの一つと言えます．個人の活動は曜日や過去の行動，生活上の制約などの影響を受けながら，複数日にわたる時系列として形成されます．そこで，複数日のパネル調査データを用いて，活動内容、場所、時刻から構成される活動系列の時間的な依存関係を分析しています．個人ごとの行動履歴を踏まえながら，多様でfeasibleな活動系列を生成できるモデルの構築に取り組んでいます．",
+
         // Topic 3
-        "topic3.title": "変動料金を通した交通需要制御：公平（Equity）な市場メカニズムの構築",
-        "topic3.desc": "交通需要の制御の源流は1920年のPigou税の提案に遡り多くが提案されてきましたが，多くは限界費用課金を通した外部性の内部化による社会最適の追求や一部利用者への利用の限定（アクセスの制限）に依拠しており，社会受容性や公共交通への援用にあたっての公平（Equity）の確保には課題が残されていると考えています．一方で動的課金に対する社会の理解も進みつつあり，実装場面により着目した新しいfeasibleなメカニズムデザインの構築に取り組みたいと考えています．"
+        "topic3.title": "参加型交通需要制御のためのメカニズムデザイン",
+        "topic3.desc": "交通需要制御の理論的な源流の一つはPigouによる混雑外部性への課税の提案に遡ります．その後，限界費用課金や容量制約をはじめとする多様な手法が提案されてきましたが，利用者に費用や制約を課す方法には社会受容性・公共性・実装可能性の面で課題が残されています．一方，時間帯別料金やポイント還元など，利用者の選択を尊重しながら行動変容を促す仕組みの実装や社会の理解も広がりつつあります．そこで，運営者が利用者にインセンティブを提示し，利用者の選択や過去の行動に応じてその後の配分ルールを更新する双方向的な需要制御に着目しています．限られた予算の下で必要な行動変容を安定的に調達するとともに，利用者の戦略的な申告や参加行動にも対応できるような実装可能なメカニズムの設計に取り組んでいます．"
+
     }
   };
 
