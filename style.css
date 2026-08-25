@@ -177,6 +177,16 @@ main h1 {
   letter-spacing: -0.03em;
 }
 
+.bibitem a {
+  color: inherit;
+  text-decoration-color: rgba(0, 0, 0, 0.3);
+  text-underline-offset: 0.15em;
+}
+
+.bibitem a:hover {
+  text-decoration-color: currentColor;
+}
+
 .bio-text {
   font-family: var(--font-serif);
   font-size: 1.15rem;

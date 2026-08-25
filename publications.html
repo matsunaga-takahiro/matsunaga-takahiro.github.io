@@ -82,7 +82,6 @@
     <!-- <section id="journal-int-ur">
       <h1>Peer-Reviewed International Journal Papers (Under Review)</h2>
       <ol id="IntJournalListUR" class="biblist"></ol> -->
-    </section>
 
     <section id="journal-jpn">
       <h2 data-i18n="pub.jpn-journal">Peer-Reviewed Japanese Journal Papers</h2>
@@ -102,6 +101,11 @@
     <section id="pre-dom">
       <h2 data-i18n="pub.jpn-oral">Oral Presentation without Review (in Japanese)</h2>
       <ol id="JpnPreList" class="biblist"></ol>
+    </section>
+
+    <section id="other-outputs">
+      <h2 data-i18n="pub.other-outputs">Other Public Outputs (in Japanese)</h2>
+      <ol id="OtherOutputList" class="biblist"></ol>
     </section>
 
   </main>
@@ -133,76 +137,83 @@ function parseBibtexSimple(text) {
   return entries;
 }
 
-/** 指定キーだけを ref.bib から読み出して描画 */
-async function renderBibByKeys(listId, keys, bibUrl = 'ref.bib') {
-  const listEl = document.getElementById(listId);
-  if (!listEl) return;
-  const res = await fetch(bibUrl, { cache: 'no-store' });
-  const txt = await res.text();
-  const db = parseBibtexSimple(txt);
+function hasKeyword(entry, keyword) {
+  return (entry.keywords || '')
+    .split(',')
+    .map(value => value.trim())
+    .includes(keyword);
+}
 
-  // 年降順で並べたい場合
-  const items = keys
-    .map(k => db[k])
-    .filter(Boolean)
-    .sort((a, b) => (parseInt(b.year||0) - parseInt(a.year||0)));
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
 
-  listEl.innerHTML = '';
-  for (const it of items) {
-    const li = document.createElement('li');
-    li.className = 'bibitem';
-    // 既存テンプレに近い出力
-    const parts = [];
-    if (it.author) parts.push(`${it.author}.`);
-    if (it.title)  parts.push(`<strong>${it.title}</strong>.`);
-    if (it.journal) parts.push(`<em>${it.journal}</em>.`);
-    if (it.booktitle) parts.push(`<em>${it.booktitle}</em>.`);
-    if (it.event) parts.push(`<em>${it.event}</em>.`);
-    if (it.organization) parts.push(`<em>${it.organization}</em>.`);
-    if (it.year) parts.push(`${it.year}.`);
-    if (it.volume) parts.push(`Vol. ${it.volume}.`);
-    if (it.number) parts.push(`No. ${it.number}.`);
-    if (it.pages) parts.push(`pp. ${it.pages}.`);
-    if (it.month) parts.push(`${it.month}.`);
-    if (it.note) parts.push(`${it.note}.`);
-    li.innerHTML = parts.join(' ').replace(/\s+/g, ' ').trim();
-    listEl.appendChild(li);
+function safeHttpUrl(value) {
+  if (!value) return '';
+  try {
+    const url = new URL(value, window.location.href);
+    return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+  } catch (_) {
+    return '';
   }
 }
 
-renderBibByKeys('IntJournalList', [
-  'matsunaga2026trc',
-]);
+/** ref.bib の keywords で各セクションへ自動分類して描画 */
+async function renderBibliographies(sections, bibUrl = 'ref.bib') {
+  const res = await fetch(bibUrl, { cache: 'no-store' });
+  if (!res.ok) throw new Error(`Failed to load ${bibUrl}: ${res.status}`);
+  const txt = await res.text();
+  const db = parseBibtexSimple(txt);
 
-renderBibByKeys('JpnJournalList', [
-  'matsunaga2025cpij',
-  'matsunaga2024cpij',
-]);
+  for (const { listId, keyword } of sections) {
+    const listEl = document.getElementById(listId);
+    if (!listEl) continue;
 
-// renderBibByKeys('IntJournalListUR', [
-//   'matsunaga_trc_2025_article',
-// ]);
+    const items = Object.values(db)
+      .filter(entry => hasKeyword(entry, keyword))
+      .sort((a, b) => (parseInt(b.year || 0) - parseInt(a.year || 0)));
 
-renderBibByKeys('IntConfList', [
-  'matsunaga_hato_2026_trb',
-  'matsunaga_hato_2025_hksts',
-  'matsunaga_hato_2025_ped_presentation',
-  'matsunaga_hato_2024_itsc_presentation',
-  'matsunaga_hato_2024_hksts_presentation',
-]);
+    listEl.innerHTML = '';
+    for (const it of items) {
+      const li = document.createElement('li');
+      li.className = 'bibitem';
+      const parts = [];
+      const itemUrl = safeHttpUrl(it.url);
+      if (it.author) parts.push(`${escapeHtml(it.author)}.`);
+      if (it.title) {
+        const title = `<strong>${escapeHtml(it.title)}</strong>`;
+        parts.push(itemUrl
+          ? `<a href="${escapeHtml(itemUrl)}" target="_blank" rel="noopener noreferrer">${title}</a>.`
+          : `${title}.`);
+      }
+      if (it.journal) parts.push(`<em>${escapeHtml(it.journal)}</em>.`);
+      if (it.booktitle) parts.push(`<em>${escapeHtml(it.booktitle)}</em>.`);
+      if (it.event) parts.push(`<em>${escapeHtml(it.event)}</em>.`);
+      if (it.organization) parts.push(`<em>${escapeHtml(it.organization)}</em>.`);
+      if (it.year) parts.push(`${escapeHtml(it.year)}.`);
+      if (it.volume) parts.push(`Vol. ${escapeHtml(it.volume)}.`);
+      if (it.number) parts.push(`No. ${escapeHtml(it.number)}.`);
+      if (it.pages) parts.push(`pp. ${escapeHtml(it.pages)}.`);
+      if (it.month) parts.push(`${escapeHtml(it.month)}.`);
+      if (it.note) parts.push(`${escapeHtml(it.note)}.`);
+      li.innerHTML = parts.join(' ').replace(/\s+/g, ' ').trim();
+      listEl.appendChild(li);
+    }
+  }
+}
 
-renderBibByKeys('JpnConfList', [
-  'matsunaga2025cpij',
-  'matsunaga2024cpij',
-]);
-
-renderBibByKeys('JpnPreList', [
-  'matsunaga2025jsce',
-  'matsunaga_hato_2025_jste_presentation', 
-  'matsunaga_hato_2024_jsce',
-  'Suzuki2023ShibuyaSwitching'
-]);
- 
+renderBibliographies([
+  { listId: 'IntJournalList', keyword: 'journal-int' },
+  { listId: 'JpnJournalList', keyword: 'journal-jpn' },
+  { listId: 'IntConfList', keyword: 'conference-international' },
+  { listId: 'JpnPreList', keyword: 'presentation-domestic' },
+  { listId: 'OtherOutputList', keyword: 'other-output' },
+]).catch(error => console.error(error));
 
 </script>
 
@@ -238,6 +249,7 @@ renderBibByKeys('JpnPreList', [
       "pub.jpn-journal": "Peer-Reviewed Japanese Journal Papers",
       "pub.intl-conf": "Peer-Reviewed International Conferences",
       "pub.jpn-oral": "Oral Presentation without Review (in Japanese)",
+      "pub.other-outputs": "Other Public Outputs (in Japanese)",
     },
     ja: {
       "nav.home": "表紙", "nav.research": "研究", "nav.publications": "論文",
@@ -247,6 +259,7 @@ renderBibByKeys('JpnPreList', [
       "pub.jpn-journal": "査読付き国内論文誌",
       "pub.intl-conf": "査読付き国際会議",
       "pub.jpn-oral": "口頭発表（査読なし・国内）",
+      "pub.other-outputs": "その他の公開成果物",
     },
   };
 

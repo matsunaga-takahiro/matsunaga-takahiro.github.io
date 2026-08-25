@@ -123,60 +123,87 @@ function parseBibtexSimple(text) {
   return entries;
 }
 
-/** 指定キーだけを ref.bib から読み出して描画 */
-async function renderBibByKeys(listId, keys, bibUrl = 'ref.bib') {
-  const listEl = document.getElementById(listId);
-  if (!listEl) return;
-  const res = await fetch(bibUrl, { cache: 'no-store' });
-  const txt = await res.text();
-  const db = parseBibtexSimple(txt);
+function hasKeyword(entry, keyword) {
+  return (entry.keywords || '')
+    .split(',')
+    .map(value => value.trim())
+    .includes(keyword);
+}
 
-  // 年降順で並べたい場合
-  const items = keys
-    .map(k => db[k])
-    .filter(Boolean)
-    .sort((a, b) => (parseInt(b.year||0) - parseInt(a.year||0)));
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
 
-  listEl.innerHTML = '';
-  for (const it of items) {
-    const li = document.createElement('li');
-    li.className = 'bibitem';
-    // 既存テンプレに近い出力
-    const parts = [];
-    if (it.author) parts.push(`${it.author}.`);
-    if (it.title)  parts.push(`<strong>${it.title}</strong>.`);
-    if (it.journal) parts.push(`<em>${it.journal}</em>.`);
-    if (it.booktitle) parts.push(`<em>${it.booktitle}</em>.`);
-    if (it.event) parts.push(`<em>${it.event}</em>.`);
-    if (it.organization) parts.push(`<em>${it.organization}</em>.`);
-    if (it.year) parts.push(`${it.year}.`);
-    if (it.volume) parts.push(`Vol. ${it.volume}.`);
-    if (it.number) parts.push(`No. ${it.number}.`);
-    if (it.pages) parts.push(`pp. ${it.pages}.`);
-    if (it.month) parts.push(`${it.month}.`);
-    if (it.note) parts.push(`${it.note}.`);
-    li.innerHTML = parts.join(' ').replace(/\s+/g, ' ').trim();
-    listEl.appendChild(li);
+function safeHttpUrl(value) {
+  if (!value) return '';
+  try {
+    const url = new URL(value, window.location.href);
+    return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+  } catch (_) {
+    return '';
   }
 }
 
-// === ここで好きなキーを並べる（例：アワードだけ）===
-renderBibByKeys('awardsList', [
-  'hksts_award2025',
-  'jste_award2025',
-  'matsunaga_award2025',
-  'matsunaga_award2023'
-], 'ref.bib');
+function matchesCategory(entry, category) {
+  return category.keywords.some(keyword => hasKeyword(entry, keyword))
+    || category.types.includes(entry.type);
+}
 
-renderBibByKeys('grantsList', [
+/** ref.bib の keywords / entry type で各セクションへ自動分類して描画 */
+async function renderBibliographies(categories, bibUrl = 'ref.bib') {
+  const res = await fetch(bibUrl, { cache: 'no-store' });
+  if (!res.ok) throw new Error(`Failed to load ${bibUrl}: ${res.status}`);
+  const txt = await res.text();
+  const db = parseBibtexSimple(txt);
 
-], 'ref.bib');
+  for (const category of categories) {
+    const listEl = document.getElementById(category.listId);
+    if (!listEl) continue;
 
-renderBibByKeys('fellowshipsList', [
-  'DC',
-  'spring',
-  'wings'
-], 'ref.bib');
+    const items = Object.values(db)
+      .filter(entry => matchesCategory(entry, category))
+      .sort((a, b) => (parseInt(b.year || 0) - parseInt(a.year || 0)));
+
+    listEl.innerHTML = '';
+    for (const it of items) {
+      const li = document.createElement('li');
+      li.className = 'bibitem';
+      const parts = [];
+      const itemUrl = safeHttpUrl(it.url);
+      if (it.author) parts.push(`${escapeHtml(it.author)}.`);
+      if (it.title) {
+        const title = `<strong>${escapeHtml(it.title)}</strong>`;
+        parts.push(itemUrl
+          ? `<a href="${escapeHtml(itemUrl)}" target="_blank" rel="noopener noreferrer">${title}</a>.`
+          : `${title}.`);
+      }
+      if (it.journal) parts.push(`<em>${escapeHtml(it.journal)}</em>.`);
+      if (it.booktitle) parts.push(`<em>${escapeHtml(it.booktitle)}</em>.`);
+      if (it.event) parts.push(`<em>${escapeHtml(it.event)}</em>.`);
+      if (it.organization) parts.push(`<em>${escapeHtml(it.organization)}</em>.`);
+      if (it.year) parts.push(`${escapeHtml(it.year)}.`);
+      if (it.amount) parts.push(`Amount: ${escapeHtml(it.amount)}.`);
+      if (it.volume) parts.push(`Vol. ${escapeHtml(it.volume)}.`);
+      if (it.number) parts.push(`No. ${escapeHtml(it.number)}.`);
+      if (it.pages) parts.push(`pp. ${escapeHtml(it.pages)}.`);
+      if (it.month) parts.push(`${escapeHtml(it.month)}.`);
+      if (it.note) parts.push(`${escapeHtml(it.note)}.`);
+      li.innerHTML = parts.join(' ').replace(/\s+/g, ' ').trim();
+      listEl.appendChild(li);
+    }
+  }
+}
+
+renderBibliographies([
+  { listId: 'awardsList', keywords: ['award'], types: ['award'] },
+  { listId: 'grantsList', keywords: ['grant'], types: ['grant'] },
+  { listId: 'fellowshipsList', keywords: ['fellowship'], types: ['fellowship'] },
+]).catch(error => console.error(error));
  
 </script>
 
