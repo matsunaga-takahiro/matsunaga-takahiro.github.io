@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n="site.title">Takahiro Matsunaga</title>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet"> -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link rel="shortcut icon" type="image/png" href="images/nyankoA.png">
+  <link rel="icon" type="image/webp" href="images/nyankoA.webp">
   <link rel="stylesheet" href="style.css">
 
   <style>
@@ -72,7 +69,7 @@
   <header>
     <nav class="site-nav" aria-label="Primary" aria-expanded="false">
       <a href="#home" class="brand">
-        <img src="images/nyankoA.jpeg" alt="" aria-hidden="true" />
+        <img src="images/nyankoA.webp" alt="" aria-hidden="true" width="512" height="657" />
         <span data-i18n="hero.name">Takahiro Matsunaga</span>
       </a>
 
@@ -115,28 +112,29 @@
       </p> -->
    
       <p>
-        <i class="fas fa-university icon-text-gap"></i> <span data-i18n="hero.affiliation">Department of Civil Engineering, The University of Tokyo</span>
+        <svg class="inline-icon icon-text-gap" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18M5 10v8m4-8v8m6-8v8m4-8v8M3 18h18M12 3 3 8h18L12 3Z" /></svg>
+        <span data-i18n="hero.affiliation">Department of Civil Engineering, The University of Tokyo</span>
       </p>
       <p>
-        <a href="http://bin.t.u-tokyo.ac.jp" target="_blank"><i class="fas fa-network-wired icon-text-gap"></i> <span data-i18n="hero.unit">Behavior in Networks (BinN) Studies Unit.</span></a>
+        <a href="http://bin.t.u-tokyo.ac.jp" target="_blank"><svg class="inline-icon icon-text-gap" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.5" /><circle cx="18" cy="6" r="2.5" /><circle cx="12" cy="18" r="2.5" /><path d="m8.2 7.3 2.6 8.3m5-8.3-2.6 8.3M8.5 6h7" /></svg><span data-i18n="hero.unit">Behavior in Networks (BinN) Studies Unit.</span></a>
       </p>
       <p>
-        <a href="mailto:matsunaga@bin.t.u-tokyo.ac.jp" target="_blank"><i class="fas fa-envelope"></i> <span data-i18n="hero.email">matsunaga[at]bin.t.u-tokyo.ac.jp</span></a><br>
+        <a href="mailto:matsunaga@bin.t.u-tokyo.ac.jp" target="_blank"><svg class="inline-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m4 7 8 6 8-6" /></svg><span data-i18n="hero.email">matsunaga[at]bin.t.u-tokyo.ac.jp</span></a><br>
       </p>
       <p>
-        <a href="https://www.google.com/maps/search/?api=1&query=7-3-1+Hongo,+Bunkyo-ku,+Tokyo" target="_blank"><i class="fas fa-map-marker-alt"></i> <span data-i18n="hero.address">7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan</span></a>
+        <a href="https://www.google.com/maps/search/?api=1&query=7-3-1+Hongo,+Bunkyo-ku,+Tokyo" target="_blank"><svg class="inline-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg><span data-i18n="hero.address">7-3-1 Hongo, Bunkyo-ku, Tokyo 113-8656, Japan</span></a>
       </p>
       <p>
-        <a href="tex/cv.pdf" target="_blank"><i class="fas fa-file-alt"></i> <span data-i18n="hero.cv">CV</span></a> |
-        <a href="https://scholar.google.com/citations?user=fGWoyocAAAAJ&hl=ja" target="_blank"><i class="fas fa-graduation-cap"></i> <span data-i18n="hero.scholar">Google Scholar</span></a> |
-        <a href="https://www.linkedin.com/in/takahiro-matsunaga-377864326/" target="_blank"><i class="fab fa-linkedin"></i> <span data-i18n="hero.linkedin">LinkedIn</span></a> |
-        <!-- <a href="https://matsunaga-takahiro.github.io/note/" target="_blank"><i class="fab fa-clipboard"></i> <span data-i18n="hero.note">Note</span></a>  -->
+        <a href="tex/cv.pdf" target="_blank"><svg class="inline-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6Z" /><path d="M14 2v6h6M9 13h6m-6 4h6" /></svg><span data-i18n="hero.cv">CV</span></a> |
+        <a href="https://scholar.google.com/citations?user=fGWoyocAAAAJ&hl=ja" target="_blank"><svg class="inline-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 8 10-5 10 5-10 5L2 8Z" /><path d="M6 10.5V15c3 2.4 9 2.4 12 0v-4.5M22 8v6" /></svg><span data-i18n="hero.scholar">Google Scholar</span></a> |
+        <a href="https://www.linkedin.com/in/takahiro-matsunaga-377864326/" target="_blank"><svg class="inline-icon icon-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5A1.75 1.75 0 1 0 5 7a1.75 1.75 0 0 0 0-3.5ZM3.5 8.5h3V21h-3V8.5ZM9 8.5h3v1.7c.8-1.3 2.1-2.1 3.9-2.1 3.3 0 4.6 2.1 4.6 5.8V21h-3v-6.5c0-2-.7-3.4-2.5-3.4-2 0-3 1.5-3 4V21H9V8.5Z" /></svg><span data-i18n="hero.linkedin">LinkedIn</span></a> |
+        <!-- <a href="https://matsunaga-takahiro.github.io/note/" target="_blank"><span data-i18n="hero.note">Note</span></a> -->
       </p>
       <div class="photo-strip">
-        <img src="images/home_image.jpeg" alt="Takahiro Matsunaga" class="profile-photo" data-i18n-attr='{"alt":"hero.imageAlt"}'>
+        <img src="images/home_image.webp" alt="Takahiro Matsunaga" class="profile-photo" width="1200" height="795" decoding="async" data-i18n-attr='{"alt":"hero.imageAlt"}'>
         <a href="photos.html" class="gallery-preview-link" aria-label="Photo gallery">
-          <img src="images/favorites/DSC_0016.JPG" alt="" class="gallery-preview-img" loading="lazy">
-          <img src="images/favorites/DSC_0065.JPG" alt="" class="gallery-preview-img" loading="lazy">
+          <img src="images/favorites/webp/thumbs/DSC_0016.webp" alt="" class="gallery-preview-img" width="1600" height="1067" loading="lazy" decoding="async">
+          <img src="images/favorites/webp/thumbs/DSC_0065.webp" alt="" class="gallery-preview-img" width="1600" height="1067" loading="lazy" decoding="async">
           <div class="gallery-preview-overlay">
             <span data-i18n="hero.photos">Photos</span>
           </div>

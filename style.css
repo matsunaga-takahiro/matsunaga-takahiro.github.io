@@ -7,8 +7,8 @@
   --text-light: #666666;
   --bg: #ffffff;
   --border: #eeeeee;
-  --font-serif: 'EB Garamond', serif;
-  --font-sans: 'Inter', sans-serif;
+  --font-serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 body {
@@ -232,6 +232,25 @@ main h1 {
   opacity: 0.5;
   width: 1.5rem;
   text-align: center;
+}
+
+.inline-icon {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.35rem;
+  flex: 0 0 auto;
+  vertical-align: -0.125em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.5;
+}
+
+.inline-icon.icon-fill {
+  fill: currentColor;
+  stroke: none;
 }
 
 footer {

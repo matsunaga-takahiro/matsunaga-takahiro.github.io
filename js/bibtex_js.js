@@ -1275,14 +1275,14 @@ if (!window.jQuery || !window.moment) {
         //Add jquery to the webpage
         var jq = document.createElement('script');
         jq.type = 'text/javascript';
-        jq.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js';
+        jq.src = 'js/jquery-3.7.1.min.js';
         document.getElementsByTagName('head')[0].appendChild(jq);
     }
     if (!window.moment) {
         //Add moment to the webpage for dates
         var mo = document.createElement('script');
         mo.type = 'text/javascript';
-        mo.src = 'https://cdn.jsdelivr.net/gh/moment/moment@2.22.2/min/moment.min.js';
+        mo.src = 'js/moment-2.22.2.min.js';
         document.getElementsByTagName('head')[0].appendChild(mo);
     }
 
