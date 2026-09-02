@@ -135,12 +135,12 @@ INPUT out/cv.aux
 INPUT out/cv.aux
 INPUT out/cv.aux
 OUTPUT out/cv.aux
-INPUT out/cv.out
-INPUT out/cv.out
-INPUT out/cv.out
-INPUT out/cv.out
-INPUT out/cv.out
-INPUT out/cv.out
+INPUT ./cv.out
+INPUT ./cv.out
+INPUT cv.out
+INPUT cv.out
+INPUT ./cv.out
+INPUT ./cv.out
 OUTPUT out/cv.out
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -171,5 +171,5 @@ OUTPUT out/cv.dvi
 INPUT out/cv.aux
 INPUT out/cv.out
 INPUT out/cv.out
-INPUT out/cv.run.xml
+INPUT cv.run.xml
 OUTPUT out/cv.run.xml
