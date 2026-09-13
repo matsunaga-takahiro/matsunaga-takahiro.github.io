@@ -161,6 +161,38 @@ function safeHttpUrl(value) {
   }
 }
 
+/** Convert Latin-script BibTeX names to "Family, G."; keep Japanese names unchanged. */
+function formatAuthors(authorField) {
+  return authorField
+    .split(/\s+and\s+/i)
+    .map(rawName => {
+      const name = rawName.trim().replace(/[{}]/g, '');
+      if (!name || /[^\u0000-\u024f\s,.'’\-]/.test(name)) return name;
+
+      let familyName;
+      let givenNames;
+      if (name.includes(',')) {
+        [familyName, givenNames] = name.split(/,(.+)/).map(part => part.trim());
+      } else {
+        const words = name.split(/\s+/);
+        if (words.length < 2) return name;
+        familyName = words.pop();
+        givenNames = words.join(' ');
+      }
+
+      const initials = givenNames
+        .split(/\s+/)
+        .filter(Boolean)
+        .map(part => part
+          .split('-')
+          .map(piece => `${piece.charAt(0).toUpperCase()}.`)
+          .join('-'))
+        .join(' ');
+      return initials ? `${familyName}, ${initials}` : familyName;
+    })
+    .join(', ');
+}
+
 /** ref.bib の keywords で各セクションへ自動分類して描画 */
 async function renderBibliographies(sections, bibUrl = 'ref.bib') {
   const res = await fetch(bibUrl, { cache: 'no-store' });
@@ -182,7 +214,10 @@ async function renderBibliographies(sections, bibUrl = 'ref.bib') {
       li.className = 'bibitem';
       const parts = [];
       const itemUrl = safeHttpUrl(it.url);
-      if (it.author) parts.push(`${escapeHtml(it.author)}.`);
+      if (it.author) {
+        const authors = formatAuthors(it.author);
+        parts.push(/[.!?。]$/.test(authors) ? escapeHtml(authors) : `${escapeHtml(authors)}.`);
+      }
       if (it.title) {
         const title = `<strong>${escapeHtml(it.title)}</strong>`;
         parts.push(itemUrl
