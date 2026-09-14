@@ -179,12 +179,16 @@ main h1 {
 
 .bibitem a {
   color: inherit;
-  text-decoration-color: rgba(0, 0, 0, 0.3);
-  text-underline-offset: 0.15em;
+  text-decoration: none;
 }
 
 .bibitem a:hover {
-  text-decoration-color: currentColor;
+  text-decoration: none;
+}
+
+.author-me {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .bio-text {

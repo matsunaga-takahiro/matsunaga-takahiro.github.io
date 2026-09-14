@@ -161,13 +161,20 @@ function safeHttpUrl(value) {
   }
 }
 
-/** Convert Latin-script BibTeX names to "Family, G."; keep Japanese names unchanged. */
+/** Convert Latin-script BibTeX names to "Family, G." and mark my name. */
 function formatAuthors(authorField) {
   return authorField
     .split(/\s+and\s+/i)
     .map(rawName => {
-      const name = rawName.trim().replace(/[{}]/g, '');
-      if (!name || /[^\u0000-\u024f\s,.'’\-]/.test(name)) return name;
+      const name = rawName.trim().replace(/[{}]/g, '').replace(/\s+/g, ' ');
+      if (!name) return '';
+
+      const isJapaneseName = name.replace(/\s/g, '') === '松永隆宏';
+      if (/[^\u0000-\u024f\s,.'’\-]/.test(name)) {
+        return isJapaneseName
+          ? `<span class="author-me">${escapeHtml(name)}</span>`
+          : escapeHtml(name);
+      }
 
       let familyName;
       let givenNames;
@@ -188,7 +195,12 @@ function formatAuthors(authorField) {
           .map(piece => `${piece.charAt(0).toUpperCase()}.`)
           .join('-'))
         .join(' ');
-      return initials ? `${familyName}, ${initials}` : familyName;
+      const displayName = initials ? `${familyName}, ${initials}` : familyName;
+      const isMyLatinName = familyName.toLowerCase() === 'matsunaga'
+        && givenNames.toLowerCase().includes('takahiro');
+      return isMyLatinName
+        ? `<span class="author-me">${escapeHtml(displayName)}</span>`
+        : escapeHtml(displayName);
     })
     .join(', ');
 }
@@ -216,7 +228,7 @@ async function renderBibliographies(sections, bibUrl = 'ref.bib') {
       const itemUrl = safeHttpUrl(it.url);
       if (it.author) {
         const authors = formatAuthors(it.author);
-        parts.push(/[.!?。]$/.test(authors) ? escapeHtml(authors) : `${escapeHtml(authors)}.`);
+        parts.push(/[.!?。]$/.test(authors) ? authors : `${authors}.`);
       }
       if (it.title) {
         const title = `<strong>${escapeHtml(it.title)}</strong>`;
